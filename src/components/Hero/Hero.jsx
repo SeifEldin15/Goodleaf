@@ -2,6 +2,7 @@ import React from 'react'
 import Lottie from 'lottie-react'
 import { heroAnimation } from '../../utils/animateHero'
 import HeroBg from "../../assets/hero-bg.png"
+import FeatureCards from '../FeatureCards/FeatureCards'
 function Hero() {
   return (
     <div className="text-white py-20 px-4 max-w-[85%] mx-auto w-full max-h-[500px]">
@@ -52,6 +53,9 @@ function Hero() {
             className="w-full max-w-xl"
           />
         </div>
+      </div>
+      <div className="mt-24">
+        <FeatureCards />
       </div>
     </div>
   )
