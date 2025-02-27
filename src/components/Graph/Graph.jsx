@@ -11,7 +11,7 @@ const Graph = () => {
   }));
 
   return (
-    <div className="bg-gray-900 p-8 rounded-3xl text-white">
+    <div className="p-8 rounded-3xl text-white w-full max-w-6xl mx-auto mt-[100px]">
       <div className="flex flex-col md:flex-row md:justify-between mb-8">
         <div>
           <h2 className="text-3xl font-bold mb-2">Competitor</h2>
@@ -28,7 +28,7 @@ const Graph = () => {
         </div>
       </div>
 
-      <div className="mt-4 bg-gray-800/70 p-6 rounded-2xl">
+      <div className="mt-4 bg-gray-800/70 p-6 rounded-2xl mt-[100px]">
         <div className="flex items-center space-x-6 mb-4 pl-2">
           <div className="flex items-center">
             <div className="h-3 w-3 rounded-full bg-purple-500 mr-2"></div>
