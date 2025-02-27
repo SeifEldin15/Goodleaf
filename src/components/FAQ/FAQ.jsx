@@ -59,13 +59,13 @@ const FAQ = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row bg-gray-900 text-white min-h-screen">
+    <div className="flex flex-col md:flex-row bg-gray-900 text-white min-h-screen p-4 md:p-8">
       {/* Sidebar */}
-      <div className="md:w-1/4 p-4">
+      <div className="md:w-1/4 pr-0 md:pr-6">
         {categories.map((category) => (
           <div 
             key={category.title}
-            className={`rounded-lg p-5 mb-4 cursor-pointer transition-all duration-200 ${
+            className={`rounded-2xl p-5 mb-4 cursor-pointer transition-all duration-200 ${
               activeCategory === category.title ? 'bg-gray-800' : 'bg-gray-800/50 hover:bg-gray-800/70'
             }`}
             onClick={() => setActiveCategory(category.title)}
@@ -77,7 +77,7 @@ const FAQ = () => {
       </div>
 
       {/* FAQ Content */}
-      <div className="md:w-3/4 p-4 md:p-8 bg-gray-800 rounded-lg">
+      <div className="md:w-3/4 bg-gray-800 rounded-2xl p-6">
         <h2 className="text-2xl font-bold mb-2">{activeCategory}</h2>
         <p className="text-gray-400 mb-6">
           {categories.find(cat => cat.title === activeCategory)?.description}
@@ -85,7 +85,7 @@ const FAQ = () => {
 
         <div className="space-y-4">
           {faqData[activeCategory]?.map((item, index) => (
-            <div key={index} className="border border-gray-700 rounded-lg overflow-hidden">
+            <div key={index} className="border-b border-gray-700 last:border-b-0 overflow-hidden bg-gray-800/50">
               <button
                 className="flex justify-between items-center w-full p-4 text-left"
                 onClick={() => toggleQuestion(index)}
@@ -97,7 +97,7 @@ const FAQ = () => {
               </button>
               
               {openQuestion === index && (
-                <div className="p-4 pt-0 text-gray-300 border-t border-gray-700">
+                <div className="p-4 pt-0 text-gray-300">
                   <p>{item.answer}</p>
                 </div>
               )}
