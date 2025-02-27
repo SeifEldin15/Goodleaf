@@ -80,17 +80,37 @@ const Table = () => {
   };
 
   return (
-    <div className="w-full max-w-5xl mx-auto px-4 py-8">
+    <div className="w-full max-w-6xl mx-auto px-4 py-8 mt-24">
+      <div className="flex items-center justify-center mb-12 max-w-2xl mx-auto">
+        <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-[#1D8FEF] to-[#1D8FEF]" />
+        <div className="mx-4">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="4" y="4" width="16" height="16" stroke="#1D8FEF" strokeWidth="2"/>
+          </svg>
+        </div>
+        <div className="h-[1px] w-full bg-gradient-to-r from-[#1D8FEF] via-[#1D8FEF] to-transparent" />
+      </div>
+
+      <div className="text-center mb-12">
+        <h2 className="text-4xl font-bold text-white mb-4">MORE BANG FOR YOUR BUCK</h2>
+        <p className="text-gray-400 max-w-2xl mx-auto">
+          With Good-Leaf Servers, enjoy transparent, reliable service with no hidden fees or unethical practices. We prioritize honesty, ensuring you get exactly what you pay for with no surprises.
+        </p>
+      </div>
+
       <div className="w-full border-2 border-[#1D90F0] rounded-lg overflow-hidden">
         <table className="w-full bg-gray-900 text-white text-sm">
           <thead>
             <tr className="bg-gray-800 border-b border-gray-700">
               <th className="p-3 text-left font-bold border-r border-[#1D90F0] w-1/3">
-                COMPARISON TABLE
+                <span className="text-xl bg-gradient-to-r from-[#1D8EED] to-white bg-clip-text text-transparent">
+                  COMPARISON TABLE
+                </span>
               </th>
               <th className="p-3 text-center border-r border-[#1D90F0]">
                 <div className="flex flex-col items-center">
-                  <span className="text-blue-400">Good leaf</span>
+                  <img src="/Mask group.png" alt="" />
+                  <img src="/Good leaf.png" alt="" />
                 </div>
               </th>
               <th className="p-3 text-center border-r border-[#1D90F0]">
