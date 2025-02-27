@@ -13,10 +13,10 @@ const LogoSlider = () => {
   }, []);
 
   return (
-    <div className="logo-slider-container">
+    <div className="logo-slider-container max-w-[1400px] mx-auto">
       {/* Logo Carousel animation */}
       <div className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
-        <ul ref={logosRef} className="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll">
+        <ul ref={logosRef} className="flex items-center justify-center md:justify-start [&_li]:mx-16 [&_img]:max-w-none animate-infinite-scroll">
           <li>
             <img src="/logos slider/logo1.png" alt="Facebook" />
           </li>
