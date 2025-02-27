@@ -1,6 +1,7 @@
 import React from 'react';
 import { FiRefreshCw } from 'react-icons/fi'; // For refresh icons
 import { FaGlobe } from 'react-icons/fa'; // For globe icon
+import Separator from '../Seperator/Seperator';
 
 const Performance = () => {
   const locations = [
@@ -25,8 +26,7 @@ const Performance = () => {
         </div>
 
         {/* Location Header */}
-        <p className="text-blue-500 text-sm tracking-widest mb-3 uppercase">Our Location</p>
-        
+        <Separator />
         {/* Main Title */}
         <h2 className="text-4xl md:text-5xl font-bold mb-6">GLOBAL PERFORMANCE</h2>
         
