@@ -3,7 +3,7 @@ import { FaArrowRight, FaFileAlt, FaStar, FaDiscord, FaClock, FaThumbsUp } from 
 
 const References = () => {
   return (
-    <div className="w-full bg-gray-900 text-white py-12 px-4">
+    <div className="w-full text-white py-12 px-4">
       {/* Cards section */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 max-w-7xl mx-auto">
         {/* Documentation Card */}
