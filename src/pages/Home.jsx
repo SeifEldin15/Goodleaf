@@ -17,18 +17,18 @@ function Home() {
     <div>
       <Navbar />
       <Hero />
-      <div className='mt-[600px]'>
-        <Pricing />
-      </div>
+      <div className='mt-[550px] mb-[50px]'>
       <LogoSlider />
+      </div>
       <OSes />
+      <Pricing />
+      <Timeline />
       <Table />
       <Graph />
-      <FAQ />
-      <ReviewSlider />
-      <Performance />
-      <Timeline />
       <Refrences />
+      <Performance />
+      <ReviewSlider />
+      <FAQ />
       <Footer />
     </div>
   )
