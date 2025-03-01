@@ -116,13 +116,11 @@ const Table = () => {
   return (
     <div className="w-full max-w-6xl mx-auto px-4 py-8 mt-24">
       <div className="flex items-center justify-center mb-12 max-w-2xl mx-auto">
-        <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-[#1D8FEF] to-[#1D8FEF]" />
+        <div className="h-[1px] w-[30%] bg-gradient-to-r from-transparent via-[#1D8FEF] to-[#1D8FEF]" />
         <div className="mx-4">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="4" y="4" width="16" height="16" stroke="#1D8FEF" strokeWidth="2"/>
-          </svg>
+         <img className='w-6' src="/header icons/table-ico.png" alt="" />
         </div>
-        <div className="h-[1px] w-full bg-gradient-to-r from-[#1D8FEF] via-[#1D8FEF] to-transparent" />
+        <div className="h-[1px] w-[30%] bg-gradient-to-r from-[#1D8FEF] via-[#1D8FEF] to-transparent" />
       </div>
 
       <div className="text-center mb-12">
