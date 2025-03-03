@@ -4,7 +4,7 @@ import { SiX } from 'react-icons/si';
 
 const Footer = () => {
     return (
-        <footer className="bg-gray-900 text-white py-4 md:py-8">
+        <footer className="bg-gray-900 text-white py-12">
             <div className="container px-4 md:px-0 mx-auto flex flex-col md:flex-row justify-between max-w-7xl">
                 <div className="flex flex-col mb-8 md:mb-4 items-center">
                     <img src="/logo.png" alt="GoodLeaf" className="max-w-48 md:max-w-56 mb-4" />
