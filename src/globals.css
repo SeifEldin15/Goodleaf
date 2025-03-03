@@ -22,9 +22,11 @@ body {
 
 @keyframes infinite-scroll {
   from { transform: translateX(0); }
-  to { transform: translateX(-100%); }
+  to { transform: translateX(calc(-50% - 1rem)); }
 }
 
 .animate-infinite-scroll {
   animation: infinite-scroll 25s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
 }

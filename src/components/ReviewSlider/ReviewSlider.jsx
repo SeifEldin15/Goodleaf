@@ -64,6 +64,36 @@ const ReviewSlider = ({ reviews = sampleReviews }) => {
             </li>
           ))}
         </ul>
+        <ul className="flex items-center justify-center md:justify-start animate-infinite-scroll">
+          {reviews.map((review, index) => (
+            <li 
+              key={`review-clone-${index}`} 
+              className="review-item flex-shrink-0 w-80 mx-4"
+            >
+              <div className="bg-gray-800 rounded-lg p-6 h-full">
+                <div className="flex flex-col items-center mb-4">
+                  <div className="w-16 h-16 rounded-full overflow-hidden mb-2">
+                    <img 
+                      src={review.image} 
+                      alt={`${review.name}'s profile`} 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h3 className="text-blue-400 text-lg font-medium">{review.name}</h3>
+                  <div className="flex items-center mt-1">
+                    <div className="flex text-yellow-400">
+                      {[...Array(5)].map((_, i) => (
+                        <FaStar key={i} />
+                      ))}
+                    </div>
+                    <span className="text-white ml-2">{review.rating} Rating</span>
+                  </div>
+                </div>
+                <p className="text-gray-300 text-center">{review.text}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
     </>
