@@ -24,7 +24,7 @@ const Navbar = () => {
 
   return (
     <nav className={`fixed w-full transition-colors duration-300 px-4 py-6 z-[1000] ${
-      hasScrolled ? 'bg-black' : 'bg-transparent'
+      hasScrolled || isOpen ? 'bg-black' : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
@@ -87,7 +87,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden">
+        <div className="md:hidden bg-black">
           <div className="px-2 pt-2 pb-3 space-y-1">
             {navItems.map((item) => (
               <Link
