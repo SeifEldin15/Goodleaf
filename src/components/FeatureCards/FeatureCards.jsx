@@ -25,11 +25,11 @@ const features = [
 
 const FeatureCards = () => {
   return (
-    <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4 px-4 py-8">
+    <div className="grid grid-cols-1 gap-3 sm:gap-6 sm:grid-cols-2 lg:grid-cols-4 px-2 sm:px-4 py-3 sm:py-6">
       {features.map((feature, index) => (
         <div
           key={index}
-          className="flex items-center p-6 min-h-[150px] bg-gray-900 rounded-lg space-x-4 hover:bg-gray-800 transition duration-300 relative overflow-hidden shadow-[0_0_40px_0px_rgba(4,8,191,0.3)]"
+          className="flex items-center p-2 sm:p-4 min-h-[80px] sm:min-h-[120px] bg-gray-900 rounded-lg space-x-2 sm:space-x-3 hover:bg-gray-800 transition duration-300 relative overflow-hidden shadow-[0_0_40px_0px_rgba(4,8,191,0.3)]"
         >
           {/* Modified border to only show on top, left, and right */}
           <div className="absolute inset-x-0 top-0 h-[50%] border-t-[1px] border-l-[1px] border-r-[1px] border-[rgb(4,8,191)] rounded-t-lg bg-gradient-to-b from-blue-500/10 to-transparent"></div>
@@ -38,8 +38,8 @@ const FeatureCards = () => {
             {feature.icon}
           </div>
           <div className="relative z-10">
-            <h3 className="text-xl font-bold text-white">{feature.title}</h3>
-            <p className="text-gray-300">{feature.description}</p>
+            <h3 className="text-lg font-bold text-white">{feature.title}</h3>
+            <p className="text-sm text-gray-300">{feature.description}</p>
           </div>
         </div>
       ))}

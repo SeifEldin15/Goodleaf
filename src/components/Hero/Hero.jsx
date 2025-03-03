@@ -9,12 +9,12 @@ function Hero() {
     <div className="text-white py-10 md:py-20 px-4 max-w-[95%] md:max-w-[85%] mx-auto w-full relative">
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-between mt-6 md:mt-12 gap-8">
         {/* Left Content */}
-        <div className="max-w-xl w-full">
-          <h1 className="text-4xl md:text-6xl font-extrabold mb-4">
+        <div className="max-w-xl w-full ">
+          <h1 className="text-3xl md:text-6xl font-extrabold mb-4 text-center md:text-left mt-10 md:mt-0 lg:mt-0">
             HOST <span className="text-[#0B7FE3]">SMARTER</span><br />
             SUCCEED, <span className="text-[#0B7FE3]">FASTER!</span>
           </h1>
-          <p className="text-gray-300 mb-8">
+          <p className="text-gray-300 mb-8 text-center md:text-left">
             Check out the services we offer below such as FiveM Server Hosting. We're
             determined to provide these services at the best quality - customer satisfaction and
             convenience are of the utmost importance for us.
@@ -31,7 +31,7 @@ function Hero() {
               <p className="text-white text-sm md:text-base">5 Day money back guarantee on all hosting products*</p>
             </div>
             
-            <div className="flex flex-wrap items-center gap-4">
+            <div className="flex flex-wrap items-center gap-4 justify-center md:justify-start">
               <div className="flex items-center gap-2">
                 <span className="bg-[#0B1B2B] text-[#0B7FE3] px-3 md:px-4 py-2 font-medium border border-[#0B7FE3]/20 shadow-[0_0_15px_rgba(11,127,227,0.3)] text-sm md:text-base">
                   TrustScore 4.9
@@ -54,11 +54,11 @@ function Hero() {
           />
         </div>
       </div>
-      <div className="mt-12 md:mt-24">
+      <div className="mt-12 md:mt-[150px]">
         <FeatureCards />
       </div>
     </div>
-      <img src={HeroBg} alt="Hero Background" className="absolute left-0 right-0 w-full object-cover z-[-1] md:mt-[-550px] lg:mt-[-480px] hidden md:block" />
+      <img src={HeroBg} alt="Hero Background" className="absolute left-0 right-0 w-full object-cover z-[-1] md:mt-[-500px] lg:mt-[-450px] hidden md:block" />
     </div>
   )
 }

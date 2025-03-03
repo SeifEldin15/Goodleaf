@@ -21,17 +21,18 @@ const Timeline = () => {
       
       // If timeline is in view
       if (timelineTop < viewportHeight && timelineTop + timelineHeight > 0) {
-        // Calculate base progress
-        progressValue = (viewportHeight - timelineTop) / (viewportHeight + timelineHeight * 0.8);
+        // Calculate base progress - use 90% of viewport height for mobile, full height for desktop
+        const effectiveViewportHeight = window.innerWidth < 768 ? viewportHeight * 0.9 : viewportHeight;
+        progressValue = (effectiveViewportHeight - timelineTop) / (effectiveViewportHeight + timelineHeight * 0.8);
         
         // Add delay to the start by adjusting the progress curve
-        // This will make the progress bar move slower at the beginning
         progressValue = Math.max(0, (progressValue - 0.2) / 0.8);
         
         // Apply easing function
         progressValue = Math.pow(progressValue, 0.8);
         
-        progressValue = Math.max(0, Math.min(1, progressValue));
+        // Limit progress to 90% on all screen sizes
+        progressValue = Math.max(0, Math.min(0.95, progressValue));
       }
       
       setScrollProgress(progressValue);
@@ -74,6 +75,12 @@ const Timeline = () => {
       title: "Worldwide Locations",
       description: "Strategically located data centers in various locations around the world for global performance.",
       icon: "/timeline/timeline5.png"
+    },
+    {
+      id: 6,
+      title: "24/7 Support",
+      description: "Round-the-clock technical support team ready to assist you with any questions or concerns.",
+      icon: "/timeline/timeline5.png"
     }
   ];
 
@@ -86,13 +93,13 @@ const Timeline = () => {
         </h2>
       </div>
 
-      <div ref={timelineRef} className="relative min-h-screen flex flex-col items-center justify-between py-10 md:py-20">
+      <div ref={timelineRef} className="relative min-h-[90vh] md:min-h-screen flex flex-col items-center justify-between py-8 md:py-16">
         {/* Vertical timeline line (background) - left on mobile, center on desktop */}
-        <div className="absolute h-full w-1 bg-gray-800/30 left-0 md:left-1/2 md:-translate-x-1/2"></div>
+        <div className="absolute h-[90%] w-1 bg-gray-800/30 left-0 md:left-1/2 md:-translate-x-1/2"></div>
         
         {/* Filled progress line - left on mobile, center on desktop */}
         <div 
-          className="absolute top-0 w-1 left-0 md:left-1/2 md:-translate-x-1/2 transition-all duration-100" 
+          className="absolute top-0 w-1 h-[90%] left-0 md:left-1/2 md:-translate-x-1/2 transition-all duration-100" 
           style={{ 
             height: `${scrollProgress * 100}%`,
             background: 'linear-gradient(to bottom, #080411, #1E75FF)'
@@ -100,7 +107,7 @@ const Timeline = () => {
         ></div>
         
         {/* Timeline items with circles */}
-        <div className="w-full flex flex-col space-y-12 md:space-y-24">
+        <div className="w-full flex flex-col space-y-8 md:space-y-16">
           {timelineItems.map((item, index) => {
             // Special case for first item - activate as soon as there's any progress
             const activationThreshold = (index + 1.2) / (timelineItems.length + 1.2);
@@ -114,8 +121,6 @@ const Timeline = () => {
               <div 
                 key={item.id} 
                 className={`relative flex items-center w-full ${
-                  // On mobile, always show content on the right
-                  // On desktop, alternate between left and right
                   index % 2 === 0 
                     ? 'justify-start' 
                     : 'justify-start md:justify-end'
@@ -123,7 +128,7 @@ const Timeline = () => {
               >
                 {/* Circle indicator - left on mobile, center on desktop */}
                 <div 
-                  className={`absolute left-0 md:left-1/2 md:-translate-x-1/2 h-[12px] w-[12px] md:h-[15px] md:w-[15px] rounded-full border-2 z-10 ${
+                  className={`absolute left-[-4px] md:left-1/2 md:-translate-x-1/2 h-[12px] w-[12px] md:h-[15px] md:w-[15px] rounded-full border-2 z-10 ${
                     isReached ? 'border-[#1E75FF] bg-[#1E75FF]' : 'border-gray-600 bg-gray-900'
                   }`}
                 >
@@ -131,13 +136,13 @@ const Timeline = () => {
                 
                 {/* Content - right side on mobile, alternating on desktop */}
                 <div 
-                  className={`w-full md:w-5/12 p-2 md:p-6 ml-6 ${
+                  className={`w-full md:w-5/12 p-2 md:p-4 ml-6 ${
                     index % 2 === 0 
-                      ? 'md:ml-0 md:mr-auto md:pr-8' 
-                      : 'md:ml-auto md:pl-8'
+                      ? 'md:ml-0 md:mr-auto md:pr-6' 
+                      : 'md:ml-auto md:pl-6'
                   }`}
                 >
-                  <div className="flex flex-col md:flex-row items-center mb-2 text-blue-500 text-2xl md:text-4xl font-bold">
+                  <div className="flex flex-col md:flex-row items-center mb-2 text-blue-500 text-2xl md:text-4xl font-bold text-center md:text-left">
                     <span className="mb-2 md:mb-0 md:mr-4">
                       <img 
                         src={item.icon} 
@@ -147,7 +152,7 @@ const Timeline = () => {
                     </span>
                     <h3 className="text-xl md:text-2xl">{item.title}</h3>
                   </div>
-                  <p className="text-white/80 text-sm md:text-base">{item.description}</p>
+                  <p className="text-white/80 text-sm md:text-base text-center md:text-left">{item.description}</p>
                 </div>
               </div>
             );

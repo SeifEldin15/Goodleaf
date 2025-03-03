@@ -114,7 +114,7 @@ const Table = () => {
   };
 
   return (
-    <div className="w-[90%] mx-auto py-8 mt-[200px]">
+    <div className="w-[90%] mx-auto py-8 mt-[0px] ">
       <div className="flex items-center justify-center mb-12 max-w-2xl mx-auto">
         <div className="h-[1px] w-[30%] bg-gradient-to-r from-transparent via-[#1D8FEF] to-[#1D8FEF]" />
         <div className="mx-4">
