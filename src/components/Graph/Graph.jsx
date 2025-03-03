@@ -36,7 +36,7 @@ const Graph = () => {
   });
 
   return (
-    <div className="p-4 sm:p-8 rounded-3xl text-white w-full max-w-6xl mx-auto mt-[50px] sm:mt-[100px]">
+    <div className="p-4 sm:p-8 rounded-3xl text-white w-full mt-[50px] sm:mt-[100px]">
       <div className="flex flex-col md:flex-row md:justify-between mb-4 sm:mb-8">
         <div>
           <h2 className="text-2xl sm:text-3xl font-bold mb-1 sm:mb-2">Competitor</h2>

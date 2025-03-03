@@ -17,18 +17,22 @@ function Home() {
     <div>
       <Navbar />
       <Hero />
-      <div className='mb-[150px]'>
-      <LogoSlider />
+      <div className='container mx-auto max-w-[1400px] px-4 mb-[150px]'>
+        <LogoSlider />
       </div>
       <OSes />
-      <Pricing />
-      <Timeline />
-      <Table />
-      <Graph />
-      <Refrences />
+      <div className='container mx-auto max-w-[1400px] px-4'>
+        <Pricing />
+        <Timeline />
+        <Table />
+        <Graph />
+        <Refrences />
+      </div>
       <ReviewSlider />
-      <FAQ />
-      <Map />
+      <div className='container mx-auto max-w-[1400px] px-4'>
+        <FAQ />
+        <Map />
+      </div>
       <Footer />
     </div>
   )

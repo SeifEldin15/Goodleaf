@@ -16,8 +16,8 @@ function OSes() {
   ];
 
   return (
-    <div className="bg-black py-16 px-4">
-      <div className="container mx-auto max-w-[95%] flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-0">
+    <div className="bg-black py-16">
+      <div className="container mx-auto max-w-[1400px] px-4 flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-0">
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-8 lg:mb-12">
           <div>
             <h2 className="text-3xl lg:text-5xl font-bold text-white text-center lg:text-left">
