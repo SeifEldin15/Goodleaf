@@ -36,13 +36,13 @@ const Graph = () => {
   });
 
   return (
-    <div className="p-8 rounded-3xl text-white w-full max-w-6xl mx-auto mt-[100px]">
-      <div className="flex flex-col md:flex-row md:justify-between mb-8">
+    <div className="p-4 sm:p-8 rounded-3xl text-white w-full max-w-6xl mx-auto mt-[50px] sm:mt-[100px]">
+      <div className="flex flex-col md:flex-row md:justify-between mb-4 sm:mb-8">
         <div>
-          <h2 className="text-3xl font-bold mb-2">Competitor</h2>
-          <h3 className="text-4xl font-bold">DDoS Protection</h3>
+          <h2 className="text-2xl sm:text-3xl font-bold mb-1 sm:mb-2">Competitor</h2>
+          <h3 className="text-3xl sm:text-4xl font-bold">DDoS Protection</h3>
         </div>
-        <div className="max-w-xl mt-4 md:mt-0 text-gray-300">
+        <div className="max-w-xl mt-4 md:mt-0 text-gray-300 text-sm sm:text-base">
           <p>
             The chart below illustrates the performance metrics of
             three leading competitors in the game hosting industry
@@ -53,41 +53,43 @@ const Graph = () => {
         </div>
       </div>
 
-      <div className="mt-4 bg-gray-800/70 p-6 rounded-2xl mt-[100px]">
-        <div className="flex items-center space-x-6 mb-4 pl-2">
+      <div className="mt-4 bg-gray-800/70 p-3 sm:p-6 rounded-2xl mt-[50px] sm:mt-[100px]">
+        <div className="flex flex-wrap gap-3 sm:gap-0 sm:flex-nowrap sm:items-center sm:space-x-6 mb-4 pl-2">
           <div className="flex items-center">
             <div className="h-3 w-3 rounded-full bg-purple-500 mr-2"></div>
-            <span className="text-gray-300">GSL / 10 Tbps</span>
+            <span className="text-gray-300 text-xs sm:text-sm">GSL / 10 Tbps</span>
           </div>
           <div className="flex items-center">
             <div className="h-3 w-3 rounded-full bg-blue-400 mr-2"></div>
-            <span className="text-gray-300">COSMIC GUARD / 6 Tbps</span>
+            <span className="text-gray-300 text-xs sm:text-sm">COSMIC GUARD / 6 Tbps</span>
           </div>
           <div className="flex items-center">
             <div className="h-3 w-3 rounded-full bg-yellow-300 mr-2"></div>
-            <span className="text-gray-300">(US) PATH / 17 Tbps</span>
+            <span className="text-gray-300 text-xs sm:text-sm">(US) PATH / 17 Tbps</span>
           </div>
         </div>
 
-        <div className="h-80">
+        <div className="h-60 sm:h-80">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart
               data={data}
               margin={{ top: 5, right: 5, left: 0, bottom: 5 }}
             >
               <CartesianGrid strokeDasharray="3 3" stroke="#333" />
-              <XAxis dataKey="name" stroke="#666" />
+              <XAxis dataKey="name" stroke="#666" tick={{fontSize: '0.75rem'}} />
               <YAxis 
                 domain={[0, 20]} 
                 ticks={[0, 5, 10, 15, 20]} 
                 stroke="#666" 
+                tick={{fontSize: '0.75rem'}}
               />
               <Tooltip 
                 contentStyle={{ 
                   backgroundColor: '#1f2937', 
                   border: 'none', 
                   borderRadius: '4px',
-                  color: 'white'
+                  color: 'white',
+                  fontSize: '0.75rem'
                 }} 
               />
               <Line 

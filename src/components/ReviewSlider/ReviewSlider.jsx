@@ -49,6 +49,24 @@ const ReviewSlider = ({ reviews = sampleReviews }) => {
   }, [reviews.length, isMouseOver]);
 
   return (
+    <>
+         <div className="flex items-center justify-center mb-6 max-w-2xl mx-auto mt-24">
+        <div className="h-[1px] w-[30%] bg-gradient-to-r from-transparent via-[#1D8FEF] to-[#1D8FEF]" />
+        <div className="mx-4">
+        <img className='w-6' src="/header icons/review-icon.png" alt="" />
+        </div>
+        <div className="h-[1px] w-[30%] bg-gradient-to-r from-[#1D8FEF] via-[#1D8FEF] to-transparent" />
+      </div>
+      
+      <div className="text-center max-w-4xl mx-auto mb-8">
+        <h2 className="text-4xl font-bold text-white mb-4">WHAT EVERYONE SAYS</h2>
+        <p className="text-gray-400">
+          Customer feedback matters to us. It helps us improve and meet your needs with the
+          highest standards. We value each voice and are committed to delivering excellence
+          in our services.
+        </p>
+      </div>
+      
     <div className="w-full bg-gray-900 py-8 overflow-hidden">
       <div 
         className="flex overflow-x-hidden"
@@ -86,6 +104,7 @@ const ReviewSlider = ({ reviews = sampleReviews }) => {
         ))}
       </div>
     </div>
+    </>
   );
 };
 

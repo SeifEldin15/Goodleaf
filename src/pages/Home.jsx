@@ -9,15 +9,15 @@ import Footer from '../components/Footer/Footer'
 import Graph from '../components/Graph/Graph'
 import FAQ from '../components/FAQ/FAQ'
 import ReviewSlider from '../components/ReviewSlider/ReviewSlider'
-import Performance from '../components/Performance/Performance'
 import Refrences from '../components/Refrences/Refrences'
 import Timeline from '../components/Timeline/Timeline'
+import Map from '../components/Map/Map'
 function Home() {
   return (
     <div>
       <Navbar />
       <Hero />
-      <div className='mt-[550px] mb-[50px]'>
+      <div className='mb-[150px]'>
       <LogoSlider />
       </div>
       <OSes />
@@ -26,9 +26,9 @@ function Home() {
       <Table />
       <Graph />
       <Refrences />
-      <Performance />
       <ReviewSlider />
       <FAQ />
+      <Map />
       <Footer />
     </div>
   )

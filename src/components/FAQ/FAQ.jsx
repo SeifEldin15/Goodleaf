@@ -59,8 +59,24 @@ const FAQ = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row bg-gray-900 text-white min-h-screen p-4 md:p-8">
-      {/* Sidebar */}
+    <>
+
+      
+      <div className="flex items-center justify-center mb-2 max-w-2xl mx-auto mt-24 ">
+        <div className="h-[1px] w-[30%] bg-gradient-to-r from-transparent via-[#1D8FEF] to-[#1D8FEF]" />
+        <div className="mx-4">
+        <img className='w-6' src="/header icons/faq-ico.png" alt="" />
+        </div>
+        <div className="h-[1px] w-[30%] bg-gradient-to-r from-[#1D8FEF] via-[#1D8FEF] to-transparent" />
+      </div>
+      <div className="text-center max-w-4xl mx-auto mb-8">
+        <h2 className="text-4xl font-bold text-white">Got questions?</h2>
+        <h2 className="text-4xl font-bold text-white">
+          Well, we've got <span className="text-[#1D8FEF]">answers.</span>
+        </h2>
+      </div>
+      <div className="flex flex-col md:flex-row text-white min-h-screen p-4 md:p-8">
+      
       <div className="md:w-1/4 pr-0 md:pr-6">
         {categories.map((category) => (
           <div 
@@ -106,6 +122,7 @@ const FAQ = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
