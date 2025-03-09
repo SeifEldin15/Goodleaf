@@ -14,7 +14,10 @@ export default {
       colors: {
         accent: '#1E90FF',  // for game server and locations text
         feature: '#9333EA', // equivalent to purple-500
-      }
+      },
+      fontFamily: {
+        'Rajdhani': ['Rajdhani', 'sans-serif'],
+      },
     },
   },
   plugins: [],
