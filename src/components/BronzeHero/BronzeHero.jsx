@@ -10,7 +10,8 @@ const BronzeHero = () => {
         <h2 className="bronze-hero-subtitle">SERVERS</h2>
         <p className="bronze-hero-description">
           Get the best performance and security for your business with our dedicated servers.
-          <br />
+          <br /> 
+          
           Customized plans are available upon contacting our team.
         </p>
         

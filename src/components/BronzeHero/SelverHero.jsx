@@ -1,7 +1,7 @@
 import React from 'react';
 import './Hero.css'; 
 
-const Selver = () => {
+const SelverHero = () => {
       return (
         <div className="bronze-hero">
           <div className="bronze-hero-content">
@@ -36,4 +36,4 @@ const Selver = () => {
     };    
     
 
-export default Selver;
+export default SelverHero;
