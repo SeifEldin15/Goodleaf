@@ -3,7 +3,7 @@ import Home from './pages/Home'
 import Contact from './pages/Contact'
 import Bronze from './pages/Bronze'
 import Gold from './pages/Gold'
-import Selver from './pages/Selver'
+import Silver from './pages/Silver'
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
       <Route path="/contact" element={<Contact />} />
       <Route path="/bronze" element={<Bronze />} />
       <Route path="/gold" element={<Gold />} />
-      <Route path="/selver" element={<Selver />} />
+      <Route path="/Silver" element={<Silver />} />
     </Routes>
   )
 }

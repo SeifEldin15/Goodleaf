@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from '../components/Navbar/Navbar'
-import SelverHero from '../components/BronzeHero/SelverHero'
+import SilverHero from '../components/BronzeHero/SilverHero'
 import Footer from '../components/Footer/Footer'
 import Pricing from '../components/Pricing/Pricing'
 import FAQ from '../components/FAQ/FAQ'
@@ -10,7 +10,7 @@ function Bronze() {
   return (
     <div>
       <Navbar />
-      <SelverHero />
+      <SilverHero />
       <Pricing />
       <ServerCompare />
       <FAQ />
