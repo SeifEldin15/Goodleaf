@@ -60,8 +60,6 @@ const FAQ = () => {
 
   return (
     <>
-
-      
       <div className="flex items-center justify-center mb-2 max-w-2xl mx-auto mt-24 ">
         <div className="h-[1px] w-[30%] bg-gradient-to-r from-transparent via-[#1D8FEF] to-[#1D8FEF]" />
         <div className="mx-4">
@@ -86,7 +84,7 @@ const FAQ = () => {
             }`}
             onClick={() => setActiveCategory(category.title)}
           >
-            <h3 className="font-semibold text-lg">{category.title}</h3>
+            <h3 className="font-semibold text-lg font-['Font_1'] text-[18px] leading-[22.4px]">{category.title}</h3>
             <p className="text-sm text-gray-400 mt-1">{category.description}</p>
           </div>
         ))}
@@ -94,7 +92,7 @@ const FAQ = () => {
 
       {/* FAQ Content */}
       <div className="md:w-3/4 bg-gray-800 rounded-2xl p-6">
-        <h2 className="text-2xl font-bold mb-2">{activeCategory}</h2>
+        <h2 className="text-2xl font-bold mb-2 font-['Font_1'] text-[18px] leading-[22.4px] font-semibold">{activeCategory}</h2>
         <p className="text-gray-400 mb-6">
           {categories.find(cat => cat.title === activeCategory)?.description}
         </p>
@@ -106,7 +104,7 @@ const FAQ = () => {
                 className="flex justify-between items-center w-full p-4 text-left"
                 onClick={() => toggleQuestion(index)}
               >
-                <span className="font-medium">{item.question}</span>
+                <span className="font-medium font-['Font_1'] text-[18px] leading-[22.4px]">{item.question}</span>
                 <span className="text-blue-400 text-xl">
                   {openQuestion === index ? "−" : "+"}
                 </span>
@@ -114,7 +112,7 @@ const FAQ = () => {
               
               {openQuestion === index && (
                 <div className="p-4 pt-0 text-gray-300">
-                  <p>{item.answer}</p>
+                  <p className="font-['Font_1']">{item.answer}</p>
                 </div>
               )}
             </div>
