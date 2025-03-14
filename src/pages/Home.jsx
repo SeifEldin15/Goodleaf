@@ -17,11 +17,11 @@ function Home() {
     <div>
       <Navbar />
       <Hero />
-      <div className='container mx-auto max-w-[1300px] px-4  mb-[50px]'>
+      <div className='container mx-auto max-w-[85%] px-4  mb-[50px]'>
         <LogoSlider />
       </div>
       <OSes />
-      <div className='container mx-auto max-w-[1300px] px-4'>
+      <div className='container mx-auto max-w-[85%] px-4'>
         <Pricing />
         <Timeline />
         <Table />
@@ -29,7 +29,7 @@ function Home() {
         <Refrences />
       </div>
       <ReviewSlider />
-      <div className='container mx-auto max-w-[1300px] px-4'>
+      <div className='container mx-auto max-w-[85%] px-4'>
         <FAQ />
         <Map />
       </div>

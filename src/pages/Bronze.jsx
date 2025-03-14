@@ -11,9 +11,11 @@ function Bronze() {
     <div>
       <Navbar />
       <BronzeHero />
-      <Pricing />
-      <ServerCompare />
-      <FAQ />
+      <div className='container mx-auto max-w-[85%] px-4'>
+        <Pricing />
+        <ServerCompare />
+        <FAQ />
+      </div>
       <Footer />
     </div>
   )

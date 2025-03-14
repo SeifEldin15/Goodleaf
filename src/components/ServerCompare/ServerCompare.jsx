@@ -7,7 +7,7 @@ import Server2 from './svg/server2.svg';
 
 const ServerCompare = () => {
   return (
-    <div className="flex flex-col md:flex-row justify-center gap-8 px-20" dir="ltr">
+    <div className="flex flex-col md:flex-row justify-center gap-8 px-20 " dir="ltr">
 
       {/* Left Server Card - Blue */}
       <div className="w-full md:w-3/10 bg-gray-900 rounded-lg p-6 relative ">

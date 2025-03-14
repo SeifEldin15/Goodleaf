@@ -59,8 +59,7 @@ const FAQ = () => {
   };
 
   return (
-    <>
-
+    <div className=''>
       
       <div className="flex items-center justify-center mb-2 max-w-2xl mx-auto mt-24 ">
         <div className="h-[1px] w-[30%] bg-gradient-to-r from-transparent via-[#1D8FEF] to-[#1D8FEF]" />
@@ -122,7 +121,7 @@ const FAQ = () => {
         </div>
       </div>
     </div>
-    </>
+    </div>
   );
 };
 

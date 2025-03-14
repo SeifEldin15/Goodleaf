@@ -236,7 +236,7 @@ const Pricing = () => {
 
   return (
     <section className="py-10 px-4 ">
-      <div className="max-w-7xl mx-auto">
+      <div className="">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-4 mb-4  ">
             <div className="h-[1px] w-[300px] bg-[#007BFF]"></div>
