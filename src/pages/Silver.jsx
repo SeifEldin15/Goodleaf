@@ -1,12 +1,12 @@
 import React from 'react'
 import Navbar from '../components/Navbar/Navbar'
-import SilverHero from '../components/BronzeHero/Silver'
+import SilverHero from '../components/SecondaryHero/SilverHero'
 import Footer from '../components/Footer/Footer'
 import Pricing from '../components/Pricing/Pricing'
 import FAQ from '../components/FAQ/FAQ'
 import ServerCompare from '../components/ServerCompare/ServerCompare'
 
-function Bronze() {
+function Silver() {
   return (
     <div>
       <Navbar />
@@ -19,4 +19,4 @@ function Bronze() {
   )
 }
 
-export default Bronze
+export default Silver

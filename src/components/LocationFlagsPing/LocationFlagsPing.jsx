@@ -89,18 +89,18 @@ const LocationFlagsPing = () => {
   };
 
   return (
-    <div className="flex justify-center gap-0 mt-[30px] w-full max-w-[75%] mx-auto bg-[#030319] rounded-[10px] p-3 shadow-[0_4px_12px_rgba(0,0,0,0.3)] overflow-hidden border border-white/5">
+    <div className="flex flex-wrap justify-center gap-2 mt-[30px] w-full max-w-[95%] sm:max-w-[85%] md:max-w-[75%] mx-auto bg-[#030319] rounded-[10px] p-3 shadow-[0_4px_12px_rgba(0,0,0,0.3)] overflow-hidden border border-white/5">
       {locations.map((location, index) => (
         <button 
           key={index}
           onClick={() => refreshPing(index)}
           className={`
-            flex-1 flex items-center justify-center whitespace-nowrap 
+            flex-1 min-w-[140px] flex items-center justify-center whitespace-nowrap 
             ${location.active ? 'bg-[#0088ff]' : 'bg-transparent'} 
             text-white border-none py-1.5 px-2.5 text-[0.8rem] cursor-pointer 
             font-medium font-['Rajdhani'] rounded-[6px] mx-[3px] relative 
             uppercase tracking-[0.5px] h-[30px] hover:bg-white/10 transition-colors duration-300
-            ${index < locations.length - 1 ? 'after:content-[\'\'] after:absolute after:right-[-3px] after:top-[25%] after:h-[50%] after:w-[1px] after:bg-white/10' : ''}
+            ${index < locations.length - 1 ? 'sm:after:content-[\'\'] sm:after:absolute sm:after:right-[-3px] sm:after:top-[25%] sm:after:h-[50%] sm:after:w-[1px] sm:after:bg-white/10' : ''}
           `}
         >
           <img 
