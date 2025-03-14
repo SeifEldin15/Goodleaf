@@ -26,7 +26,7 @@ const Navbar = () => {
     <nav className={`fixed w-full transition-colors duration-300 px-4 py-6 z-[1000] ${
       hasScrolled || isOpen ? 'bg-black' : 'bg-transparent'
     }`}>
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
+      <div className="max-w-[85%] mx-auto flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center">
           <img src="/logo.png" alt="GoodLeaf" className="h-8" />
