@@ -1,14 +1,40 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Map = () => {
-  // Data for the locations with coordinates and ping times
-  const locations = [
-    { name: 'Miami', country: 'US', lat: 25.7617, lng: -80.1918, ping: '9ms' },
-    { name: 'New York', country: 'US', lat: 40.7128, lng: -74.0060, ping: '9ms' },
-    { name: 'Texas', country: 'US', lat: 31.9686, lng: -99.9018, ping: '9ms' },
-    { name: 'California', country: 'US', lat: 36.7783, lng: -119.4179, ping: '9ms' },
-    { name: 'Amsterdam', country: 'NL', lat: 52.3676, lng: 4.9041, ping: '9ms' }
-  ];
+  const [locations, setLocations] = useState([
+    { name: 'Miami', country: 'US', lat: 25.7617, lng: -80.1918, endpoint: 'https://ping.mia.goodleafhosting.com/ping', ping: 'Loading...' },
+    { name: 'New York', country: 'US', lat: 40.7128, lng: -74.0060, endpoint: 'https://ping.nyc.goodleafhosting.com/ping', ping: 'Loading...' },
+    { name: 'Texas', country: 'US', lat: 31.9686, lng: -99.9018, endpoint: 'https://ping.dal.goodleafhosting.com/ping', ping: 'Loading...' },
+    { name: 'California', country: 'US', lat: 36.7783, lng: -119.4179, endpoint: 'https://ping.lax.goodleafhosting.com/ping', ping: 'Loading...' },
+    { name: 'Amsterdam', country: 'NL', lat: 52.3676, lng: 4.9041, endpoint: 'https://ping.ams.goodleafhosting.com/ping', ping: 'Loading...' }
+  ]);
+
+  const fetchPingData = async () => {
+    const updatedLocations = [...locations];
+    
+    for (let i = 0; i < updatedLocations.length; i++) {
+      try {
+        const startTime = Date.now();
+        const response = await fetch(updatedLocations[i].endpoint);
+        const data = await response.json();
+        const latency = data.latency || (Date.now() - startTime);
+        updatedLocations[i].ping = `${latency}ms`;
+        updatedLocations[i].latencyValue = latency;
+      } catch (error) {
+        console.error(`Error fetching ping for ${updatedLocations[i].name}:`, error);
+        updatedLocations[i].ping = 'N/A';
+        updatedLocations[i].latencyValue = null;
+      }
+    }
+    
+    setLocations(updatedLocations);
+  };
+
+  useEffect(() => {
+    fetchPingData();
+    const interval = setInterval(fetchPingData, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   // Function to convert lat/lng to SVG coordinates (simplified)
   const coordToSVG = (lat, lng, width = 1000, height = 500) => {
@@ -16,6 +42,13 @@ const Map = () => {
     const x = (lng + 180) * (width / 360);
     const y = (90 - lat) * (height / 180);
     return { x, y };
+  };
+
+  const getPingColor = (latency) => {
+    if (latency === null) return 'text-white';
+    if (latency < 80) return 'text-blue-400';
+    if (latency <= 120) return 'text-yellow-500';
+    return 'text-red-500';
   };
 
   return (
@@ -50,7 +83,9 @@ const Map = () => {
               {location.country === 'US' ? '🇺🇸' : location.country === 'NL' ? '🇳🇱' : ''}
             </span>
             <span className="font-medium">{location.name}</span>
-            <span className="ml-2 text-xs text-blue-400">{location.ping}</span>
+            <span className={`ml-2 text-xs ${getPingColor(location.latencyValue)}`}>
+              {location.ping}
+            </span>
             <svg className="w-4 h-4 ml-1 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
