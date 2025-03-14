@@ -23,9 +23,9 @@ const ReviewSlider = ({ reviews = sampleReviews }) => {
         <div className="h-[1px] w-[30%] bg-gradient-to-r from-[#1D8FEF] via-[#1D8FEF] to-transparent" />
       </div>
       
-      <div className="text-center max-w-4xl mx-auto mb-8">
-        <h2 className="text-4xl font-bold text-white mb-4">WHAT EVERYONE SAYS</h2>
-        <p className="text-gray-400">
+      <div className="text-center max-w-4xl mx-auto mb-8 px-4 sm:px-6">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2 md:mb-4">WHAT EVERYONE SAYS</h2>
+        <p className="text-sm sm:text-base text-gray-400 max-w-3xl mx-auto">
           Customer feedback matters to us. It helps us improve and meet your needs with the
           highest standards. We value each voice and are committed to delivering excellence
           in our services.

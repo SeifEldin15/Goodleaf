@@ -6,7 +6,7 @@ import FeatureCards from '../FeatureCards/FeatureCards'
 function Hero() {
   return (
     <div>
-    <div className="text-white py-10 md:py-20 px-4 max-w-[95%] md:max-w-[85%] mx-auto w-full relative">
+    <div className="text-white py-10 md:py-20 px-4 max-w-[95%] md:max-w-[85%] lg:max-w-[85%] md:max-w-[95%] md:max-w-[85%] lg:max-w-[85%] mx-auto w-full relative">
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-between mt-6 md:mt-12 gap-8">
         {/* Left Content */}
         <div className="max-w-xl w-full ">

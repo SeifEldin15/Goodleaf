@@ -68,9 +68,9 @@ const FAQ = () => {
         </div>
         <div className="h-[1px] w-[30%] bg-gradient-to-r from-[#1D8FEF] via-[#1D8FEF] to-transparent" />
       </div>
-      <div className="text-center max-w-4xl mx-auto mb-8">
-        <h2 className="text-4xl font-bold text-white">Got questions?</h2>
-        <h2 className="text-4xl font-bold text-white">
+      <div className="text-center max-w-4xl mx-auto mb-6 sm:mb-8 px-4 sm:px-6">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">GOT QUESTIONS?</h2>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
           Well, we've got <span className="text-[#1D8FEF]">answers.</span>
         </h2>
       </div>

@@ -89,7 +89,7 @@ const LocationFlagsPing = () => {
   };
 
   return (
-    <div className="flex flex-wrap justify-center gap-2 mt-[30px] w-full max-w-[95%] sm:max-w-[85%] md:max-w-[75%] mx-auto bg-[#030319] rounded-[10px] p-3 shadow-[0_4px_12px_rgba(0,0,0,0.3)] overflow-hidden border border-white/5">
+    <div className="flex flex-wrap justify-center gap-2 mt-[30px] w-full max-w-[95%] md:max-w-[85%] lg:max-w-[85%] sm:max-w-[95%] md:max-w-[85%] lg:max-w-[85%] md:max-w-[75%] mx-auto bg-[#030319] rounded-[10px] p-3 shadow-[0_4px_12px_rgba(0,0,0,0.3)] overflow-hidden border border-white/5">
       {locations.map((location, index) => (
         <button 
           key={index}
