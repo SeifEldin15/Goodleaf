@@ -1,6 +1,29 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 function GamingHero() {
+  // Array of background images
+  const backgroundImages = [
+    '/gaming-hero/gaming-hero-2.png',
+    '/gaming-hero/gaming-hero-1.png',
+    '/gaming-hero/gaming-hero-3.png',
+    // Add more image paths as needed
+  ];
+
+  // State to track current image index
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Image rotation effect
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => 
+        prevIndex === backgroundImages.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 3000);
+
+    // Cleanup interval on component unmount
+    return () => clearInterval(intervalId);
+  }, []);
+  
   return (
     <div className="relative w-full h-[700px] overflow-hidden">
       {/* Background image with overlay */}
@@ -13,9 +36,9 @@ function GamingHero() {
       <div className="absolute bottom-0 left-0 right-0 h-[20%] bg-gradient-to-t from-black/70 to-transparent z-20"></div>
       
       <div 
-        className="absolute inset-0 bg-cover bg-center z-0" 
+        className="absolute inset-0 bg-cover bg-center z-0 transition-all duration-1000" 
         style={{
-          backgroundImage: "url('/gaming-hero/gaming-hero-2.png')"
+          backgroundImage: `url('${backgroundImages[currentImageIndex]}')`
         }}
       ></div>
       
