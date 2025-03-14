@@ -11,9 +11,9 @@ import gameServerIcon from './svg/game-server-icon.svg';
 
 const PricingCard = ({ title, price, features, location, labels, isSelected }) => (
   <div className={`p-4 bg-[#111827] rounded-md transition-all duration-150 relative overflow-hidden group 
-    ${isSelected 
-      ? 'border-[#040BFF] border-[3px] shadow-lg shadow-[#040BFF]/30 scale-105' 
-      : 'hover:bg-[#141526] hover:border-[#040BFF] hover:border-[3px] hover:scale-105 hover:z-10'}`}>
+    border-[3px] ${isSelected 
+      ? 'border-[#040BFF] shadow-lg shadow-[#040BFF]/30 scale-105' 
+      : 'border-transparent hover:bg-[#141526] hover:border-[#040BFF] hover:scale-105 hover:z-10'}`}>
     <div className={`absolute inset-0 ${isSelected ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'} transition-opacity duration-150`}>
       <div className="absolute inset-0 rounded-md border-[3px] bg-gradient-to-b from-[#000000] to-[#040BFF] blur-[10px]"></div>
     </div>
@@ -238,13 +238,7 @@ const Pricing = () => {
     <section className="py-10 px-4 ">
       <div className="">
         <div className="text-center mb-16">
-          <div className="flex items-center justify-center gap-4 mb-4  ">
-            <div className="h-[1px] w-[300px] bg-[#007BFF]"></div>
-            <div className="border border-[#1D90F9] px-[133.35px] py-[8.5px] shadow-[0_10px_10px_rgba(29,144,249,0.6)]">
-              <p className="text-[#1D90F9] text-sm ">FEATURED THIS MONTH</p>
-            </div>
-            <div className="h-[1px] w-[300px] bg-[#007BFF]"></div>
-          </div> 
+     
           
           <div className="flex flex-col items-center  pt-10">
             <p className="font-['Rajdhani'] text-[#0060FE] text-base font-semibold uppercase tracking-wide">
