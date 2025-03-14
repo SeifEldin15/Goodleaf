@@ -25,7 +25,7 @@ function GamingHero() {
   }, []);
   
   return (
-    <div className="relative w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden ">
+    <div className="relative w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden">
       {/* Background image with overlay */}
       <div className="absolute inset-0 bg-black/50 z-10"></div>
       
@@ -43,7 +43,7 @@ function GamingHero() {
       ></div>
       
       {/* Content container */}
-      <div className="relative z-30 container mx-auto px-4 sm:px-6 h-full flex items-center">
+      <div className="relative z-30 container mx-auto px-4 sm:px-6 h-full flex items-center max-w-[90%] lg:max-w-[85%] mx-auto">
         <div className="w-full md:max-w-[95%] md:max-w-[85%] lg:max-w-[85%] text-center sm:text-left md:pt-0 lg:pt-0 pt-24">
           {/* Heading */}
           <h1 className="leading-tight">
