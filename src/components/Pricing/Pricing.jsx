@@ -10,11 +10,11 @@ import gameServerIcon from './svg/game-server-icon.svg';
 
 
 const PricingCard = ({ title, price, features, location, labels, isSelected }) => (
-  <div className={`p-4 bg-[#111827] rounded-md transition-all duration-300 relative overflow-hidden group
+  <div className={`p-4 bg-[#111827] rounded-md transition-all duration-150 relative overflow-hidden group 
     ${isSelected 
-      ? 'border-[#040BFF] border-[3px] shadow-lg shadow-[#040BFF]/30' 
-      : 'hover:bg-[#141526] hover:border-[#040BFF] hover:border-[3px]'}`}>
-    <div className={`absolute inset-0 ${isSelected ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'} transition-opacity duration-300`}>
+      ? 'border-[#040BFF] border-[3px] shadow-lg shadow-[#040BFF]/30 scale-105' 
+      : 'hover:bg-[#141526] hover:border-[#040BFF] hover:border-[3px] hover:scale-105 hover:z-10'}`}>
+    <div className={`absolute inset-0 ${isSelected ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'} transition-opacity duration-150`}>
       <div className="absolute inset-0 rounded-md border-[3px] bg-gradient-to-b from-[#000000] to-[#040BFF] blur-[10px]"></div>
     </div>
 
