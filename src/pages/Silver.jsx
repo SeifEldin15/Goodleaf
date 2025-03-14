@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from '../components/Navbar/Navbar'
-import SilverHero from '../components/BronzeHero/SilverHero'
+import SilverHero from '../components/BronzeHero/Silver'
 import Footer from '../components/Footer/Footer'
 import Pricing from '../components/Pricing/Pricing'
 import FAQ from '../components/FAQ/FAQ'
