@@ -31,8 +31,8 @@ function Home() {
       <ReviewSlider />
       <div className='container mx-auto max-w-[95%] md:max-w-[85%] lg:max-w-[85%] px-4'>
         <FAQ />
-        <Map />
       </div>
+      <Map />
       <Footer />
     </div>
   )

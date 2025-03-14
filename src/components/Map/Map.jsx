@@ -94,7 +94,7 @@ const Map = () => {
       </div>
 
       {/* World Map SVG */}
-      <div className="w-full overflow-hidden relative">
+      <div className="w-full overflow-hidden relative md:max-w-[95%] lg:max-w-[85%] mx-auto">
         <img 
           src="/map.png" 
           alt="World Map" 
