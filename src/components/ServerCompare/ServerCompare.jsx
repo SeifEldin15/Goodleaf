@@ -14,12 +14,11 @@ const ServerCompare = () => {
         <div className="absolute top-0 left-0 w-full h-full rounded-lg overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-1/4" 
                style={{ 
-                 background: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='squareGrad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:rgb(0,0,0);stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:rgb(20,20,30);stop-opacity:0.8' /%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='url(%23squareGrad)' fill-rule='evenodd'%3E%3Cpath d='M0 0h8v8H0V0zm8 8h8v8H8V8z'/%3E%3C/g%3E%3C/svg%3E")`,
-                 backgroundSize: '40px 40px',
-                 boxShadow: 'inset 0 -40px 20px -20px rgba(17, 24, 39, 1)'
+                 background: 'linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(17,24,39,0.2), transparent)',
+                 boxShadow: 'none'
                }}>
           </div>
-          <div className="absolute top-2/3 left-0 w-full h-2/3 bg-gradient-to-b from-gray-900 to-transparent opacity-90"></div>
+          <div className="absolute top-2/3 left-0 w-full h-2/3 bg-gradient-to-b from-gray-900 to-transparent opacity-70"></div>
         </div>
         <div className="relative z-10">
           <div className="flex justify-between items-start mb-6">
@@ -32,7 +31,6 @@ const ServerCompare = () => {
           </div>
           <div className="flex ml-2 items-center justify-between w-[80%]">
             <h2 className="text-blue-400 text-4xl font-['Rajdhani']  font-bold">VPS Servers</h2>
-              <img src={Server2} alt="Server" className="h-6 w-6" />
           </div>
           
           {/* Performance Bar */}
@@ -139,25 +137,28 @@ const ServerCompare = () => {
         <div className="absolute top-0 left-0 w-full h-full rounded-lg overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-1/4" 
                style={{ 
-                 background: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='squareGrad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:rgb(0,0,0);stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:rgb(20,20,30);stop-opacity:0.8' /%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='url(%23squareGrad)' fill-rule='evenodd'%3E%3Cpath d='M0 0h8v8H0V0zm8 8h8v8H8V8z'/%3E%3C/g%3E%3C/svg%3E")`,
-                 backgroundSize: '40px 40px',
-                 boxShadow: 'inset 0 -40px 20px -20px rgba(17, 24, 39, 1)'
+                 background: 'linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(17,24,39,0.2), transparent)',
+                 boxShadow: 'none'
                }}>
           </div>
-          <div className="absolute top-1/3 left-0 w-full h-2/3 bg-gradient-to-b from-gray-900 to-transparent opacity-90"></div>
+          <div className="absolute top-1/3 left-0 w-full h-2/3 bg-gradient-to-b from-gray-900 to-transparent opacity-70"></div>
         </div>
         <div className="relative z-10">
           <div className="flex justify-between items-start mb-6">
             <div className="flex items-center">
-              <div className="text-blue-400 mr-2">
-                <img src={Server1} alt="Server" className="h-6 w-6" />
+              <div className="text-green-400 mr-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none" className="h-6 w-6">
+                  <path d="M22.6797 12.7598H2.67969" stroke="#22C55E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M6.12969 5.86977L2.67969 12.7598V18.7598C2.67969 19.2902 2.8904 19.7989 3.26547 20.174C3.64055 20.5491 4.14925 20.7598 4.67969 20.7598H20.6797C21.2101 20.7598 21.7188 20.5491 22.0939 20.174C22.469 19.7989 22.6797 19.2902 22.6797 18.7598V12.7598L19.2297 5.86977C19.0641 5.53655 18.8089 5.25614 18.4926 5.06005C18.1764 4.86395 17.8118 4.75996 17.4397 4.75977H7.91969C7.5476 4.75996 7.18295 4.86395 6.86673 5.06005C6.55051 5.25614 6.29526 5.53655 6.12969 5.86977Z" stroke="#22C55E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M6.67969 16.7598H6.68969" stroke="#22C55E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M10.6797 16.7598H10.6897" stroke="#22C55E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
               </div>
             </div>
-            <button className="bg-blue-500 text-white text-xs font-bold py-1 px-3">COMPARE</button>
+            <button className="bg-green-500 text-white text-xs font-bold py-1 px-3">COMPARE</button>
           </div>
           <div className="flex ml-2 items-center justify-between w-[80%]">
-            <h2 className="text-blue-400 text-4xl font-['Rajdhani'] font-bold tracking-wider">VPS Servers</h2>
-            <img src={Server2} alt="Server" className="h-6 w-6" />
+            <h2 className="text-green-400 text-4xl font-['Rajdhani'] font-bold tracking-wider">VPS Servers</h2>
           </div>
           
           {/* Performance Bar */}
