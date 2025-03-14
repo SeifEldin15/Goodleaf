@@ -26,7 +26,7 @@ const Navbar = () => {
     <nav className={`fixed w-full transition-colors duration-300 px-4 py-6 z-[1000] ${
       hasScrolled || isOpen ? 'bg-black' : 'bg-transparent'
     }`}>
-      <div className="max-w-[85%] mx-auto flex items-center justify-between">
+      <div className="max-w-[95%] md:max-w-[85%] lg:max-w-[85%] mx-auto flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center">
           <img src="/logo.png" alt="GoodLeaf" className="h-8" />
@@ -86,33 +86,35 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-      {isOpen && (
-        <div className="md:hidden bg-black">
-          <div className="px-2 pt-2 pb-3 space-y-1">
-            {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className="block px-3 py-2 text-gray-300 hover:text-white transition-colors text-sm"
-              >
-                {item.title}
-              </Link>
-            ))}
+      <div 
+        className={`md:hidden bg-black overflow-hidden transition-all duration-300 ease-in-out ${
+          isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        }`}
+      >
+        <div className="px-2 pt-2 pb-3 space-y-1">
+          {navItems.map((item) => (
             <Link
-              to="/get-started"
-              className="block px-3 py-2 bg-primary-gradient text-white rounded-full font-medium hover:opacity-90 transition-opacity text-center mx-2 text-sm"
+              key={item.path}
+              to={item.path}
+              className="block px-3 py-2 text-gray-300 hover:text-white transition-colors text-sm"
             >
-              Get Started
+              {item.title}
             </Link>
-            <Link
-              to="/login"
-              className="block px-3 py-2 bg-secondary-gradient text-white rounded-full font-medium hover:opacity-90 transition-opacity text-center mx-2 mt-2 text-sm"
-            >
-              Log in
-            </Link>
-          </div>
+          ))}
+          <Link
+            to="/get-started"
+            className="block px-3 py-2 bg-primary-gradient text-white rounded-full font-medium hover:opacity-90 transition-opacity text-center mx-2 text-sm"
+          >
+            Get Started
+          </Link>
+          <Link
+            to="/login"
+            className="block px-3 py-2 bg-secondary-gradient text-white rounded-full font-medium hover:opacity-90 transition-opacity text-center mx-2 mt-2 text-sm"
+          >
+            Log in
+          </Link>
         </div>
-      )}
+      </div>
     </nav>
   );
 };
