@@ -12,7 +12,7 @@ function App() {
       <Route path="/contact" element={<Contact />} />
       <Route path="/bronze" element={<Bronze />} />
       <Route path="/gold" element={<Gold />} />
-      <Route path="/Silver" element={<Silver />} />
+      <Route path="/silver" element={<Silver />} />
       <Route path="/gaming" element={<Gaming />} />
     </Routes>
   )

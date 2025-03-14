@@ -15,7 +15,7 @@ const References = () => {
               <span className="text-blue-400 font-semibold">DOCUMENTATION</span>
             </div>
             <p className="mb-8">
-              Access Good Leaf Knowledge Base to learn how to use our services and unlock their full potential.
+              Explore Good Leaf's comprehensive guides and documentation to make the most of our powerful features.
             </p>
           </div>
           <button className="bg-blue-500 text-white rounded-md px-4 py-2 flex items-center w-fit">
@@ -32,7 +32,7 @@ const References = () => {
               <span className="text-blue-400 font-semibold">TRUSTPILOT</span>
             </div>
             <p className="mb-8">
-              Check out Trustpilot reviews to see real customer feedback on our top-tier services and performance.
+              Discover what our customers are saying about Good Leaf's exceptional service on Trustpilot.
             </p>
           </div>
           <button className="bg-blue-500 text-white rounded-md px-4 py-2 flex items-center w-fit">
@@ -49,7 +49,7 @@ const References = () => {
               <span className="text-blue-400 font-semibold">COMMUNITY</span>
             </div>
             <p className="mb-8">
-              Join our Discord community for extra support, important announcements, and the latest updates.
+              Connect with fellow users in our Discord community for tips, updates, and dedicated support.
             </p>
           </div>
           <button className="bg-blue-500 text-white rounded-md px-4 py-2 flex items-center w-fit">
@@ -67,10 +67,9 @@ const References = () => {
             <span className="text-blue-400 font-semibold">EXCELLENT REVIEWS</span>
           </div>
           <p className="text-lg">
-            Rated <span className="text-blue-400 font-bold">Excellent</span> at 
-            <span className="text-blue-400 font-bold"> 4.9/5.0</span>, based on 
-            <span className="text-blue-400 font-bold"> 332+</span> customer reviews 
-            highlighting top-tier service and support.
+            Proudly maintaining an <span className="text-blue-400 font-bold">Outstanding</span> rating of
+            <span className="text-blue-400 font-bold"> 4.9/5.0</span> from over
+            <span className="text-blue-400 font-bold"> 300</span> verified customer reviews.
           </p>
         </div>
 
@@ -81,10 +80,9 @@ const References = () => {
             <span className="text-blue-400 font-semibold">FAST RESPONSE</span>
           </div>
           <p className="text-lg">
-            We respond to support tickets in 
-            <span className="text-blue-400 font-bold"> 30 minutes</span> or less, 
-            <span className="text-blue-400 font-bold"> 96.8%</span> of the time, 
-            ensuring fast assistance.
+            Our support team delivers responses within
+            <span className="text-blue-400 font-bold"> 30 minutes</span>, achieving this target in
+            <span className="text-blue-400 font-bold"> 97%</span> of all cases.
           </p>
         </div>
       </div>
