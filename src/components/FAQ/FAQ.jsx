@@ -74,7 +74,7 @@ const FAQ = () => {
           Well, we've got <span className="text-[#1D8FEF]">answers.</span>
         </h2>
       </div>
-      <div className="flex flex-col md:flex-row text-white min-h-screen p-4 md:p-8">
+      <div className="flex flex-col md:flex-row text-white p-4 md:p-8">
       
       <div className="md:w-1/4 pr-0 md:pr-6">
         {categories.map((category) => (
@@ -98,11 +98,11 @@ const FAQ = () => {
           {categories.find(cat => cat.title === activeCategory)?.description}
         </p>
 
-        <div className="space-y-4">
+        <div className="space-y-2">
           {faqData[activeCategory]?.map((item, index) => (
-            <div key={index} className="border-b border-gray-700 last:border-b-0 overflow-hidden bg-gray-800/50">
+            <div key={index} className="border-b border-gray-700 last:border-b-0 bg-gray-800/50">
               <button
-                className="flex justify-between items-center w-full p-4 text-left"
+                className="flex justify-between items-center w-full py-3 px-4 text-left"
                 onClick={() => toggleQuestion(index)}
               >
                 <span className="font-medium">{item.question}</span>
@@ -112,7 +112,7 @@ const FAQ = () => {
               </button>
               
               {openQuestion === index && (
-                <div className="p-4 pt-0 text-gray-300">
+                <div className="px-4 pb-3">
                   <p>{item.answer}</p>
                 </div>
               )}
