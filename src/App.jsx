@@ -4,7 +4,7 @@ import Contact from './pages/Contact'
 import Bronze from './pages/Bronze'
 import Gold from './pages/Gold'
 import Silver from './pages/Silver'
-
+import Gaming from './pages/Gaming'
 function App() {
   return (
     <Routes>
@@ -13,6 +13,7 @@ function App() {
       <Route path="/bronze" element={<Bronze />} />
       <Route path="/gold" element={<Gold />} />
       <Route path="/Silver" element={<Silver />} />
+      <Route path="/gaming" element={<Gaming />} />
     </Routes>
   )
 }
