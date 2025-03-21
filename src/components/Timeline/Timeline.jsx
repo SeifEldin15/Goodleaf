@@ -2,9 +2,14 @@ import React, { useEffect, useState, useRef } from 'react';
 
 const Timeline = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [itemsVisibility, setItemsVisibility] = useState([]);
   const timelineRef = useRef(null);
+  const itemRefs = useRef([]);
 
   useEffect(() => {
+    // Initialize visibility state for each item
+    setItemsVisibility(new Array(timelineItems.length).fill(0));
+    
     const timeline = timelineRef.current;
     
     const handleScroll = () => {
@@ -36,6 +41,19 @@ const Timeline = () => {
       }
       
       setScrollProgress(progressValue);
+      
+      // Calculate visibility for each timeline item
+      const newItemsVisibility = itemRefs.current.map(itemRef => {
+        if (!itemRef) return 0;
+        
+        const itemRect = itemRef.getBoundingClientRect();
+        const itemVisiblePosition = (viewportHeight - itemRect.top) / viewportHeight;
+        
+        // Value between 0 and 1 indicating how visible the item is
+        return Math.max(0, Math.min(1, (itemVisiblePosition - 0.2) * 1.5));
+      });
+      
+      setItemsVisibility(newItemsVisibility);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -117,9 +135,13 @@ const Timeline = () => {
             const isLast = index === timelineItems.length - 1;
             const isFirst = index === 0;
             
+            // Get the visibility value for this item (0 to 1)
+            const itemVisibility = itemsVisibility[index] || 0;
+            
             return (
               <div 
                 key={item.id} 
+                ref={el => itemRefs.current[index] = el}
                 className={`relative flex items-center w-full ${
                   index % 2 === 0 
                     ? 'justify-start' 
@@ -140,7 +162,11 @@ const Timeline = () => {
                     index % 2 === 0 
                       ? 'md:ml-0 md:mr-auto md:pr-6' 
                       : 'md:ml-auto md:pl-6'
-                  }`}
+                  } transition-all duration-500`}
+                  style={{
+                    opacity: itemVisibility,
+                    transform: `translateY(${40 * (1 - itemVisibility)}px)`
+                  }}
                 >
                   <div className="flex flex-col md:flex-row items-center mb-2 text-blue-500 text-2xl md:text-4xl font-bold text-center md:text-left">
                     <span className="mb-2 md:mb-0 md:mr-4">
