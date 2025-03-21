@@ -3,8 +3,8 @@ import React from 'react';
 const Table = () => {
   const tableData = [
     {
-      feature: 'Network Uptime',
-      description: 'We boast a remarkable 99.99% uptime over all.',
+      feature: 'Network Reliability',
+      description: 'Our infrastructure maintains industry-leading stability with minimal downtime.',
       goodleaf: '99.99%',
       premium: '98.33%',
       budget: '95.11%',
@@ -17,7 +17,7 @@ const Table = () => {
     },
     {
       feature: 'DDoS Protection',
-      description: '4 Tbps capacity employing tailored filters for each your specific game.',
+      description: 'Advanced mitigation system with customized filters for game-specific traffic patterns.',
       goodleaf: '4 Tbps',
       premium: '800 Gbps',
       budget: '80 Gbps',
@@ -29,7 +29,7 @@ const Table = () => {
     },
     {
       feature: 'Dedicated IP Address',
-      description: 'Avoid network problems, port collisions, & DDoS impact with dedicated IP.',
+      description: 'Exclusive IP allocation prevents shared resource issues and enhances security.',
       goodleaf: true,
       premium: true,
       budget: false,
@@ -41,7 +41,7 @@ const Table = () => {
     },
     {
       feature: 'Cloud Backups',
-      description: 'Quickly and easily schedule and manage your backups.',
+      description: 'Automated data protection with flexible scheduling and rapid restoration options.',
       goodleaf: true,
       premium: false,
       budget: false,
@@ -52,8 +52,8 @@ const Table = () => {
       )
     },
     {
-      feature: 'Storage',
-      description: 'Leveraging Gen 4 & 5 SSD NVMe technology with highest speed writes.',
+      feature: 'Storage Technology',
+      description: 'Ultra-responsive storage solutions with cutting-edge read/write performance.',
       goodleaf: 'NVMe SSD',
       premium: 'SSD',
       budget: 'HDD',
@@ -65,7 +65,7 @@ const Table = () => {
     },
     {
       feature: 'Unlimited Player Slots',
-      description: 'Unrestricted player slots, providing unlimited capacity for players.',
+      description: 'Scale your community without artificial limitations or additional costs.',
       goodleaf: true,
       premium: false,
       budget: false,
@@ -76,8 +76,8 @@ const Table = () => {
       )
     },
     {
-      feature: 'Internet Speeds',
-      description: 'Speeds ranging from a minimum of 10 Gbps to a maximum of 20 Gbps.',
+      feature: 'Connection Bandwidth',
+      description: 'High-capacity network infrastructure optimized for gaming traffic patterns.',
       goodleaf: '20 Gbps',
       premium: '1 Gbps',
       budget: '500 Mbps',
@@ -89,8 +89,8 @@ const Table = () => {
       )
     },
     {
-      feature: 'Resellers',
-      description: 'We have full ownership of our hardware, network, and staff.',
+      feature: 'Infrastructure Control',
+      description: 'Direct management of our physical resources ensures consistent quality control.',
       goodleaf: 'Own hardware',
       premium: 'Resells',
       budget: 'Resells',
@@ -124,9 +124,9 @@ const Table = () => {
       </div>
 
       <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">MORE BANG FOR YOUR BUCK</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">UNMATCHED VALUE & PERFORMANCE</h2>
         <p className="text-gray-400 max-w-2xl mx-auto text-sm md:text-base">
-          With Good-Leaf Servers, enjoy transparent, reliable service with no hidden fees or unethical practices. We prioritize honesty, ensuring you get exactly what you pay for with no surprises.
+          GoodLeaf Servers delivers premium hosting with total transparency and exceptional reliability. We believe in fair pricing, clear terms, and superior technology that consistently outperforms competitors.
         </p>
       </div>
 
