@@ -18,7 +18,9 @@ const Partner = () => {
         <div className="h-[1px] w-[300px] bg-[#007BFF]"></div>
       </div> 
 
-      <PartnerServices />
+      <div className="max-w-[85%] mx-auto">
+        <PartnerServices />
+      </div>
       <div className="flex items-center justify-center gap-4 mb-20 mt-20">
         <div className="h-[1px] w-[300px] bg-[#007BFF]"></div>
         <div className="border border-[#1D90F9] px-[133.35px] py-[8.5px] shadow-[0_10px_10px_rgba(29,144,249,0.6)]">
@@ -26,7 +28,9 @@ const Partner = () => {
         </div>
         <div className="h-[1px] w-[300px] bg-[#007BFF]"></div>
       </div> 
-<Pricing2 />
+<div className="max-w-[85%] mx-auto">
+  <Pricing2 />
+</div>
 
 <div className="flex items-center justify-center gap-4 mb-10 mt-20">
         <div className="h-[1px] w-[300px] bg-[#007BFF]"></div>
