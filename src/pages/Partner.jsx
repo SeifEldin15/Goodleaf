@@ -10,7 +10,7 @@ const Partner = () => {
     <div>
       <Navbar />
       <HeroPartner />
-      <div className="flex items-center justify-center gap-4  mt-20 mb-10">
+      <div className="flex items-center justify-center gap-4  mb-20 mt-20">
         <div className="h-[1px] w-[300px] bg-[#007BFF]"></div>
         <div className="border border-[#1D90F9] px-[133.35px] py-[8.5px] shadow-[0_10px_10px_rgba(29,144,249,0.6)]">
           <p className="text-[#1D90F9] text-sm ">Prime data Center</p>
@@ -19,7 +19,7 @@ const Partner = () => {
       </div> 
 
       <PartnerServices />
-      <div className="flex items-center justify-center gap-4 mb-4 mt-10">
+      <div className="flex items-center justify-center gap-4 mb-20 mt-20">
         <div className="h-[1px] w-[300px] bg-[#007BFF]"></div>
         <div className="border border-[#1D90F9] px-[133.35px] py-[8.5px] shadow-[0_10px_10px_rgba(29,144,249,0.6)]">
           <p className="text-[#1D90F9] text-sm ">FEATURED THIS MONTH</p>
@@ -27,6 +27,14 @@ const Partner = () => {
         <div className="h-[1px] w-[300px] bg-[#007BFF]"></div>
       </div> 
 <Pricing2 />
+
+<div className="flex items-center justify-center gap-4 mb-10 mt-20">
+        <div className="h-[1px] w-[300px] bg-[#007BFF]"></div>
+        <div className="border border-[#1D90F9] px-[133.35px] py-[8.5px] shadow-[0_10px_10px_rgba(29,144,249,0.6)]">
+          <p className="text-[#1D90F9] text-sm ">MIGRATE YOUR HARDWARE</p>
+        </div>
+        <div className="h-[1px] w-[300px] bg-[#007BFF]"></div>
+      </div> 
       {/* Hardware Migration Section */}
       <div className="py-16 px-10 flex justify-between items-center max-w-[85%] mx-auto">
         <div className="max-w-lg">
