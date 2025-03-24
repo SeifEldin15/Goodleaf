@@ -131,7 +131,7 @@ const Pricing2 = () => {
   ];
 
   return (
-    <section className="py-16 px-4 bg-gradient-to-b from-[#0A0A0A] to-[#111827]">
+    <section className="py-16 px-4 ">
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <p className="font-['Rajdhani'] text-[#0060FE] text-base font-semibold uppercase tracking-wide">
