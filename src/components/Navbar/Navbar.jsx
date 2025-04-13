@@ -27,7 +27,7 @@ const Navbar = () => {
     { title: 'Mine Craft', price: '99.9$', icon: '/creeper.png' },
     { title: 'Mine Craft', price: '99.9$', icon: '/creeper.png' },
     { title: 'Mine Craft', price: '99.9$', icon: '/creeper.png' },
-    { title: 'Mine Craft', price: '99.9$', icon: '/creeper.png' },
+    { title: 'Mine Craft', price: '99.9$', icon: '/creeper.png ' },
   ];
 
   const ChevronDownIcon = () => (
