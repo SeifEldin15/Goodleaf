@@ -1,7 +1,15 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { motion } from 'framer-motion';
 
 const Graph = () => {
+  const [showChart, setShowChart] = useState(false);
+  const [lineVisibility, setLineVisibility] = useState({
+    GSL: false,
+    COSMIC_GUARD: false,
+    US_PATH: false
+  });
+
   // Modified data to align with Tbps values in the legend and maintain moderate sharpness
   const data = Array.from({ length: 30 }, (_, i) => {
     // First point should be 0 for all lines
@@ -35,41 +43,152 @@ const Graph = () => {
     };
   });
 
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6 }
+    }
+  };
+
+  // Animate chart lines sequentially
+  useEffect(() => {
+    // Show the chart first
+    const chartTimer = setTimeout(() => {
+      setShowChart(true);
+    }, 500);
+
+    // Then show each line with delay
+    const gslTimer = setTimeout(() => {
+      setLineVisibility(prev => ({ ...prev, GSL: true }));
+    }, 1000);
+
+    const cosmicTimer = setTimeout(() => {
+      setLineVisibility(prev => ({ ...prev, COSMIC_GUARD: true }));
+    }, 1500);
+
+    const usPathTimer = setTimeout(() => {
+      setLineVisibility(prev => ({ ...prev, US_PATH: true }));
+    }, 2000);
+
+    return () => {
+      clearTimeout(chartTimer);
+      clearTimeout(gslTimer);
+      clearTimeout(cosmicTimer);
+      clearTimeout(usPathTimer);
+    };
+  }, []);
+
   return (
-    <div className="p-4 sm:p-8 rounded-3xl text-white w-full mt-[50px] sm:mt-[100px]">
-      <div className="flex flex-col md:flex-row md:justify-between mb-4 sm:mb-8">
-        <div>
-          <h2 className="text-2xl sm:text-3xl font-bold mb-1 sm:mb-2">Competitor</h2>
-          <h3 className="text-3xl sm:text-4xl font-bold">DDoS Protection</h3>
-        </div>
-        <div className="max-w-xl mt-4 md:mt-0 text-gray-300 text-sm sm:text-base">
-          <p>
+    <motion.div 
+      className="p-4 sm:p-8 rounded-3xl text-white w-full mt-[50px] sm:mt-[100px]"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={containerVariants}
+    >
+      <motion.div 
+        className="flex flex-col md:flex-row md:justify-between mb-4 sm:mb-8"
+        variants={containerVariants}
+      >
+        <motion.div variants={itemVariants}>
+          <motion.h2 
+            className="text-2xl sm:text-3xl font-bold mb-1 sm:mb-2"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            Competitor
+          </motion.h2>
+          <motion.h3 
+            className="text-3xl sm:text-4xl font-bold"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
+            DDoS Protection
+          </motion.h3>
+        </motion.div>
+        <motion.div 
+          className="max-w-xl mt-4 md:mt-0 text-gray-300 text-sm sm:text-base"
+          variants={itemVariants}
+        >
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
             The chart below illustrates the performance metrics of
             three leading competitors in the game hosting industry
             over the first quarter of the year. The data tracks key
             performance indicators, such as uptime, latency, and
             customer satisfaction, from January to March.
-          </p>
-        </div>
-      </div>
+          </motion.p>
+        </motion.div>
+      </motion.div>
 
-      <div className="mt-4 bg-gray-800/70 p-3 sm:p-6 rounded-2xl mt-[50px] sm:mt-[100px]">
-        <div className="flex flex-wrap gap-3 sm:gap-0 sm:flex-nowrap sm:items-center sm:space-x-6 mb-4 pl-2">
-          <div className="flex items-center">
+      <motion.div 
+        className="mt-4 bg-gray-800/70 p-3 sm:p-6 rounded-2xl mt-[50px] sm:mt-[100px]"
+        variants={itemVariants}
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.5 }}
+      >
+        <motion.div 
+          className="flex flex-wrap gap-3 sm:gap-0 sm:flex-nowrap sm:items-center sm:space-x-6 mb-4 pl-2"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+        >
+          <motion.div 
+            className="flex items-center"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: lineVisibility.GSL ? 1 : 0, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.7 }}
+          >
             <div className="h-3 w-3 rounded-full bg-purple-500 mr-2"></div>
             <span className="text-gray-300 text-xs sm:text-sm">GSL / 10 Tbps</span>
-          </div>
-          <div className="flex items-center">
+          </motion.div>
+          <motion.div 
+            className="flex items-center"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: lineVisibility.COSMIC_GUARD ? 1 : 0, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.8 }}
+          >
             <div className="h-3 w-3 rounded-full bg-blue-400 mr-2"></div>
             <span className="text-gray-300 text-xs sm:text-sm">COSMIC GUARD / 6 Tbps</span>
-          </div>
-          <div className="flex items-center">
+          </motion.div>
+          <motion.div 
+            className="flex items-center"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: lineVisibility.US_PATH ? 1 : 0, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.9 }}
+          >
             <div className="h-3 w-3 rounded-full bg-yellow-300 mr-2"></div>
             <span className="text-gray-300 text-xs sm:text-sm">(US) PATH / 17 Tbps</span>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
-        <div className="h-60 sm:h-80">
+        <motion.div 
+          className="h-60 sm:h-80"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: showChart ? 1 : 0 }}
+          transition={{ duration: 0.6 }}
+        >
           <ResponsiveContainer width="100%" height="100%">
             <LineChart
               data={data}
@@ -92,35 +211,53 @@ const Graph = () => {
                   fontSize: '0.75rem'
                 }} 
               />
-              <Line 
-                type="linear" 
-                dataKey="GSL" 
-                stroke="#9333ea" 
-                strokeWidth={2.5} 
-                dot={false}
-                activeDot={{ r: 6 }} 
-              />
-              <Line 
-                type="linear" 
-                dataKey="COSMIC_GUARD" 
-                stroke="#38bdf8" 
-                strokeWidth={2.5} 
-                dot={false} 
-                activeDot={{ r: 6 }} 
-              />
-              <Line 
-                type="linear" 
-                dataKey="US_PATH" 
-                stroke="#facc15" 
-                strokeWidth={2.5} 
-                dot={false} 
-                activeDot={{ r: 6 }} 
-              />
+              {lineVisibility.GSL && (
+                <Line 
+                  type="linear" 
+                  dataKey="GSL" 
+                  stroke="#9333ea" 
+                  strokeWidth={2.5} 
+                  dot={false}
+                  activeDot={{ r: 6 }}
+                  strokeDasharray={lineVisibility.GSL ? "0" : "5 5"}
+                  animationDuration={1500}
+                  animationBegin={0}
+                  isAnimationActive={true}
+                />
+              )}
+              {lineVisibility.COSMIC_GUARD && (
+                <Line 
+                  type="linear" 
+                  dataKey="COSMIC_GUARD" 
+                  stroke="#38bdf8" 
+                  strokeWidth={2.5} 
+                  dot={false} 
+                  activeDot={{ r: 6 }}
+                  strokeDasharray={lineVisibility.COSMIC_GUARD ? "0" : "5 5"}
+                  animationDuration={1500}
+                  animationBegin={0}
+                  isAnimationActive={true}
+                />
+              )}
+              {lineVisibility.US_PATH && (
+                <Line 
+                  type="linear" 
+                  dataKey="US_PATH" 
+                  stroke="#facc15" 
+                  strokeWidth={2.5} 
+                  dot={false} 
+                  activeDot={{ r: 6 }}
+                  strokeDasharray={lineVisibility.US_PATH ? "0" : "5 5"}
+                  animationDuration={1500}
+                  animationBegin={0}
+                  isAnimationActive={true}
+                />
+              )}
             </LineChart>
           </ResponsiveContainer>
-        </div>
-      </div>
-    </div>
+        </motion.div>
+      </motion.div>
+    </motion.div>
   );
 };
 

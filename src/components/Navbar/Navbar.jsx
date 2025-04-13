@@ -1,10 +1,52 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Parallax } from 'react-scroll-parallax';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
   const [showGameDropdown, setShowGameDropdown] = useState(false);
+  
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.3
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut" }
+    }
+  };
+
+  const dropdownVariants = {
+    hidden: { opacity: 0, y: -10, height: 0 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      height: "auto",
+      transition: {
+        duration: 0.3,
+        staggerChildren: 0.05
+      }
+    },
+    exit: { 
+      opacity: 0, 
+      y: -10, 
+      height: 0,
+      transition: { duration: 0.2 }
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,162 +90,237 @@ const Navbar = () => {
   );
 
   return (
-    <nav className={`fixed w-full transition-colors duration-300 px-4 py-6 z-[1000] ${
-      hasScrolled || isOpen || showGameDropdown ? 'bg-black' : 'bg-transparent'
-    }`}>
-      <div className="max-w-[95%] md:max-w-[85%] lg:max-w-[85%] mx-auto flex items-center justify-between">
-        {/* Logo */}
-        <Link to="/" className="flex items-center">
-          <img src="/logo.png" alt="GoodLeaf" className="h-8" />
-        </Link>
-
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-6">
-          {navItems.map((item) => (
-            item.hasDropdown ? (
-              <div 
-                key={item.path}
-                className="relative group"
-                onMouseEnter={() => setShowGameDropdown(true)}
-                onMouseLeave={() => setShowGameDropdown(false)}
-              >
-                <div className="flex items-center cursor-pointer text-gray-300 hover:text-white transition-colors text-sm">
-                  {item.title}
-                  <ChevronDownIcon />
-                </div>
-                
-                {/* Dropdown Menu */}
-                <div 
-                  className={`absolute left-0 top-full mt-2 w-[600px] bg-black rounded-md shadow-lg grid grid-cols-2 gap-2 p-4 transition-all duration-300 ${
-                    showGameDropdown ? 'opacity-100 visible' : 'opacity-0 invisible'
-                  }`}
-                >
-                  {gameServers.map((server, index) => (
-                    <div 
-                      key={index} 
-                      className="flex items-center justify-between bg-[#111] hover:bg-[#222] p-4 rounded-md transition-colors"
-                    >
-                      <div className="flex items-center">
-                        <img src={server.icon} alt={server.title} className="h-10 w-10 rounded-md mr-3" />
-                        <div>
-                          <p className="text-white">{server.title}</p>
-                          <p className="text-gray-400 text-sm">Starting from {server.price} per month</p>
-                        </div>
-                      </div>
-                      <ChevronDownIcon />
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ) : (
-              <Link
-                key={item.path}
-                to={item.path}
-                className="text-gray-300 hover:text-white transition-colors text-sm"
-              >
-                {item.title}
-              </Link>
-            )
-          ))}
-        </div>
-
-        {/* CTA Buttons */}
-        <div className="hidden md:flex items-center space-x-4">
-          <Link
-            to="/get-started"
-            className="bg-primary-gradient text-white px-6 py-2 rounded-full font-medium hover:opacity-90 transition-opacity text-sm"
-          >
-            Get Started
-          </Link>
-          <Link
-            to="/login"
-            className="bg-secondary-gradient text-white px-6 py-2 rounded-full font-medium hover:opacity-90 transition-opacity text-sm"
-          >
-            Log in
-          </Link>
-        </div>
-
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden text-gray-300 hover:text-white"
-          onClick={() => setIsOpen(!isOpen)}
+    <nav 
+      className={`fixed w-full transition-colors duration-300 px-4 py-6 z-[1000] ${
+        hasScrolled || isOpen || showGameDropdown ? 'bg-black' : 'bg-transparent'
+      }`}
+    >
+      <Parallax translateY={[-5, 5]}>
+        <motion.div 
+          className="max-w-[95%] md:max-w-[85%] lg:max-w-[85%] mx-auto flex items-center justify-between"
+          initial="hidden"
+          animate="visible"
+          variants={containerVariants}
         >
-          <svg
-            className="h-6 w-6"
-            fill="none"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
+          {/* Logo */}
+          <motion.div
+            variants={itemVariants}
           >
-            {isOpen ? (
-              <path d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path d="M4 6h16M4 12h16M4 18h16" />
-            )}
-          </svg>
-        </button>
-      </div>
+            <Link to="/" className="flex items-center">
+              <img src="/logo.png" alt="GoodLeaf" className="h-8" />
+            </Link>
+          </motion.div>
+
+          {/* Desktop Navigation */}
+          <motion.div 
+            className="hidden md:flex items-center space-x-6"
+            variants={containerVariants}
+          >
+            {navItems.map((item, index) => (
+              item.hasDropdown ? (
+                <motion.div 
+                  key={item.path}
+                  variants={itemVariants}
+                  className="relative group"
+                  onMouseEnter={() => setShowGameDropdown(true)}
+                  onMouseLeave={() => setShowGameDropdown(false)}
+                >
+                  <div className="flex items-center cursor-pointer text-gray-300 hover:text-white transition-colors text-sm">
+                    {item.title}
+                    <ChevronDownIcon />
+                  </div>
+                  
+                  {/* Dropdown Menu */}
+                  <AnimatePresence>
+                    {showGameDropdown && (
+                      <motion.div 
+                        initial="hidden"
+                        animate="visible"
+                        exit="exit"
+                        variants={dropdownVariants}
+                        className="absolute left-0 top-full mt-2 w-[600px] bg-black rounded-md shadow-lg grid grid-cols-2 gap-2 p-4"
+                      >
+                        {gameServers.map((server, index) => (
+                          <motion.div 
+                            key={index} 
+                            variants={itemVariants}
+                            className="flex items-center justify-between bg-[#111] hover:bg-[#222] p-4 rounded-md transition-colors"
+                          >
+                            <div className="flex items-center">
+                              <img src={server.icon} alt={server.title} className="h-10 w-10 rounded-md mr-3" />
+                              <div>
+                                <p className="text-white">{server.title}</p>
+                                <p className="text-gray-400 text-sm">Starting from {server.price} per month</p>
+                              </div>
+                            </div>
+                            <ChevronDownIcon />
+                          </motion.div>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              ) : (
+                <motion.div key={item.path} variants={itemVariants}>
+                  <Link
+                    to={item.path}
+                    className="text-gray-300 hover:text-white transition-colors text-sm"
+                  >
+                    {item.title}
+                  </Link>
+                </motion.div>
+              )
+            ))}
+          </motion.div>
+
+          {/* CTA Buttons */}
+          <motion.div 
+            className="hidden md:flex items-center space-x-4"
+            variants={containerVariants}
+          >
+            <motion.div variants={itemVariants}>
+              <Link
+                to="/get-started"
+                className="bg-primary-gradient text-white px-6 py-2 rounded-full font-medium hover:opacity-90 transition-opacity text-sm"
+              >
+                Get Started
+              </Link>
+            </motion.div>
+            
+            <motion.div variants={itemVariants}>
+              <Link
+                to="/login"
+                className="bg-secondary-gradient text-white px-6 py-2 rounded-full font-medium hover:opacity-90 transition-opacity text-sm"
+              >
+                Log in
+              </Link>
+            </motion.div>
+          </motion.div>
+
+          {/* Mobile Menu Button */}
+          <motion.button
+            variants={itemVariants}
+            className="md:hidden text-gray-300 hover:text-white"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            <svg
+              className="h-6 w-6"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              {isOpen ? (
+                <path d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </motion.button>
+        </motion.div>
+      </Parallax>
 
       {/* Mobile Menu */}
-      <div 
-        className={`md:hidden bg-black overflow-hidden transition-all duration-300 ease-in-out ${
-          isOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
-        }`}
-      >
-        <div className="px-2 pt-2 pb-3 space-y-1">
-          {navItems.map((item) => (
-            item.hasDropdown ? (
-              <div key={item.path}>
-                <div 
-                  className="flex items-center justify-between px-3 py-2 text-gray-300 hover:text-white transition-colors text-sm"
-                  onClick={() => setShowGameDropdown(!showGameDropdown)}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div 
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden bg-black overflow-hidden"
+          >
+            <div className="px-2 pt-2 pb-3 space-y-1">
+              {navItems.map((item, index) => (
+                <motion.div 
+                  key={item.path || index}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.05 }}
                 >
-                  <span>{item.title}</span>
-                  <ChevronDownIcon />
-                </div>
-                
-                <div className={`pl-4 space-y-1 transition-all duration-300 ${showGameDropdown ? 'block' : 'hidden'}`}>
-                  {gameServers.map((server, index) => (
-                    <Link
-                      key={index}
-                      to={`/game-servers/${server.title.toLowerCase().replace(/\s+/g, '-')}`}
-                      className="flex items-center px-3 py-2 text-gray-300 hover:text-white transition-colors text-sm"
-                    >
-                      <img src={server.icon} alt={server.title} className="h-8 w-8 rounded-md mr-2" />
-                      <div>
-                        <p>{server.title}</p>
-                        <p className="text-xs text-gray-400">From {server.price}/month</p>
+                  {item.hasDropdown ? (
+                    <div>
+                      <div 
+                        className="flex items-center justify-between px-3 py-2 text-gray-300 hover:text-white transition-colors text-sm"
+                        onClick={() => setShowGameDropdown(!showGameDropdown)}
+                      >
+                        <span>{item.title}</span>
+                        <ChevronDownIcon />
                       </div>
+                      
+                      <AnimatePresence>
+                        {showGameDropdown && (
+                          <motion.div 
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            className="pl-4 space-y-1"
+                          >
+                            {gameServers.map((server, sIndex) => (
+                              <motion.div
+                                key={sIndex}
+                                initial={{ opacity: 0, x: -10 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: sIndex * 0.05 }}
+                              >
+                                <Link
+                                  to={`/game-servers/${server.title.toLowerCase().replace(/\s+/g, '-')}`}
+                                  className="flex items-center px-3 py-2 text-gray-300 hover:text-white transition-colors text-sm"
+                                >
+                                  <img src={server.icon} alt={server.title} className="h-8 w-8 rounded-md mr-2" />
+                                  <div>
+                                    <p>{server.title}</p>
+                                    <p className="text-xs text-gray-400">From {server.price}/month</p>
+                                  </div>
+                                </Link>
+                              </motion.div>
+                            ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  ) : (
+                    <Link
+                      to={item.path}
+                      className="block px-3 py-2 text-gray-300 hover:text-white transition-colors text-sm"
+                    >
+                      {item.title}
                     </Link>
-                  ))}
-                </div>
-              </div>
-            ) : (
-              <Link
-                key={item.path}
-                to={item.path}
-                className="block px-3 py-2 text-gray-300 hover:text-white transition-colors text-sm"
+                  )}
+                </motion.div>
+              ))}
+              
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: navItems.length * 0.05 }}
               >
-                {item.title}
-              </Link>
-            )
-          ))}
-          <Link
-            to="/get-started"
-            className="block px-3 py-2 bg-primary-gradient text-white rounded-full font-medium hover:opacity-90 transition-opacity text-center mx-2 text-sm"
-          >
-            Get Started
-          </Link>
-          <Link
-            to="/login"
-            className="block px-3 py-2 bg-secondary-gradient text-white rounded-full font-medium hover:opacity-90 transition-opacity text-center mx-2 mt-2 text-sm"
-          >
-            Log in
-          </Link>
-        </div>
-      </div>
+                <Link
+                  to="/get-started"
+                  className="block px-3 py-2 bg-primary-gradient text-white rounded-full font-medium hover:opacity-90 transition-opacity text-center mx-2 text-sm"
+                >
+                  Get Started
+                </Link>
+              </motion.div>
+              
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: (navItems.length + 1) * 0.05 }}
+              >
+                <Link
+                  to="/login"
+                  className="block px-3 py-2 bg-secondary-gradient text-white rounded-full font-medium hover:opacity-90 transition-opacity text-center mx-2 mt-2 text-sm"
+                >
+                  Log in
+                </Link>
+              </motion.div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };

@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
+import { ParallaxProvider } from 'react-scroll-parallax';
 import Home from './pages/Home'
 import Contact from './pages/Contact'
 import Bronze from './pages/Bronze'
@@ -8,15 +9,17 @@ import Gaming from './pages/Gaming'
 import Partner from './pages/Partner'
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/contact" element={<Contact />} />
-      <Route path="/bronze" element={<Bronze />} />
-      <Route path="/gold" element={<Gold />} />
-      <Route path="/silver" element={<Silver />} />
-      <Route path="/gaming" element={<Gaming />} />
-      <Route path="/partner" element={<Partner />} />
-    </Routes>
+    <ParallaxProvider>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/bronze" element={<Bronze />} />
+        <Route path="/gold" element={<Gold />} />
+        <Route path="/silver" element={<Silver />} />
+        <Route path="/gaming" element={<Gaming />} />
+        <Route path="/partner" element={<Partner />} />
+      </Routes>
+    </ParallaxProvider>
   )
 }
 

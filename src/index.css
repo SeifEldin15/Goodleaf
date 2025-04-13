@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+body {
+  height: 100%;
+  overflow-x: hidden; /* Ensure no horizontal scrolling */
+  position: relative;
+  perspective: 1px; /* Add perspective for parallax */
+}
+
+/* Custom styles for parallax backgrounds */
+.parallax-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateZ(-1px) scale(2);
+  z-index: -1;
+}
+
+/* Animation for the infinite scroll */
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - 1rem));
+  }
+}
+
+.animate-infinite-scroll {
+  animation: scroll 20s linear infinite;
+}
+
+/* Add these gradients for buttons */
+.bg-primary-gradient {
+  background: linear-gradient(to right, #040BFF, #1E75FF);
+}
+
+.bg-secondary-gradient {
+  background: linear-gradient(to right, #0B1B2B, #1E3A5F);
+} 

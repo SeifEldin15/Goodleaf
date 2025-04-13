@@ -1,6 +1,41 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const Table = () => {
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        when: "beforeChildren",
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5 }
+    }
+  };
+
+  const rowVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: i => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.4,
+        delay: 0.1 + (i * 0.05)
+      }
+    })
+  };
+
   const tableData = [
     {
       feature: 'Network Reliability',
@@ -114,26 +149,59 @@ const Table = () => {
   };
 
   return (
-    <div className="w-[90%] mx-auto py-8 mt-[0px] ">
-      <div className="flex items-center justify-center mb-12 max-w-2xl mx-auto">
+    <motion.div 
+      className="w-[90%] mx-auto py-8 mt-[0px]"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.1 }}
+      variants={containerVariants}
+    >
+      <motion.div 
+        className="flex items-center justify-center mb-12 max-w-2xl mx-auto"
+        variants={itemVariants}
+      >
         <div className="h-[1px] w-[30%] bg-gradient-to-r from-transparent via-[#1D8FEF] to-[#1D8FEF]" />
         <div className="mx-4">
          <img className='w-6' src="/header icons/table-ico.png" alt="" />
         </div>
         <div className="h-[1px] w-[30%] bg-gradient-to-r from-[#1D8FEF] via-[#1D8FEF] to-transparent" />
-      </div>
+      </motion.div>
 
-      <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">UNMATCHED VALUE & PERFORMANCE</h2>
-        <p className="text-gray-400 max-w-2xl mx-auto text-sm md:text-base">
+      <motion.div 
+        className="text-center mb-12"
+        variants={itemVariants}
+      >
+        <motion.h2 
+          className="text-3xl md:text-4xl font-bold text-white mb-4"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          UNMATCHED VALUE & PERFORMANCE
+        </motion.h2>
+        <motion.p 
+          className="text-gray-400 max-w-2xl mx-auto text-sm md:text-base"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
           GoodLeaf Servers delivers premium hosting with total transparency and exceptional reliability. We believe in fair pricing, clear terms, and superior technology that consistently outperforms competitors.
-        </p>
-      </div>
+        </motion.p>
+      </motion.div>
 
       {/* Mobile Card View (hidden on md and larger screens) */}
-      <div className="md:hidden space-y-6">
+      <motion.div 
+        className="md:hidden space-y-6"
+        variants={containerVariants}
+      >
         {tableData.map((row, index) => (
-          <div key={index} className="border-2 border-[#1D90F0] rounded-lg bg-gray-900 overflow-hidden">
+          <motion.div 
+            key={index} 
+            custom={index}
+            variants={rowVariants}
+            className="border-2 border-[#1D90F0] rounded-lg bg-gray-900 overflow-hidden"
+            whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
+          >
             <div className="bg-gray-800 p-3 border-b border-[#1D90F0]">
               <div className="flex items-center">
                 <span className="mr-2">{row.icon}</span>
@@ -155,38 +223,72 @@ const Table = () => {
                 <div className="text-center">{renderValue(row.budget)}</div>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
 
       {/* Desktop Table View (hidden on small screens) */}
-      <div className="hidden md:block w-full overflow-x-auto">
-        <div className="min-w-full border-2 border-[#1D90F0] rounded-lg overflow-hidden">
+      <motion.div 
+        className="hidden md:block w-full overflow-x-auto"
+        variants={itemVariants}
+      >
+        <motion.div 
+          className="min-w-full border-2 border-[#1D90F0] rounded-lg overflow-hidden"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+        >
           <table className="w-full bg-gray-900 text-white text-sm">
             <thead>
               <tr className="bg-gray-800 border-b border-gray-700">
-                <th className="p-4 text-left font-bold border-r border-[#1D90F0] w-1/3">
+                <motion.th 
+                  className="p-4 text-left font-bold border-r border-[#1D90F0] w-1/3"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                >
                   <span className="text-xl bg-gradient-to-r from-[#1D8EED] to-white bg-clip-text text-transparent">
                     COMPARISON TABLE
                   </span>
-                </th>
-                <th className="p-4 text-center border-r border-[#1D90F0]">
+                </motion.th>
+                <motion.th 
+                  className="p-4 text-center border-r border-[#1D90F0]"
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.5 }}
+                >
                   <div className="flex flex-col items-center">
                     <img src="/Mask group.png" alt="" />
                     <img src="/Good leaf.png" alt="" />
                   </div>
-                </th>
-                <th className="p-4 text-center border-r border-[#1D90F0]">
+                </motion.th>
+                <motion.th 
+                  className="p-4 text-center border-r border-[#1D90F0]"
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.6 }}
+                >
                   <span className="text-gray-300">Premium Competitors</span>
-                </th>
-                <th className="p-4 text-center">
+                </motion.th>
+                <motion.th 
+                  className="p-4 text-center"
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.7 }}
+                >
                   <span className="text-gray-300">Budget Competitors</span>
-                </th>
+                </motion.th>
               </tr>
             </thead>
             <tbody>
               {tableData.map((row, index) => (
-                <tr key={index} className="border-b border-gray-700">
+                <motion.tr 
+                  key={index} 
+                  className="border-b border-gray-700"
+                  custom={index}
+                  variants={rowVariants}
+                  whileHover={{ backgroundColor: 'rgba(29, 144, 240, 0.05)' }}
+                >
                   <td className="p-4 border-r border-[#1D90F0]">
                     <div className="flex items-start flex-col">
                       <div className='flex mb-2 items-center'>
@@ -199,13 +301,13 @@ const Table = () => {
                   <td className="p-4 text-center border-r border-[#1D90F0]">{renderValue(row.goodleaf)}</td>
                   <td className="p-4 text-center border-r border-[#1D90F0]">{renderValue(row.premium)}</td>
                   <td className="p-4 text-center">{renderValue(row.budget)}</td>
-                </tr>
+                </motion.tr>
               ))}
             </tbody>
           </table>
-        </div>
-      </div>
-    </div>
+        </motion.div>
+      </motion.div>
+    </motion.div>
   );
 };
 

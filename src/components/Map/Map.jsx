@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 const Map = () => {
   const [locations, setLocations] = useState([
@@ -8,6 +9,55 @@ const Map = () => {
     { name: 'California', country: 'US', lat: 36.7783, lng: -119.4179, endpoint: 'https://ping.lax.goodleafhosting.com/ping', ping: 'Loading...' },
     { name: 'Amsterdam', country: 'NL', lat: 52.3676, lng: 4.9041, endpoint: 'https://ping.ams.goodleafhosting.com/ping', ping: 'Loading...' }
   ]);
+
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        when: "beforeChildren",
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
+  const pillVariants = {
+    hidden: { opacity: 0, scale: 0.8, y: 20 },
+    visible: i => ({
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      transition: {
+        duration: 0.4,
+        delay: 0.3 + (i * 0.1),
+        ease: "easeOut"
+      }
+    })
+  };
+
+  const mapVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        delay: 0.5,
+        ease: "easeOut"
+      }
+    }
+  };
 
   const fetchPingData = async () => {
     const updatedLocations = [...locations];
@@ -52,62 +102,135 @@ const Map = () => {
   };
 
   return (
-    <div className="relative  text-white py-12">
-
-<div className="flex items-center justify-center mb-2 max-w-2xl mx-auto mt-12">
+    <motion.div 
+      className="relative text-white py-12"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.1 }}
+      variants={containerVariants}
+    >
+      <motion.div 
+        className="flex items-center justify-center mb-2 max-w-2xl mx-auto mt-12"
+        variants={itemVariants}
+      >
         <div className="h-[1px] w-[30%] bg-gradient-to-r from-transparent via-[#1D8FEF] to-[#1D8FEF]" />
         <div className="mx-4">
-        <img className='w-6' src="/header icons/review-icon.png" alt="" />
+          <motion.img 
+            className='w-6' 
+            src="/header icons/review-icon.png" 
+            alt=""
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1, rotate: 360 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          />
         </div>
         <div className="h-[1px] w-[30%] bg-gradient-to-r from-[#1D8FEF] via-[#1D8FEF] to-transparent" />
-      </div>
+      </motion.div>
 
-      <div className="flex flex-col items-center mb-12">
-
-
-     <div className="flex items-center justify-center mb-2 max-w-2xl mx-auto">
-
-      </div>        
-        <p className="text-center max-w-3xl px-4">
+      <motion.div 
+        className="flex flex-col items-center mb-12"
+        variants={itemVariants}
+      >
+        <div className="flex items-center justify-center mb-2 max-w-2xl mx-auto"></div>        
+        <motion.p 
+          className="text-center max-w-3xl px-4"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
           Our global data centers optimize performance and ensure fast, reliable access,
           reducing latency and improving user experience with seamless service, wherever
           you are.
-        </p>
-      </div>
+        </motion.p>
+      </motion.div>
 
       {/* Location Pills */}
-      <div className="flex flex-wrap justify-center gap-4 mb-10">
-        {locations.map((location) => (
-          <div key={location.name} className="flex items-center bg-black/30 rounded-full px-3 py-1 border border-gray-700">
+      <motion.div 
+        className="flex flex-wrap justify-center gap-4 mb-10"
+        variants={containerVariants}
+      >
+        {locations.map((location, index) => (
+          <motion.div 
+            key={location.name} 
+            className="flex items-center bg-black/30 rounded-full px-3 py-1 border border-gray-700"
+            custom={index}
+            variants={pillVariants}
+            whileHover={{ 
+              scale: 1.05, 
+              boxShadow: "0 0 10px rgba(29, 143, 239, 0.5)",
+              transition: { duration: 0.2 } 
+            }}
+          >
             <span className="mr-2">
               {location.country === 'US' ? '🇺🇸' : location.country === 'NL' ? '🇳🇱' : ''}
             </span>
             <span className="font-medium">{location.name}</span>
-            <span className={`ml-2 text-xs ${getPingColor(location.latencyValue)}`}>
+            <motion.span 
+              className={`ml-2 text-xs ${getPingColor(location.latencyValue)}`}
+              animate={{ opacity: [0.5, 1, 0.5] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
               {location.ping}
-            </span>
-            <svg className="w-4 h-4 ml-1 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            </motion.span>
+            <motion.svg 
+              className="w-4 h-4 ml-1 text-blue-400" 
+              fill="none" 
+              viewBox="0 0 24 24" 
+              stroke="currentColor"
+              animate={{ scale: [1, 1.2, 1] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+            >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
-          </div>
+            </motion.svg>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
 
       {/* World Map SVG */}
-      <div className="w-full overflow-hidden relative md:max-w-[95%] lg:max-w-[85%] mx-auto">
-        <img 
+      <motion.div 
+        className="w-full overflow-hidden relative md:max-w-[95%] lg:max-w-[85%] mx-auto"
+        variants={mapVariants}
+        whileInView={{ 
+          opacity: 1, 
+          y: 0 
+        }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        <motion.img 
           src="/map.png" 
           alt="World Map" 
           className="w-full h-auto"
+          initial={{ filter: "blur(5px)", opacity: 0.5 }}
+          animate={{ filter: "blur(0px)", opacity: 1 }}
+          transition={{ duration: 1, delay: 0.6 }}
         />
         <svg 
           viewBox="0 0 1000 500" 
           className="absolute inset-0 w-full h-full"
           preserveAspectRatio="xMidYMid meet"
         >
+          {locations.map((location, index) => {
+            const coords = coordToSVG(location.lat, location.lng);
+            return (
+              <motion.circle
+                key={index}
+                cx={coords.x}
+                cy={coords.y}
+                r="5"
+                fill="#1D8FEF"
+                initial={{ opacity: 0, r: 0 }}
+                animate={{ 
+                  opacity: 1, 
+                  r: 5,
+                  filter: "drop-shadow(0 0 8px rgba(29, 143, 239, 0.8))"
+                }}
+                transition={{ duration: 0.5, delay: 1 + (index * 0.2) }}
+              />
+            );
+          })}
         </svg>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 
