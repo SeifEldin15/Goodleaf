@@ -45,6 +45,17 @@ const cardVariants = {
   })
 };
 
+const gameImages = {
+  "Minecraft": "/game-minecraft.png",
+  "Rust": "/game-rust.png",
+  "ARK": "/game-ark.png",
+  "Valheim": "/game-valheim.png",
+  "CS2": "/game-cs2.png",
+  "Terraria": "/game-terraria.png",
+  "GTA": "/game-gta.png",
+  "DayZ": "/game-dayz.png"
+};
+
 const PricingCard = ({ title, price, features, location, labels, isSelected, index }) => (
   <Parallax
     translateY={[20, -20]}
@@ -62,22 +73,28 @@ const PricingCard = ({ title, price, features, location, labels, isSelected, ind
       className={`p-4 bg-[#111827] rounded-md transition-all duration-150 relative overflow-hidden group 
       border-[3px] ${isSelected 
         ? 'border-[#040BFF] shadow-lg shadow-[#040BFF]/30 scale-105' 
-        : 'border-transparent hover:bg-[#141526] hover:border-[#040BFF] hover:scale-105 hover:z-10'}`}
+        : 'border-transparent hover:border-[#040BFF] hover:scale-105 hover:z-10'}`}
     >
-      <div className={`absolute inset-0 ${isSelected ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'} transition-opacity duration-150`}>
-        <div className="absolute inset-0 rounded-md border-[3px] bg-gradient-to-b from-[#000000] to-[#040BFF] blur-[10px]"></div>
+      {/* Game Image Background */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="/pricing.png" 
+          alt={`${title} background`} 
+          className="w-full h-full object-cover opacity-30"
+          style={{ objectPosition: "center 20%" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#141526]/90 to-[#141526] z-10" />
       </div>
 
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/70 to-[#141526] z-10" />
-        <div className="absolute inset-0 bg-[#141526]/80 backdrop-blur-sm z-20" />
+      <div className={`absolute inset-0 ${isSelected ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'} transition-opacity duration-150 z-20`}>
+        <div className="absolute inset-0 rounded-md border-[3px] bg-gradient-to-b  blur-[10px]"></div>
       </div>
 
       <div className="relative z-30" >
 
         {/* Game server header */}
         <div className="justify-center items-center" >
-        <div className="absolute right-6 bg-[#007BFF] text-white text-xs font-medium px-3 py-0.5">
+          <div className="absolute right-6 bg-[#007BFF] text-white text-xs font-medium px-3 py-0.5">
             FEATURED
           </div>
           <img src={gameServerIcon} alt="Game Server Icon" className="mb-5 w-6 h-6 text-[#007BFF] mr-2" />
@@ -184,7 +201,7 @@ const PricingCard = ({ title, price, features, location, labels, isSelected, ind
 const Pricing = () => {
   const plans = [
     {
-      title: "Minecraft",
+      title: "Rust",
       price: "24.99",
       labels: ["GAME PANEL", "DDOS PROTECTION"],
       features: [
@@ -196,7 +213,7 @@ const Pricing = () => {
         "Mod Install System"
       ],
       location: "Ashburn, Virginia & Dallas, Texas"  
-      },{
+    },{
       title: "Minecraft",
       price: "24.99",
       labels: ["GAME PANEL", "DDOS PROTECTION"],
@@ -210,7 +227,7 @@ const Pricing = () => {
       ],
       location: "Ashburn, Virginia & Dallas, Texas"
     },{
-      title: "Minecraft",
+      title: "ARK",
       price: "24.99",
       labels: ["GAME PANEL", "DDOS PROTECTION"],
       features: [
@@ -223,7 +240,7 @@ const Pricing = () => {
       ],
       location: "Ashburn, Virginia & Dallas, Texas",
     },{
-      title: "Minecraft",
+      title: "Valheim",
       price: "24.99",
       labels: ["GAME PANEL", "DDOS PROTECTION"],
       features: [
@@ -236,7 +253,7 @@ const Pricing = () => {
       ],
       location: "Ashburn, Virginia & Dallas, Texas"
     },{
-      title: "Minecraft",
+      title: "CS2",
       price: "24.99",
       labels: ["GAME PANEL", "DDOS PROTECTION"],
       features: [
@@ -249,7 +266,7 @@ const Pricing = () => {
       ],
       location: "Ashburn, Virginia & Dallas, Texas"
     },{
-      title: "Minecraft",
+      title: "Terraria",
       price: "24.99",
       labels: ["GAME PANEL", "DDOS PROTECTION"],
       features: [
@@ -262,7 +279,7 @@ const Pricing = () => {
       ],
       location: "Ashburn, Virginia & Dallas, Texas"
     },{
-      title: "Minecraft",
+      title: "GTA",
       price: "24.99",
       labels: ["GAME PANEL", "DDOS PROTECTION"],
       features: [
@@ -275,7 +292,7 @@ const Pricing = () => {
       ],
       location: "Ashburn, Virginia & Dallas, Texas"
     },{
-      title: "Minecraft",
+      title: "DayZ",
       price: "24.99",
       labels: ["GAME PANEL", "DDOS PROTECTION"],
       features: [
@@ -331,7 +348,7 @@ const Pricing = () => {
             <PricingCard 
               key={index} 
               {...plan} 
-              isSelected={index === 1}
+              isSelected={false} // No cards are highlighted by default
               index={index}
             />
           ))}
