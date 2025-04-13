@@ -204,31 +204,7 @@ const Map = () => {
           animate={{ filter: "blur(0px)", opacity: 1 }}
           transition={{ duration: 1, delay: 0.6 }}
         />
-        <svg 
-          viewBox="0 0 1000 500" 
-          className="absolute inset-0 w-full h-full"
-          preserveAspectRatio="xMidYMid meet"
-        >
-          {locations.map((location, index) => {
-            const coords = coordToSVG(location.lat, location.lng);
-            return (
-              <motion.circle
-                key={index}
-                cx={coords.x}
-                cy={coords.y}
-                r="5"
-                fill="#1D8FEF"
-                initial={{ opacity: 0, r: 0 }}
-                animate={{ 
-                  opacity: 1, 
-                  r: 5,
-                  filter: "drop-shadow(0 0 8px rgba(29, 143, 239, 0.8))"
-                }}
-                transition={{ duration: 0.5, delay: 1 + (index * 0.2) }}
-              />
-            );
-          })}
-        </svg>
+    
       </motion.div>
     </motion.div>
   );
