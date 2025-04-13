@@ -23,7 +23,9 @@ function Home() {
       <OSes />
       <div className='container mx-auto max-w-[95%] md:max-w-[85%] lg:max-w-[85%] px-4'>
         <Pricing />
-        <Timeline />
+        <div className='mt-[100px]'>
+          <Timeline />
+        </div>
         <Table />
         <Graph />
         <Refrences />
