@@ -71,7 +71,7 @@ const PricingCard = ({ title, price, features, location, labels, isSelected, ind
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
       variants={cardVariants}
-      className={`p-5 bg-[#111827] rounded-md transition-all duration-150 relative overflow-hidden group 
+      className={`px-6 pt-4 pb-6 bg-[#111827] rounded-xl transition-all duration-150 relative overflow-hidden group 
       border-[3px] ${isSelected 
         ? 'border-[#040BFF] shadow-lg shadow-[#040BFF]/30 scale-105' 
         : 'border-transparent hover:border-[#040BFF] hover:scale-105 hover:z-10'}`}
@@ -84,8 +84,11 @@ const PricingCard = ({ title, price, features, location, labels, isSelected, ind
           className="w-full h-full object-cover opacity-30"
           style={{ objectPosition: "center 20%" }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#141526]/90 to-[#141526] z-10" />
       </div>
+
+      {/* Place the gradient div here, between image background and text content */}
+      {/* Gradient: Solid #141526 bottom 65%, transparent top 35% */}
+      <div className="absolute bottom-0 left-0 right-0 h-full bg-gradient-to-t from-[#141526] via-[#141526] via-65% to-transparent z-10" />
 
       <div className={`absolute inset-0 ${isSelected ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'} transition-opacity duration-150 z-20`}>
         <div className="absolute inset-0 rounded-md border-[3px] bg-gradient-to-b blur-[10px]"></div>
@@ -97,38 +100,37 @@ const PricingCard = ({ title, price, features, location, labels, isSelected, ind
           <div className="absolute right-6 bg-[#007BFF] text-white text-xs font-medium px-3 py-0.5">
             FEATURED
           </div>
-          <img src={gameServerIcon} alt="Game Server Icon" className="mb-3 w-6 h-6 text-[#007BFF] mr-2" />
+          <img src={gameServerIcon} alt="Game Server Icon" className="mb-2 w-6 h-6 text-[#007BFF] mr-2" />
           <div className="">
-            <span className="text-[#007BFF] text-[16px] font-['Rajdhani'] font-medium">GAME SERVER</span>
+            <span className="text-[#007BFF] text-[18px] font-['Rajdhani'] font-medium">GAME SERVER</span>
           </div>
-          <h2 className="text-[28px] font-['Rajdhani'] text-white mt-2">{title}</h2>
+          <h2 className="text-[32px] font-['Rajdhani'] text-white mt-1">{title}</h2>
         </div>
 
         {/* Price section */}
-        <div className="mb-4 m-2 mt-2">
-          <span className="text-3xl font-bold">
-            <span className="text-[#007BFF]">$</span>
-            <span className="bg-gradient-to-r from-[#007BFF] to-[#9D4EDD] text-transparent bg-clip-text">{price}</span>
+        <div className="mb-3 m-2 mt-1">
+          <span className="text-4xl font-bold">
+            <span className="bg-gradient-to-r from-[#1D90F0] to-[#B76DF0] text-transparent bg-clip-text">${price}</span>
           </span>
-          <span className="text-gray-500">/mo</span>
+          <span className="text-gray-500 text-base">/mo</span>
         </div>
 
         {/* Feature labels */}
-        <div className="flex gap-2 mb-4">
+        <div className="flex gap-2 mb-3">
           {labels.map((label, index) => (
-            <div key={index} className="border border-[#2A3441] px-2 py-0.5 rounded-xl text-[#8A93A2] text-xs font-medium">
+            <div key={index} className="border border-[#2A3441] px-2.5 py-1 rounded-xl text-[#8A93A2] text-sm font-medium">
               {label}
             </div>
           ))}
         </div>
 
         {/* Description - reduced height by making it shorter */}
-        <p className="font-['Rajdhani'] text-[14px] text-gray-400 mb-4">
+        <p className="font-['Rajdhani'] text-base text-gray-400 mb-3">
           Order your game server today with easy setup and powerful performance.
         </p>
 
         {/* Features list - condensed spacing */}
-        <div className="space-y-2 mb-4">
+        <div className="space-y-2 mb-3">
           {features.map((feature, index) => {
             let iconSrc;
             let iconColor;
@@ -154,10 +156,10 @@ const PricingCard = ({ title, price, features, location, labels, isSelected, ind
             }
             
             return (
-              <div key={index} className="flex items-center text-gray-300 text-xs">
-                <div className={`relative mr-2.5`}>
+              <div key={index} className="flex items-center text-gray-300 text-base">
+                <div className={`relative mr-3.5`}>
                   <div className={`absolute inset-0 ${iconColor} opacity-20 blur-md rounded-full`}></div>
-                  <img src={iconSrc} alt={`Feature ${index + 1}`} className={`relative w-5 h-5 ${iconColor}`} />
+                  <img src={iconSrc} alt={`Feature ${index + 1}`} className={`relative w-7 h-7 ${iconColor}`} />
                 </div>
                 {feature}
               </div>
@@ -167,9 +169,9 @@ const PricingCard = ({ title, price, features, location, labels, isSelected, ind
 
         {/* Locations - reduced height */}
         {location && (
-          <div className="mb-4 h-[50px] pt-2">
-            <h4 className="text-xs text-[#007BFF] mb-1">Locations:</h4>
-            <div className="flex items-center text-gray-300 text-xs">
+          <div className="mb-3 h-[45px] pt-1.5">
+            <h4 className="text-sm text-[#007BFF] mb-1">Locations:</h4>
+            <div className="flex items-center text-gray-300 text-sm">
               <span className="mr-1.5">🇺🇸</span>
               {location}
             </div>
@@ -180,10 +182,10 @@ const PricingCard = ({ title, price, features, location, labels, isSelected, ind
         <motion.button 
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="w-full h-[38px] bg-gradient-to-r from-[#040BFF] to-[#1E75FF] hover:opacity-90 text-white font-medium py-2 px-3 rounded-full transition-opacity flex items-center justify-center text-sm"
+          className="w-full h-[38px] bg-gradient-to-r from-[#040BFF] to-[#1E75FF] hover:opacity-90 text-white font-medium py-2 px-4 rounded-full transition-opacity flex items-center justify-center text-base"
         >
           DEPLOY NOW
-          <svg className="w-3.5 h-3.5 ml-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
           </svg>
         </motion.button>
@@ -192,114 +194,7 @@ const PricingCard = ({ title, price, features, location, labels, isSelected, ind
   </Parallax>
 );
 
-const Pricing = () => {
-  const plans = [
-    {
-      title: "Rust",
-      price: "24.99",
-      labels: ["GAME PANEL", "DDOS PROTECTION"],
-      features: [
-        "Ryzen 9 5950X",
-        "4 Tbps DDoS Protection",
-        "Free Unlimited CPU Usage",
-        "Free Unlimited Storage",
-        "Game Panel Dashboard",
-        "Mod Install System"
-      ],
-      location: "Ashburn, Virginia & Dallas, Texas"  
-    },{
-      title: "Minecraft",
-      price: "24.99",
-      labels: ["GAME PANEL", "DDOS PROTECTION"],
-      features: [
-        "Ryzen 9 5950X",
-        "4 Tbps DDoS Protection",
-        "Free Unlimited CPU Usage",
-        "Free Unlimited Storage",
-        "Game Panel Dashboard",
-        "Mod Install System"
-      ],
-      location: "Ashburn, Virginia & Dallas, Texas"
-    },{
-      title: "ARK",
-      price: "24.99",
-      labels: ["GAME PANEL", "DDOS PROTECTION"],
-      features: [
-        "Ryzen 9 5950X",
-        "4 Tbps DDoS Protection",
-        "Free Unlimited CPU Usage",
-        "Free Unlimited Storage",
-        "Game Panel Dashboard",
-        "Mod Install System"
-      ],
-      location: "Ashburn, Virginia & Dallas, Texas",
-    },{
-      title: "Valheim",
-      price: "24.99",
-      labels: ["GAME PANEL", "DDOS PROTECTION"],
-      features: [
-        "Ryzen 9 5950X",
-        "4 Tbps DDoS Protection",
-        "Free Unlimited CPU Usage",
-        "Free Unlimited Storage",
-        "Game Panel Dashboard",
-        "Mod Install System"
-      ],
-      location: "Ashburn, Virginia & Dallas, Texas"
-    },{
-      title: "CS2",
-      price: "24.99",
-      labels: ["GAME PANEL", "DDOS PROTECTION"],
-      features: [
-        "Ryzen 9 5950X",
-        "4 Tbps DDoS Protection",
-        "Free Unlimited CPU Usage",
-        "Free Unlimited Storage",
-        "Game Panel Dashboard",
-        "Mod Install System"
-      ],
-      location: "Ashburn, Virginia & Dallas, Texas"
-    },{
-      title: "Terraria",
-      price: "24.99",
-      labels: ["GAME PANEL", "DDOS PROTECTION"],
-      features: [
-        "Ryzen 9 5950X",
-        "4 Tbps DDoS Protection",
-        "Free Unlimited CPU Usage",
-        "Free Unlimited Storage",
-        "Game Panel Dashboard",
-        "Mod Install System"
-      ],
-      location: "Ashburn, Virginia & Dallas, Texas"
-    },{
-      title: "GTA",
-      price: "24.99",
-      labels: ["GAME PANEL", "DDOS PROTECTION"],
-      features: [
-        "Ryzen 9 5950X",
-        "4 Tbps DDoS Protection",
-        "Free Unlimited CPU Usage",
-        "Free Unlimited Storage",
-        "Game Panel Dashboard",
-        "Mod Install System"
-      ],
-      location: "Ashburn, Virginia & Dallas, Texas"
-    },{
-      title: "DayZ",
-      price: "24.99",
-      labels: ["GAME PANEL", "DDOS PROTECTION"],
-      features: [
-        "Ryzen 9 5950X",
-        "4 Tbps DDoS Protection",
-        "Free Unlimited CPU Usage",
-        "Free Unlimited Storage",
-        "Game Panel Dashboard",
-        "Mod Install System"
-      ],
-      location: "Ashburn, Virginia & Dallas, Texas"
-    },];
-
+const Pricing = ({ plans }) => {
   return (
     <section className="py-12 px-5">
       <div>
@@ -337,7 +232,7 @@ const Pricing = () => {
           </motion.div>
         </Parallax>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {plans.map((plan, index) => (
             <PricingCard 
               key={index} 

@@ -12,6 +12,67 @@ import ReviewSlider from '../components/ReviewSlider/ReviewSlider'
 import Refrences from '../components/Refrences/Refrences'
 import Timeline from '../components/Timeline/Timeline'
 import Map from '../components/Map/Map'
+
+const plans = [
+    {
+      title: "Ryzen VDS",
+      price: "24.99",
+      labels: [],
+      features: [
+        "Ryzen CPU",
+        "Unlimited Bandwidth",
+        "Custom OS Allowed",
+        "NVMe Storage",
+        "24/7 Support",
+        "Nightly Backups",
+        "DDoS Protection"
+      ],
+      location: "Ashburn, Virginia & Dallas, Texas"
+    },{
+      title: "Intel+ VPS",
+      price: "12.99",
+      labels: [],
+      features: [
+        "Intel CPU",
+        "Unlimited Bandwidth",
+        "Custom OS Allowed",
+        "NVMe Storage",
+        "24/7 Support",
+        "Nightly Backups",
+        "DDoS Protection"
+      ],
+      location: "Ashburn, Virginia & Dallas, Texas"
+    },{
+      title: "Intel VPS",
+      price: "9.99",
+      labels: [],
+      features: [
+        "Intel CPU",
+        "Unlimited Bandwidth",
+        "Custom OS Allowed",
+        "NVMe or HDD Storage",
+        "24/7 Support",
+        "Nightly Backups",
+        "DDoS Protection"
+      ],
+      location: "Ashburn, Virginia & Dallas, Texas",
+    },{
+      title: "Dedicated",
+      price: "99.99",
+      labels: [],
+      features: [
+        "Ryzen 7 Series CPU",
+        "Unlimited Bandwidth",
+        "Bare Metal Server",
+        "NVMe Storage",
+        "24/7 Support",
+        "Nightly Backups",
+        "DDoS Protection"
+      ],
+      location: "Ashburn, Virginia & Dallas, Texas"
+    }
+  ];
+
 function Home() {
   return (
     <div>
@@ -21,8 +82,8 @@ function Home() {
         <LogoSlider />
       </div>
       <OSes />
-      <div className='container mx-auto max-w-[95%] md:max-w-[85%] lg:max-w-[85%] px-4'>
-        <Pricing />
+      <div className='container mx-auto max-w-[95%] md:max-w-[95%] lg:max-w-full px-4'>
+        <Pricing plans={plans} />
         <div className='mt-[100px]'>
           <Timeline />
         </div>
