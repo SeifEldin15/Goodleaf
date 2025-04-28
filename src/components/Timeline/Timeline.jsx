@@ -197,7 +197,7 @@ const Timeline = () => {
   };
 
   return (
-    <div className='w-full'>
+    <div className='w-full mx-auto'>
       <div className="text-center mb-12 md:mb-20">
         <p className="text-lg mb-4 text-white">Exactly what you can find inside Active Income</p>
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
