@@ -232,14 +232,14 @@ const Pricing = ({ plans = [] }) => {
               
               <motion.h2 
                 variants={itemVariants}
-                className="font-['Rajdhani'] text-[48px] leading-[50px] font-bold text-white text-center max-w-[760px] mt-1"
+                className="font-['Rajdhani'] text-[36px] sm:text-[48px] leading-[40px] sm:leading-[50px] font-bold text-white text-center max-w-[760px] mt-1"
               >
                 Choose Your Ideal Hosting Solution  
               </motion.h2>
               
               <motion.div 
                 variants={itemVariants}
-                className="flex items-center gap-2 font-['Rajdhani'] text-[48px] font-bold mt-1"
+                className="flex items-center gap-2 font-['Rajdhani'] text-[36px] sm:text-[48px] font-bold mt-1"
               >
                 <span className="text-white">Browse</span>
                 <span className="text-[#007BFF]">Our Plans</span>
