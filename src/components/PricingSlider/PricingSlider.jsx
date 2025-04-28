@@ -45,6 +45,21 @@ const PricingSlider = () => {
     background: `linear-gradient(to right, #ffffff  ${calculateFillPercentage()}%, rgba(255, 255, 255, 0.4) ${calculateFillPercentage()}%)`,
   };
 
+  // Generate labels for the slider
+  const sliderLabels = [];
+  const min = 2;
+  const max = 32;
+  const step = 2; // Assuming a step of 2 as per the input element, adjust if needed
+  for (let i = min; i <= max; i += step) {
+    // Only add labels at certain intervals to avoid clutter, e.g., every 4 or based on some logic
+    // For now, let's add labels matching the original image more closely for visual consistency
+    if ([2, 4, 6, 8, 12, 16, 32].includes(i)) { // Example: Show specific labels
+       sliderLabels.push(i);
+    }
+    // Or show all labels:
+    // sliderLabels.push(i);
+  }
+
   return (
     <div className="flex flex-col md:flex-row text-white rounded-lg overflow-hidden px-5 ">
       {/* Left Side - Slider and Features */}
@@ -71,13 +86,10 @@ const PricingSlider = () => {
             ></div>
           </div>
           
-          <div className="flex justify-between mt-4 text-sm text-gray-400">
-            <span>2</span>
-            <span>4</span>
-            <span>6</span>
-            <span>8</span>
-            <span>12</span>
-            <span>16</span>
+          <div className="flex justify-between mt-4 text-sm text-gray-400 px-1">
+            {sliderLabels.map((label) => (
+              <span key={label}>{label}</span>
+            ))}
           </div>
         </div>
         
