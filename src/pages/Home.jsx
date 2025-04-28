@@ -17,7 +17,7 @@ const plans = [
     {
       title: "Ryzen VDS",
       price: "24.99",
-      labels: [],
+      labels: [], // Adapted from image (no labels shown)
       features: [
         "Ryzen CPU",
         "Unlimited Bandwidth",
@@ -25,9 +25,9 @@ const plans = [
         "NVMe Storage",
         "24/7 Support",
         "Nightly Backups",
-        "DDoS Protection"
+        "DDoS Protection" // Combined "Top Features" and "Always Includes"
       ],
-      location: "Ashburn, Virginia & Dallas, Texas"
+      location: "Ashburn, Virginia & Dallas, Texas" // Kept existing location info
     },{
       title: "Intel+ VPS",
       price: "12.99",
@@ -50,7 +50,7 @@ const plans = [
         "Intel CPU",
         "Unlimited Bandwidth",
         "Custom OS Allowed",
-        "NVMe or HDD Storage",
+        "NVMe or HDD Storage", // Specific feature from image
         "24/7 Support",
         "Nightly Backups",
         "DDoS Protection"
@@ -61,9 +61,9 @@ const plans = [
       price: "99.99",
       labels: [],
       features: [
-        "Ryzen 7 Series CPU",
+        "Ryzen 7 Series CPU", // Specific feature from image
         "Unlimited Bandwidth",
-        "Bare Metal Server",
+        "Bare Metal Server",    // Specific feature from image
         "NVMe Storage",
         "24/7 Support",
         "Nightly Backups",

@@ -57,7 +57,7 @@ const gameBackgrounds = {
   "DayZ": "/pricing.png"
 };
 
-const PricingCard = ({ title, price, features, location, labels, isSelected, index }) => (
+const PricingCard = ({ title, price, features = [], location, labels = [], isSelected, index }) => (
   <Parallax
     translateY={[20, -20]}
     scale={[0.95, 1.05]}
@@ -134,13 +134,23 @@ const PricingCard = ({ title, price, features, location, labels, isSelected, ind
           {features.map((feature, index) => {
             let iconSrc;
             let iconColor;
-            
-            if (index === 0) {
-              iconSrc = cpuIcon;
-              iconColor = "text-[#9D4EDD]";
-            } else if (index === 1) {
+
+            // Prioritize DDoS Protection icon
+            if (feature === "DDoS Protection") {
               iconSrc = ddosIcon;
               iconColor = "text-[#FF5757]";
+            } 
+            // Keep existing index-based logic for other icons
+            else if (index === 0) {
+              iconSrc = cpuIcon;
+              iconColor = "text-[#9D4EDD]";
+            } else if (index === 1) { // This might need adjustment if DDoS isn't always index 1
+              // Fallback if DDoS check didn't match, but index is 1
+              // Decide what icon to show here - maybe a default or skip?
+              // For now, let's assume DDoS protection *was* intended for index 1 in the old data
+              // And we'll use the CPU Usage icon as a placeholder if index 1 is NOT DDoS
+              iconSrc = cpuUsageIcon; 
+              iconColor = "text-[#007BFF]"; 
             } else if (index === 2) {
               iconSrc = cpuUsageIcon;
               iconColor = "text-[#007BFF]";
@@ -155,6 +165,12 @@ const PricingCard = ({ title, price, features, location, labels, isSelected, ind
               iconColor = "text-[#007BFF]";
             }
             
+            // Default fallback if no condition met (optional)
+            if (!iconSrc) {
+              iconSrc = gameServerIcon; // Example fallback
+              iconColor = "text-gray-400"; // Example fallback color
+            }
+
             return (
               <div key={index} className="flex items-center text-gray-300 text-base">
                 <div className={`relative mr-3.5`}>
@@ -194,7 +210,7 @@ const PricingCard = ({ title, price, features, location, labels, isSelected, ind
   </Parallax>
 );
 
-const Pricing = ({ plans }) => {
+const Pricing = ({ plans = [] }) => {
   return (
     <section className="py-12 px-5">
       <div>
