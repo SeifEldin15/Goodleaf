@@ -82,15 +82,15 @@ function Home() {
         <LogoSlider />
       </div>
       <OSes />
-      <div className='container mx-auto max-w-[95%] md:max-w-[95%] lg:max-w-full px-4'>
+      <div className='container mx-auto max-w-[95%] md:max-w-[85%] lg:max-w-[85%] px-4'>
         <Pricing plans={plans} />
-        <div className='mt-[100px] mx-auto max-w-[95%] md:max-w-[85%] lg:max-w-[85%] px-4'>
+        <div className='mt-[100px] flex justify-center mx-auto max-w-[95%] md:max-w-[85%] lg:max-w-[85%] px-4'>
           <Timeline />
         </div>
-        <div className='mt-[100px] mx-auto max-w-[95%] md:max-w-[90%] lg:max-w-[90%] px-4'>
+        <div className='mt-[100px] mx-auto max-w-[95%] md:max-w-[85%] lg:max-w-[85%] px-4'>
           <Table />
         </div>
-        <div className='mt-[100px] mx-auto max-w-[95%] md:max-w-[90%] lg:max-w-[90%] px-4'>
+        <div className='mt-[100px] mx-auto max-w-[95%] md:max-w-[85%] lg:max-w-[85%] px-4'>
           <Graph />
         </div>
         <Refrences />
