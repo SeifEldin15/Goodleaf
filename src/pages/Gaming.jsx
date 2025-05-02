@@ -8,48 +8,32 @@ import FAQ from '../components/FAQ/FAQ'
 
 const faqCategories = [
   {
-    title: 'Gaming Servers',
-    description: 'Information about our specialized gaming hosting.'
-  },
-  {
-    title: 'Performance & Optimization',
-    description: 'Technical details about gaming performance.'
-  },
-  {
-    title: 'Game Support',
-    description: 'Game compatibility and server management.'
+    title: 'FiveM Frequently Asked Questions',
+    description: 'Common questions about our FiveM server hosting.'
   }
 ];
 
 const faqData = {
-  'Gaming Servers': [
+  'FiveM Frequently Asked Questions': [
     {
-      question: 'What makes your gaming servers special?',
-      answer: 'Our gaming servers are specifically optimized for low latency and high performance with dedicated CPU cores, enhanced network routes, and specialized configurations to prevent lag spikes. We use the latest hardware with overclocking capabilities and game-specific optimizations.'
+      question: 'How many player slots can I have for my FiveM Server?',
+      answer: 'The number of player slots is capped at 48 by the FiveM Licensing System. Refer to FiveM\'s Patreon to increase player slots above this. Our FiveM Server Hosting packages do not impose limits on the number of players.'
     },
     {
-      question: 'Can I host any type of game server?',
-      answer: 'Yes, our gaming VPS solutions support all major game server types including Minecraft, ARK, Rust, CS:GO, Valheim, and many more. Our platform provides the flexibility to install custom game servers and mods as needed.'
-    }
-  ],
-  'Performance & Optimization': [
-    {
-      question: 'How does your anti-DDoS protection work for gaming?',
-      answer: 'Our gaming-specific DDoS protection is designed to mitigate attacks without adding latency. It can handle volumetric attacks up to 1Tbps while maintaining game server responsiveness and performance even during active mitigation.'
+      question: 'What frameworks do you support for FiveM Server Hosting?',
+      answer: 'We support a wide range of popular frameworks. We have premade installers for ESX, QBCORE, and vMenu frameworks. If you need a different framework, contact our support team for more information.'
     },
     {
-      question: 'What ping times can I expect?',
-      answer: 'Our gaming servers typically deliver ping times of 10-30ms within the same region. We have multiple points of presence and gaming-optimized network routes to ensure the lowest possible latency for your players across North America.'
-    }
-  ],
-  'Game Support': [
-    {
-      question: 'Do you offer game server management?',
-      answer: 'Yes, we offer optional managed game server services that include setup, configuration, mod installation, regular updates, performance optimization, and 24/7 monitoring specifically for your game servers.'
+      question: 'How robust is your DDoS protection for FiveM Servers?',
+      answer: 'Our FiveM Server Hosting comes with tailored DDoS protection, offering a robust shield of up to 17TBPS. This ensures that your server remains online 24/7, unaffected by potential threats.'
     },
     {
-      question: 'How many players can your servers support?',
-      answer: 'Player capacity depends on the specific game and server plan chosen. Our entry-level gaming servers can typically support 10-30 concurrent players for most games, while our high-end plans can handle 100+ players with proper optimization.'
+      question: 'How often do you update the FiveM version?',
+      answer: 'Our FiveM Server Hosting packages include an automatic updater, which you can choose to turn on or off. This ensures your server always runs on the latest FiveM artifacts version automatically.'
+    },
+    {
+      question: 'Do you offer TxAdmin with your FiveM Server Hosting?',
+      answer: 'Yes, we provide TxAdmin with our FiveM Server Hosting packages. This ensures that you have comprehensive and full control over your server at all times.'
     }
   ]
 };
