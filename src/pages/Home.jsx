@@ -87,10 +87,10 @@ function Home() {
         <div className='mt-[100px] flex justify-center mx-auto max-w-[95%] md:max-w-[85%] lg:max-w-[85%] px-4'>
           <Timeline />
         </div>
-        <div className='mt-[100px] mx-auto max-w-[95%] md:max-w-[85%] lg:max-w-[85%] px-4'>
+        <div className='mt-[50px] mx-auto max-w-[95%] px-4'>
           <Table />
         </div>
-        <div className='mt-[100px] mx-auto max-w-[95%] md:max-w-[85%] lg:max-w-[85%] px-4'>
+        <div className='mt-[100px] mx-auto max-w-[95%] px-4'>
           <Graph />
         </div>
         <Refrences />
