@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const FAQ = () => {
-  const [activeCategory, setActiveCategory] = useState('General inquiries');
+const FAQ = ({ categories, faqData }) => {
+  const [activeCategory, setActiveCategory] = useState(categories?.[0]?.title || 'General inquiries');
   const [openQuestion, setOpenQuestion] = useState(null);
 
   // Animation variants
@@ -24,56 +24,6 @@ const FAQ = () => {
       y: 0,
       transition: { duration: 0.5 }
     }
-  };
-
-  const categories = [
-    {
-      title: 'General inquiries',
-      description: 'New around here? Start with the basics.'
-    },
-    {
-      title: 'VPS Hosting Features',
-      description: 'Dive deeper into GoodLeaf\'s servers/features.'
-    },
-    {
-      title: 'Permissions & Privacy',
-      description: 'We take security & privacy seriously.'
-    }
-  ];
-
-  const faqData = {
-    'General inquiries': [
-      {
-        question: 'What is a Virtual Private Server (VPS)?',
-        answer: 'A Virtual Private Server (VPS) is a virtualized server that mimics a dedicated server within a shared hosting environment. It provides dedicated resources and greater control than shared hosting while being more cost-effective than a fully dedicated server.'
-      },
-      {
-        question: 'What about VPS vs. Dedicated?',
-        answer: 'VPS hosting shares physical hardware with other users but guarantees you dedicated resources. Dedicated hosting gives you an entire physical server. VPS is more affordable and suitable for most websites, while dedicated servers offer maximum performance and are ideal for high-traffic or resource-intensive applications.'
-      },
-      {
-        question: 'How do I get started with VPS hosting?',
-        answer: 'To get started with VPS hosting, select a plan based on your resource needs, choose your operating system, complete the signup process, and then access your server through SSH or a control panel. We provide detailed setup guides and 24/7 support to help you get up and running.'
-      },
-      {
-        question: 'Wait... if we\'re talking about a VPS, what is a VPN then?',
-        answer: 'While they sound similar, a VPS (Virtual Private Server) is for hosting websites and applications, while a VPN (Virtual Private Network) is a service that encrypts your internet connection to protect your privacy and allow you to browse securely, especially on public networks.'
-      },
-      {
-        question: 'When should I use VPS hosting over Shared?',
-        answer: 'Consider VPS hosting over shared hosting when you need guaranteed resources, more control over your server environment, increased security, or when your website traffic is growing. It\'s also better for business websites, e-commerce stores, and applications that require specific server configurations.'
-      },
-      {
-        question: 'I already have hosting, but want to switch to VPS. Any tips?',
-        answer: 'When migrating to a VPS, first back up all your data, plan for potential downtime, check compatibility requirements, and consider whether you need managed or unmanaged hosting based on your technical skills. Our migration team can help make the transition smooth and minimize disruptions.'
-      }
-    ],
-    'VPS Hosting Features': [
-      // Add questions for this category
-    ],
-    'Permissions & Privacy': [
-      // Add questions for this category
-    ]
   };
 
   const toggleQuestion = (index) => {
@@ -206,6 +156,58 @@ const FAQ = () => {
       </motion.div>
     </motion.div>
   );
+};
+
+// Default props
+FAQ.defaultProps = {
+  categories: [
+    {
+      title: 'General inquiries',
+      description: 'New around here? Start with the basics.'
+    },
+    {
+      title: 'VPS Hosting Features',
+      description: 'Dive deeper into GoodLeaf\'s servers/features.'
+    },
+    {
+      title: 'Permissions & Privacy',
+      description: 'We take security & privacy seriously.'
+    }
+  ],
+  faqData: {
+    'General inquiries': [
+      {
+        question: 'What is a Virtual Private Server (VPS)?',
+        answer: 'A Virtual Private Server (VPS) is a virtualized server that mimics a dedicated server within a shared hosting environment. It provides dedicated resources and greater control than shared hosting while being more cost-effective than a fully dedicated server.'
+      },
+      {
+        question: 'What about VPS vs. Dedicated?',
+        answer: 'VPS hosting shares physical hardware with other users but guarantees you dedicated resources. Dedicated hosting gives you an entire physical server. VPS is more affordable and suitable for most websites, while dedicated servers offer maximum performance and are ideal for high-traffic or resource-intensive applications.'
+      },
+      {
+        question: 'How do I get started with VPS hosting?',
+        answer: 'To get started with VPS hosting, select a plan based on your resource needs, choose your operating system, complete the signup process, and then access your server through SSH or a control panel. We provide detailed setup guides and 24/7 support to help you get up and running.'
+      },
+      {
+        question: 'Wait... if we\'re talking about a VPS, what is a VPN then?',
+        answer: 'While they sound similar, a VPS (Virtual Private Server) is for hosting websites and applications, while a VPN (Virtual Private Network) is a service that encrypts your internet connection to protect your privacy and allow you to browse securely, especially on public networks.'
+      },
+      {
+        question: 'When should I use VPS hosting over Shared?',
+        answer: 'Consider VPS hosting over shared hosting when you need guaranteed resources, more control over your server environment, increased security, or when your website traffic is growing. It\'s also better for business websites, e-commerce stores, and applications that require specific server configurations.'
+      },
+      {
+        question: 'I already have hosting, but want to switch to VPS. Any tips?',
+        answer: 'When migrating to a VPS, first back up all your data, plan for potential downtime, check compatibility requirements, and consider whether you need managed or unmanaged hosting based on your technical skills. Our migration team can help make the transition smooth and minimize disruptions.'
+      }
+    ],
+    'VPS Hosting Features': [
+      // Add questions for this category
+    ],
+    'Permissions & Privacy': [
+      // Add questions for this category
+    ]
+  }
 };
 
 export default FAQ;

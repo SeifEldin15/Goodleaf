@@ -73,6 +73,70 @@ const plans = [
     }
   ];
 
+const faqCategories = [
+  {
+    title: 'General inquiries',
+    description: 'New around here? Start with the basics.'
+  },
+  {
+    title: 'VPS Hosting Features',
+    description: 'Dive deeper into GoodLeaf\'s servers/features.'
+  },
+  {
+    title: 'Permissions & Privacy',
+    description: 'We take security & privacy seriously.'
+  }
+];
+
+const faqData = {
+  'General inquiries': [
+    {
+      question: 'What is a Virtual Private Server (VPS)?',
+      answer: 'A Virtual Private Server (VPS) is a virtualized server that mimics a dedicated server within a shared hosting environment. It provides dedicated resources and greater control than shared hosting while being more cost-effective than a fully dedicated server.'
+    },
+    {
+      question: 'What about VPS vs. Dedicated?',
+      answer: 'VPS hosting shares physical hardware with other users but guarantees you dedicated resources. Dedicated hosting gives you an entire physical server. VPS is more affordable and suitable for most websites, while dedicated servers offer maximum performance and are ideal for high-traffic or resource-intensive applications.'
+    },
+    {
+      question: 'How do I get started with VPS hosting?',
+      answer: 'To get started with VPS hosting, select a plan based on your resource needs, choose your operating system, complete the signup process, and then access your server through SSH or a control panel. We provide detailed setup guides and 24/7 support to help you get up and running.'
+    },
+    {
+      question: 'Wait... if we\'re talking about a VPS, what is a VPN then?',
+      answer: 'While they sound similar, a VPS (Virtual Private Server) is for hosting websites and applications, while a VPN (Virtual Private Network) is a service that encrypts your internet connection to protect your privacy and allow you to browse securely, especially on public networks.'
+    },
+    {
+      question: 'When should I use VPS hosting over Shared?',
+      answer: 'Consider VPS hosting over shared hosting when you need guaranteed resources, more control over your server environment, increased security, or when your website traffic is growing. It\'s also better for business websites, e-commerce stores, and applications that require specific server configurations.'
+    },
+    {
+      question: 'I already have hosting, but want to switch to VPS. Any tips?',
+      answer: 'When migrating to a VPS, first back up all your data, plan for potential downtime, check compatibility requirements, and consider whether you need managed or unmanaged hosting based on your technical skills. Our migration team can help make the transition smooth and minimize disruptions.'
+    }
+  ],
+  'VPS Hosting Features': [
+    {
+      question: 'What operating systems do you support?',
+      answer: 'We support a wide range of operating systems including various Linux distributions (Ubuntu, CentOS, Debian, etc.) and Windows Server options. You can choose your preferred OS during setup or change it later.'
+    },
+    {
+      question: 'Do you offer managed VPS hosting?',
+      answer: 'Yes, we offer both managed and unmanaged VPS hosting options. With managed hosting, we handle updates, security patches, and general maintenance, while unmanaged gives you complete control over your server environment.'
+    }
+  ],
+  'Permissions & Privacy': [
+    {
+      question: 'How secure are your VPS solutions?',
+      answer: 'Our VPS solutions include enterprise-grade security features like DDoS protection, firewall configuration, regular security updates, and nightly backups. We also use isolated virtualization technology to ensure one VPS cannot access another.'
+    },
+    {
+      question: 'What kind of data privacy do you provide?',
+      answer: 'We adhere to strict data privacy practices and comply with relevant regulations. Your data remains yours, and we implement comprehensive security measures to protect it. We don\'t access your VPS without permission except in emergency situations.'
+    }
+  ]
+};
+
 function Home() {
   return (
     <div>
@@ -97,7 +161,7 @@ function Home() {
       </div>
       <ReviewSlider />
       <div className='container mx-auto max-w-[95%] md:max-w-[85%] lg:max-w-[85%] px-4'>
-        <FAQ />
+        <FAQ categories={faqCategories} faqData={faqData} />
       </div>
       <Map />
       <Footer />
