@@ -2,10 +2,13 @@ import { useState } from 'react';
 import { CheckIcon } from '@heroicons/react/24/solid';
 
 const PricingSlider = () => {
-  const [sliderValue, setSliderValue] = useState(6);
+  // Define the exact RAM values that can be selected
+  const ramValues = [2, 4, 6, 8, 12, 16, 32];
+  const [ramIndex, setRamIndex] = useState(0);
+  const displayRam = ramValues[ramIndex];
   
-  // Price calculation based on slider value
-  const price = sliderValue * 3.08;
+  // Price is always exactly $3.08 per GB
+  const price = displayRam * 3.08;
   
   // Server features
   const leftFeatures = [
@@ -24,41 +27,24 @@ const PricingSlider = () => {
   
   // Server specifications based on slider value
   const serverSpecs = {
-    ram: sliderValue,
+    ram: displayRam,
     players: 'Unlimited Players',
     cpu: 'Ryzen 5950X',
     storage: '128 GB SSD NVMe'
   };
 
   const handleSliderChange = (e) => {
-    setSliderValue(parseInt(e.target.value));
+    setRamIndex(parseInt(e.target.value));
   };
 
   // Calculate the percentage filled for the slider
   const calculateFillPercentage = () => {
-    const min = 2;
-    const max = 32;
-    return ((sliderValue - min) / (max - min)) * 100;
+    return (ramIndex / (ramValues.length - 1)) * 100;
   };
 
   const sliderFillStyle = {
-    background: `linear-gradient(to right, #ffffff  ${calculateFillPercentage()}%, rgba(255, 255, 255, 0.4) ${calculateFillPercentage()}%)`,
+    background: `linear-gradient(to right, #ffffff ${calculateFillPercentage()}%, rgba(255, 255, 255, 0.4) ${calculateFillPercentage()}%)`,
   };
-
-  // Generate labels for the slider
-  const sliderLabels = [];
-  const min = 2;
-  const max = 32;
-  const step = 2; // Assuming a step of 2 as per the input element, adjust if needed
-  for (let i = min; i <= max; i += step) {
-    // Only add labels at certain intervals to avoid clutter, e.g., every 4 or based on some logic
-    // For now, let's add labels matching the original image more closely for visual consistency
-    if ([2, 4, 6, 8, 12, 16, 32].includes(i)) { // Example: Show specific labels
-       sliderLabels.push(i);
-    }
-    // Or show all labels:
-    // sliderLabels.push(i);
-  }
 
   return (
     <div className="flex flex-col md:flex-row text-white rounded-lg overflow-hidden px-5 ">
@@ -69,10 +55,10 @@ const PricingSlider = () => {
           <div className="relative w-full">
             <input 
               type="range" 
-              min="2" 
-              max="32" 
-              step="2" 
-              value={sliderValue} 
+              min="0" 
+              max={ramValues.length - 1} 
+              step="1" 
+              value={ramIndex} 
               onChange={handleSliderChange}
               className="w-full h-2 rounded-lg appearance-none cursor-pointer bg-transparent z-10 relative"
               style={{
@@ -87,8 +73,8 @@ const PricingSlider = () => {
           </div>
           
           <div className="flex justify-between mt-4 text-sm text-gray-400 px-1">
-            {sliderLabels.map((label) => (
-              <span key={label}>{label}</span>
+            {ramValues.map((value) => (
+              <span key={value}>{value}</span>
             ))}
           </div>
         </div>
@@ -128,7 +114,7 @@ const PricingSlider = () => {
       <div className="w-full md:w-1/3 p-8 bg-gray-800 flex flex-col rounded-lg">
         <div className="flex-grow">
           <div className="flex items-baseline">
-            <span className="text-5xl font-bold">{sliderValue}</span>
+            <span className="text-5xl font-bold">{displayRam}</span>
             <span className="ml-2 text-lg">GB of RAM</span>
           </div>
           
