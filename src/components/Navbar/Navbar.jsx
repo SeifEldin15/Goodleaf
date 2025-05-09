@@ -76,7 +76,7 @@ const Navbar = () => {
     { title: 'VPS Servers', path: '/vps-servers', hasDropdown: true, dropdownType: 'vps' },
     { title: 'Dedicated Servers', path: 'https://goodleaf.cloud/dedi-server' },
     { title: 'Game Servers', path: '/game-servers', hasDropdown: true, dropdownType: 'game' },
-    { title: 'Our Partners', path: '/partners', hasDropdown: true, dropdownType: 'partners' },
+    { title: 'Our Partners', path: '/partners' },
     { title: 'Other', path: '/other' },
   ];
 
