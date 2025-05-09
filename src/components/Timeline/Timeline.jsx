@@ -194,7 +194,7 @@ const Timeline = () => {
 
       <div ref={timelineRef} className="relative min-h-[100vh] md:min-h-[120vh] flex flex-col items-center justify-between py-10 md:py-16">
         {/* Timeline container */}
-        <div className="absolute top-0 h-[92%] left-0 md:left-1/2 md:-translate-x-1/2 w-1">
+        <div className="absolute top-0 h-[92%] left-4 md:left-1/2 md:-translate-x-1/2 w-1">
           {/* Background line */}
           <div className="absolute h-full w-full bg-gray-800/30"></div>
           
@@ -220,7 +220,7 @@ const Timeline = () => {
             // Get the visibility value for this item's content (0 to 1)
             const itemVisibility = itemsVisibility[index] || 0;
             
-            // Determine if content should be on left or right side
+            // Determine if content should be on left or right side (only on desktop)
             const isLeft = index % 2 === 0;
             
             return (
@@ -231,14 +231,14 @@ const Timeline = () => {
               >
                 {/* Circle indicator - ONE per timeline item */}
                 <div 
-                  className={`timeline-circle absolute left-[-5px] md:left-1/2 md:-translate-x-1/2 h-[13px] w-[13px] md:h-[16px] md:w-[16px] rounded-full border-2 z-10 transition-all duration-0 ${
+                  className={`timeline-circle absolute left-[calc(16px-5px)] md:left-1/2 md:-translate-x-1/2 h-[13px] w-[13px] md:h-[16px] md:w-[16px] rounded-full border-2 z-10 transition-all duration-0 ${
                     isReached ? 'border-[#1E75FF] bg-[#1E75FF] shadow-[0_0_8px_rgba(30,117,255,0.6)]' : 'border-gray-600 bg-gray-900'
                   }`}
                 ></div>
                 
-                {/* Content - alternate between left and right */}
+                {/* Content - always on right for mobile, alternate for desktop */}
                 <div 
-                  className={`w-full md:w-5/12 p-2 md:p-5 ml-7 md:ml-0 ${
+                  className={`w-[calc(100%-40px)] md:w-5/12 p-2 md:p-5 ml-14 md:ml-0 ${
                     isLeft 
                       ? 'md:mr-auto md:text-right md:pr-8 md:items-end' 
                       : 'md:ml-auto md:pl-8 md:items-start'
@@ -246,12 +246,10 @@ const Timeline = () => {
                   style={{
                     opacity: itemVisibility,
                     transform: `translateY(${30 * (1 - itemVisibility)}px)`,
-                    marginLeft: isLeft ? '0' : 'auto',
-                    marginRight: isLeft ? 'auto' : '0',
                     filter: `blur(${8 * (1 - itemVisibility)}px)`,
                   }}
                 >
-                  <div className={`flex flex-col md:flex-row items-center mb-2 text-blue-500 text-2xl font-bold ${isLeft ? 'md:justify-end' : 'md:justify-start'}`}>
+                  <div className={`flex flex-col md:flex-row items-start md:items-center mb-2 text-blue-500 text-2xl font-bold ${isLeft ? 'md:justify-end' : 'md:justify-start'}`}>
                     <span className="mb-2 md:mb-0 md:mr-4">
                       <img 
                         src={item.icon} 
@@ -261,7 +259,7 @@ const Timeline = () => {
                     </span>
                     <h3 className="text-xl md:text-2xl">{item.title}</h3>
                   </div>
-                  <p className={`text-white/80 text-sm md:text-base ${isLeft ? 'md:text-right' : 'md:text-left'}`}>
+                  <p className={`text-white/80 text-sm md:text-base text-left ${isLeft ? 'md:text-right' : 'md:text-left'}`}>
                     {item.description}
                   </p>
                 </div>
