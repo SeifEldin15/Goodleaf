@@ -32,22 +32,35 @@ const Navbar = () => {
   };
 
   const dropdownVariants = {
-    hidden: { opacity: 0, y: -10, height: 0 },
+    hidden: { opacity: 0, y: -20, scaleY: 0, transformOrigin: "top" },
     visible: {
       opacity: 1,
       y: 0,
-      height: "auto",
+      scaleY: 1,
+      transformOrigin: "top",
       transition: {
         duration: 0.3,
+        ease: "easeOut",
         staggerChildren: 0.05
       }
     },
     exit: { 
       opacity: 0, 
-      y: -10, 
-      height: 0,
+      y: -20, 
+      scaleY: 0,
+      transformOrigin: "top",
       transition: { duration: 0.2 }
     }
+  };
+
+  const dropdownItemVariants = {
+    hidden: { opacity: 0, y: -10 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.3, ease: "easeOut" }
+    },
+    exit: { opacity: 0, y: -10 }
   };
 
   useEffect(() => {
@@ -176,8 +189,7 @@ const Navbar = () => {
                         {vpsOptions.map((option, index) => (
                           <motion.div 
                             key={index} 
-                            variants={itemVariants}
-                            className="hover:bg-[#222] rounded-md transition-colors"
+                            variants={dropdownItemVariants}
                           >
                             <Link 
                               to={option.path} 
@@ -202,7 +214,7 @@ const Navbar = () => {
                         {gameServers.map((server, index) => (
                           <motion.div 
                             key={index} 
-                            variants={itemVariants}
+                            variants={dropdownItemVariants}
                             className="flex items-center justify-between bg-[#111] hover:bg-[#222] p-4 rounded-md transition-colors"
                           >
                             <Link to="/gaming" className="flex items-center">
@@ -230,7 +242,7 @@ const Navbar = () => {
                         {partnerLinks.map((partner, index) => (
                           <motion.div 
                             key={index} 
-                            variants={itemVariants}
+                            variants={dropdownItemVariants}
                             className="hover:bg-[#222] rounded-md transition-colors"
                           >
                             <a 
@@ -324,9 +336,9 @@ const Navbar = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div 
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
+            initial={{ opacity: 0, scaleY: 0, transformOrigin: "top" }}
+            animate={{ opacity: 1, scaleY: 1, transformOrigin: "top" }}
+            exit={{ opacity: 0, scaleY: 0, transformOrigin: "top" }}
             transition={{ duration: 0.3 }}
             className="md:hidden bg-black overflow-hidden"
           >
@@ -356,9 +368,10 @@ const Navbar = () => {
                         {/* VPS Dropdown for Mobile */}
                         {item.dropdownType === 'vps' && showVpsDropdown && (
                           <motion.div 
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: "auto" }}
-                            exit={{ opacity: 0, height: 0 }}
+                            initial="hidden"
+                            animate="visible"
+                            exit="exit"
+                            variants={dropdownVariants}
                             className="pl-4 space-y-1"
                           >
                             {vpsOptions.map((option, sIndex) => (
@@ -381,9 +394,10 @@ const Navbar = () => {
                         
                         {item.dropdownType === 'game' && showGameDropdown && (
                           <motion.div 
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: "auto" }}
-                            exit={{ opacity: 0, height: 0 }}
+                            initial="hidden"
+                            animate="visible"
+                            exit="exit"
+                            variants={dropdownVariants}
                             className="pl-4 space-y-1"
                           >
                             {gameServers.map((server, sIndex) => (
@@ -410,9 +424,10 @@ const Navbar = () => {
                         
                         {item.dropdownType === 'partners' && showPartnersDropdown && (
                           <motion.div 
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: "auto" }}
-                            exit={{ opacity: 0, height: 0 }}
+                            initial="hidden"
+                            animate="visible"
+                            exit="exit"
+                            variants={dropdownVariants}
                             className="pl-4 space-y-1"
                           >
                             {partnerLinks.map((partner, sIndex) => (
