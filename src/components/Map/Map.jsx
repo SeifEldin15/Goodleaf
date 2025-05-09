@@ -161,9 +161,11 @@ const Map = () => {
               transition: { duration: 0.2 } 
             }}
           >
-            <span className="mr-2">
-              {location.country === 'US' ? '🇺🇸' : location.country === 'NL' ? '🇳🇱' : ''}
-            </span>
+            <img 
+              src={`/flags/${location.country.toLowerCase()}.svg`} 
+              alt={`${location.country === 'US' ? 'US' : 'Netherlands'} Flag`} 
+              className="w-4 h-3 mr-2"
+            />
             <span className="font-medium">{location.name}</span>
             <motion.span 
               className={`ml-2 text-xs ${getPingColor(location.latencyValue)}`}

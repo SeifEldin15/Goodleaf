@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 
 const LocationFlagsPing = () => {
   const [locations, setLocations] = useState([
-    { country: 'us', city: 'California', endpoint: 'https://ping.lax.goodleafhosting.com/ping', ping: 'Loading...', active: false },
-    { country: 'us', city: 'Texas', endpoint: 'https://ping.dal.goodleafhosting.com/ping', ping: 'Loading...', active: false },
     { country: 'us', city: 'Miami', endpoint: 'https://ping.mia.goodleafhosting.com/ping', ping: 'Loading...', active: false },
-    { country: 'us', city: 'NY', endpoint: 'https://ping.nyc.goodleafhosting.com/ping', ping: 'Loading...', active: false },
+    { country: 'us', city: 'New York', endpoint: 'https://ping.nyc.goodleafhosting.com/ping', ping: 'Loading...', active: false },
+    { country: 'us', city: 'Texas', endpoint: 'https://ping.dal.goodleafhosting.com/ping', ping: 'Loading...', active: false },
+    { country: 'us', city: 'California', endpoint: 'https://ping.lax.goodleafhosting.com/ping', ping: 'Loading...', active: false },
     { country: 'nl', city: 'Amsterdam', endpoint: 'https://ping.ams.goodleafhosting.com/ping', ping: 'Loading...', active: false },
   ]);
 
@@ -107,7 +107,7 @@ const LocationFlagsPing = () => {
             src={`/flags/${location.country}.svg`} 
             alt={`${location.country === 'us' ? 'US' : 'Netherlands'} Flag`} 
             className="w-4 h-3 mr-[3px]" 
-          /> 
+          />
           {location.city}  &nbsp; <span className={getPingColor(location.latencyValue)}>{location.ping}</span>
           <span 
             className="text-[0.6rem] ml-[3px] opacity-70 inline-block rotate-90 hover:animate-spin"
