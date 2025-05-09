@@ -8,7 +8,7 @@ const HeroPartner = () => {
           {/* Left Content - Vertically centered */}
           <div className="md:flex-1 max-w-xl">
             <h1 className="text-3xl md:text-6xl font-extrabold mb-6 text-center md:text-left mt-10 md:mt-0 lg:mt-0">
-              HOWDY <span className="text-[#0B7FE3]">PARTNER</span>
+              HOWDY <span className="text-[#0B7FE3]">Colocation</span>
             </h1>
             <p className="text-gray-300 mb-8 text-center md:text-left">
               Check out the services we offer below such as FiveM Server Hosting. We're
