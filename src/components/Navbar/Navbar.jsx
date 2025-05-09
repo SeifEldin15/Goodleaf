@@ -8,6 +8,7 @@ const Navbar = () => {
   const [hasScrolled, setHasScrolled] = useState(false);
   const [showGameDropdown, setShowGameDropdown] = useState(false);
   const [showPartnersDropdown, setShowPartnersDropdown] = useState(false);
+  const [showVpsDropdown, setShowVpsDropdown] = useState(false);
   
   // Animation variants
   const containerVariants = {
@@ -59,11 +60,17 @@ const Navbar = () => {
   }, []);
 
   const navItems = [
-    { title: 'VPS Servers', path: '/vps-servers' },
+    { title: 'VPS Servers', path: '/vps-servers', hasDropdown: true, dropdownType: 'vps' },
     { title: 'Dedicated Servers', path: 'https://goodleaf.cloud/dedi-server' },
     { title: 'Game Servers', path: '/game-servers', hasDropdown: true, dropdownType: 'game' },
     { title: 'Our Partners', path: '/partners', hasDropdown: true, dropdownType: 'partners' },
     { title: 'Other', path: '/other' },
+  ];
+
+  const vpsOptions = [
+    { title: 'Silver', path: '/silver' },
+    { title: 'Bronze', path: '/bronze' },
+    { title: 'Gold', path: '/gold' },
   ];
 
   const gameServers = [
@@ -102,7 +109,7 @@ const Navbar = () => {
   return (
     <nav 
       className={`fixed w-full transition-colors duration-300 px-4 py-6 z-[1000] ${
-        hasScrolled || isOpen || showGameDropdown || showPartnersDropdown ? 'bg-black' : 'bg-transparent'
+        hasScrolled || isOpen || showGameDropdown || showPartnersDropdown || showVpsDropdown ? 'bg-black' : 'bg-transparent'
       }`}
     >
       <Parallax translateY={[-5, 5]}>
@@ -135,10 +142,12 @@ const Navbar = () => {
                   onMouseEnter={() => {
                     if (item.dropdownType === 'game') setShowGameDropdown(true);
                     if (item.dropdownType === 'partners') setShowPartnersDropdown(true);
+                    if (item.dropdownType === 'vps') setShowVpsDropdown(true);
                   }}
                   onMouseLeave={() => {
                     if (item.dropdownType === 'game') setShowGameDropdown(false);
                     if (item.dropdownType === 'partners') setShowPartnersDropdown(false);
+                    if (item.dropdownType === 'vps') setShowVpsDropdown(false);
                   }}
                 >
                   <div className="flex items-center cursor-pointer text-gray-300 hover:text-white transition-colors text-sm">
@@ -146,8 +155,34 @@ const Navbar = () => {
                     <ChevronDownIcon />
                   </div>
                   
-                  {/* Game Servers Dropdown Menu */}
+                  {/* VPS Servers Dropdown Menu */}
                   <AnimatePresence>
+                    {item.dropdownType === 'vps' && showVpsDropdown && (
+                      <motion.div 
+                        initial="hidden"
+                        animate="visible"
+                        exit="exit"
+                        variants={dropdownVariants}
+                        className="absolute left-0 top-full mt-2 w-[200px] bg-black rounded-md shadow-lg p-2"
+                      >
+                        {vpsOptions.map((option, index) => (
+                          <motion.div 
+                            key={index} 
+                            variants={itemVariants}
+                            className="hover:bg-[#222] rounded-md transition-colors"
+                          >
+                            <Link 
+                              to={option.path} 
+                              className="block py-3 px-4 text-gray-300 hover:text-white transition-colors text-sm"
+                            >
+                              {option.title}
+                            </Link>
+                          </motion.div>
+                        ))}
+                      </motion.div>
+                    )}
+                    
+                    {/* Game Servers Dropdown Menu */}
                     {item.dropdownType === 'game' && showGameDropdown && (
                       <motion.div 
                         initial="hidden"
@@ -302,6 +337,7 @@ const Navbar = () => {
                         onClick={() => {
                           if (item.dropdownType === 'game') setShowGameDropdown(!showGameDropdown);
                           if (item.dropdownType === 'partners') setShowPartnersDropdown(!showPartnersDropdown);
+                          if (item.dropdownType === 'vps') setShowVpsDropdown(!showVpsDropdown);
                         }}
                       >
                         <span>{item.title}</span>
@@ -309,6 +345,32 @@ const Navbar = () => {
                       </div>
                       
                       <AnimatePresence>
+                        {/* VPS Dropdown for Mobile */}
+                        {item.dropdownType === 'vps' && showVpsDropdown && (
+                          <motion.div 
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            className="pl-4 space-y-1"
+                          >
+                            {vpsOptions.map((option, sIndex) => (
+                              <motion.div
+                                key={sIndex}
+                                initial={{ opacity: 0, x: -10 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: sIndex * 0.05 }}
+                              >
+                                <Link
+                                  to={option.path}
+                                  className="block py-2 px-3 text-gray-300 hover:text-white transition-colors text-sm"
+                                >
+                                  {option.title}
+                                </Link>
+                              </motion.div>
+                            ))}
+                          </motion.div>
+                        )}
+                        
                         {item.dropdownType === 'game' && showGameDropdown && (
                           <motion.div 
                             initial={{ opacity: 0, height: 0 }}
