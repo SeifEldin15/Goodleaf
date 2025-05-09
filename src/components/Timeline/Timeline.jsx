@@ -73,7 +73,7 @@ const Timeline = () => {
       const viewportHeight = window.innerHeight;
       
       // Offset in pixels to start the progress earlier
-      const startOffset = -220;
+      const startOffset = -200;
       
       let rawProgress = 0;
       
@@ -125,9 +125,10 @@ const Timeline = () => {
         // The progress bar's current height based on smoothed progress
         const progressBarCurrentHeight = smoothProgressBarHeight;
         
-        // Apply a different offset for the last circle
+        // Apply a different offset for the first and last circle
+        const isFirstCircle = index === 0;
         const isLastCircle = index === timelineItems.length - 1;
-        const circleOffset = isLastCircle ? 30 : 110; // Use 50px for last circle, 110px for others
+        const circleOffset = isFirstCircle ? 70 : isLastCircle ? 30 : 110; // Different offsets for first, last, and other circles
         
         // The circle is lit when the progress bar's bottom edge touches or passes the circle's top
         return progressBarCurrentHeight + circleOffset >= circleRelativeTop;
