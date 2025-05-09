@@ -60,7 +60,7 @@ const Navbar = () => {
 
   const navItems = [
     { title: 'VPS Servers', path: '/vps-servers' },
-    { title: 'Dedicated Servers', path: '/dedicated-servers' },
+    { title: 'Dedicated Servers', path: 'https://goodleaf.cloud/dedi-server' },
     { title: 'Game Servers', path: '/game-servers', hasDropdown: true, dropdownType: 'game' },
     { title: 'Our Partners', path: '/partners', hasDropdown: true, dropdownType: 'partners' },
     { title: 'Other', path: '/other' },
@@ -206,12 +206,23 @@ const Navbar = () => {
                 </motion.div>
               ) : (
                 <motion.div key={item.path} variants={itemVariants}>
-                  <Link
-                    to={item.path}
-                    className="text-gray-300 hover:text-white transition-colors text-sm"
-                  >
-                    {item.title}
-                  </Link>
+                  {item.path.startsWith('http') ? (
+                    <a
+                      href={item.path}
+                      className="text-gray-300 hover:text-white transition-colors text-sm"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {item.title}
+                    </a>
+                  ) : (
+                    <Link
+                      to={item.path}
+                      className="text-gray-300 hover:text-white transition-colors text-sm"
+                    >
+                      {item.title}
+                    </Link>
+                  )}
                 </motion.div>
               )
             ))}
@@ -356,12 +367,23 @@ const Navbar = () => {
                       </AnimatePresence>
                     </div>
                   ) : (
-                    <Link
-                      to={item.path}
-                      className="block px-3 py-2 text-gray-300 hover:text-white transition-colors text-sm"
-                    >
-                      {item.title}
-                    </Link>
+                    item.path.startsWith('http') ? (
+                      <a
+                        href={item.path}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block px-3 py-2 text-gray-300 hover:text-white transition-colors text-sm"
+                      >
+                        {item.title}
+                      </a>
+                    ) : (
+                      <Link
+                        to={item.path}
+                        className="block px-3 py-2 text-gray-300 hover:text-white transition-colors text-sm"
+                      >
+                        {item.title}
+                      </Link>
+                    )
                   )}
                 </motion.div>
               ))}
