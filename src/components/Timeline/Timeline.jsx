@@ -94,7 +94,7 @@ const Timeline = () => {
       const easedProgress = easeProgress(rawProgress);
       
       // Apply a smoother transition by interpolating between current and target progress
-      const smoothingFactor = 0.12; // Lower value = slower/smoother transition
+      const smoothingFactor = 0.10; // Lower value = slower/smoother transition
       const smoothedProgress = lastProgressRef.current + (easedProgress - lastProgressRef.current) * smoothingFactor;
       lastProgressRef.current = smoothedProgress;
       
@@ -125,9 +125,12 @@ const Timeline = () => {
         // The progress bar's current height based on smoothed progress
         const progressBarCurrentHeight = smoothProgressBarHeight;
         
+        // Apply a different offset for the last circle
+        const isLastCircle = index === timelineItems.length - 1;
+        const circleOffset = isLastCircle ? 30 : 110; // Use 50px for last circle, 110px for others
+        
         // The circle is lit when the progress bar's bottom edge touches or passes the circle's top
-        // Now activating 10px earlier by adding 10px to the progress bar height for this check
-        return progressBarCurrentHeight + 120 >= circleRelativeTop;
+        return progressBarCurrentHeight + circleOffset >= circleRelativeTop;
       });
       
       setCircleStates(newCircleStates);
@@ -140,8 +143,8 @@ const Timeline = () => {
         const itemTop = itemRect.top;
         
         // Calculate visibility as item enters viewport with slower transition
-        const visibilityTriggerPoint = 0.7; // Percentage of viewport height
-        const itemVisiblePosition = (viewportHeight * visibilityTriggerPoint - itemTop) / (viewportHeight * 0.3);
+        const visibilityTriggerPoint = 0.85; // Increased from 0.7 to make text appear earlier
+        const itemVisiblePosition = (viewportHeight * visibilityTriggerPoint - itemTop) / (viewportHeight * 0.4); // Widened transition window
         const rawVisibility = Math.max(0, Math.min(1, itemVisiblePosition));
         
         // Apply the same easing to item visibility to keep consistent with progress
@@ -228,7 +231,7 @@ const Timeline = () => {
               >
                 {/* Circle indicator - ONE per timeline item */}
                 <div 
-                  className={`timeline-circle absolute left-[-5px] md:left-1/2 md:-translate-x-1/2 h-[13px] w-[13px] md:h-[16px] md:w-[16px] rounded-full border-2 z-10 transition-all duration-300 ${
+                  className={`timeline-circle absolute left-[-5px] md:left-1/2 md:-translate-x-1/2 h-[13px] w-[13px] md:h-[16px] md:w-[16px] rounded-full border-2 z-10 transition-all duration-0 ${
                     isReached ? 'border-[#1E75FF] bg-[#1E75FF] shadow-[0_0_8px_rgba(30,117,255,0.6)]' : 'border-gray-600 bg-gray-900'
                   }`}
                 ></div>
@@ -245,6 +248,7 @@ const Timeline = () => {
                     transform: `translateY(${30 * (1 - itemVisibility)}px)`,
                     marginLeft: isLeft ? '0' : 'auto',
                     marginRight: isLeft ? 'auto' : '0',
+                    filter: `blur(${8 * (1 - itemVisibility)}px)`,
                   }}
                 >
                   <div className={`flex flex-col md:flex-row items-center mb-2 text-blue-500 text-2xl font-bold ${isLeft ? 'md:justify-end' : 'md:justify-start'}`}>
