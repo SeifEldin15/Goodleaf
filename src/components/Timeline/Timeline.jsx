@@ -8,6 +8,7 @@ const Timeline = () => {
   const itemRefs = useRef([]);
   const progressBarRef = useRef(null);
   const requestRef = useRef(null);
+  const lastProgressRef = useRef(0); // Store the last progress value for smoother animation
   
   const timelineItems = [
     {
@@ -48,6 +49,12 @@ const Timeline = () => {
     }
   ];
   
+  // Easing function to slow down the animation
+  const easeProgress = (progress) => {
+    // This easing function makes the animation slower while maintaining the same overall distance
+    return Math.pow(progress, 1.5); // Adjust the power (1.5) to control the slowdown amount
+  };
+  
   useEffect(() => {
     // Initialize visibility state for each item
     setItemsVisibility(new Array(timelineItems.length).fill(0));
@@ -61,76 +68,46 @@ const Timeline = () => {
       // Get timeline position data
       const rect = timeline.getBoundingClientRect();
       const timelineTop = rect.top;
+      const timelineBottom = rect.bottom;
       const timelineHeight = rect.height;
       const viewportHeight = window.innerHeight;
       
-      // Calculate how far the timeline is scrolled into view as a raw value
+      // Offset in pixels to start the progress earlier
+      const startOffset = -220;
+      
       let rawProgress = 0;
       
-      // If timeline is in view
-      if (timelineTop < viewportHeight && timelineTop + timelineHeight > 0) {
-        // Calculate base progress
-        const effectiveViewportHeight = window.innerWidth < 768 ? viewportHeight * 0.9 : viewportHeight;
-        rawProgress = (effectiveViewportHeight - timelineTop) / (effectiveViewportHeight + timelineHeight * 0.7);
+      // Start progress when timeline is 200px before entering the viewport
+      // Adjust the condition to account for the offset
+      if ((timelineTop - startOffset) < viewportHeight && timelineBottom > 0) {
+        // Calculate visible portion of timeline, accounting for the offset
+        const visibleStart = Math.max(0, viewportHeight - (timelineTop - startOffset));
         
-        // Constrain raw progress between 0 and 1
+        // Percentage of timeline that has passed the top of the viewport (with offset)
+        rawProgress = visibleStart / timelineHeight;
+        
+        // Constrain progress between 0 and 1
         rawProgress = Math.max(0, Math.min(1, rawProgress));
       }
       
-      // Calculate which checkpoint we're at or between
-      let finalProgress = 0;
+      // Apply easing to slow down the animation while maintaining the same distance
+      const easedProgress = easeProgress(rawProgress);
       
-      // Find the current and next checkpoints based on raw progress
-      if (rawProgress > 0) {
-        // Get all checkpoint positions
-        const checkpoints = timelineItems.map((_, index) => {
-          return index / (timelineItems.length - 1);
-        });
-        
-        // Find the closest checkpoint below our raw progress
-        let currentCheckpointIndex = 0;
-        for (let i = 0; i < checkpoints.length; i++) {
-          if (rawProgress >= checkpoints[i]) {
-            currentCheckpointIndex = i;
-          } else {
-            break;
-          }
-        }
-        
-        // Calculate progress between checkpoints
-        if (currentCheckpointIndex < checkpoints.length - 1) {
-          const currentCheckpoint = checkpoints[currentCheckpointIndex];
-          const nextCheckpoint = checkpoints[currentCheckpointIndex + 1];
-          const progressBetweenCheckpoints = 
-            (rawProgress - currentCheckpoint) / (nextCheckpoint - currentCheckpoint);
-          
-          // Smooth out the progression between checkpoints with easing
-          const easedProgressBetweenCheckpoints = easeInOutCubic(progressBetweenCheckpoints);
-          
-          // Calculate final progress based on current checkpoint and progress to next
-          finalProgress = currentCheckpoint + 
-            (easedProgressBetweenCheckpoints * (nextCheckpoint - currentCheckpoint));
-        } else {
-          // If at or beyond the last checkpoint
-          finalProgress = checkpoints[currentCheckpointIndex];
-          
-          // If we're beyond the last checkpoint, allow progress to continue beyond
-          if (rawProgress > checkpoints[currentCheckpointIndex]) {
-            // Calculate how much to extend beyond the last checkpoint (scale appropriately)
-            const extraProgress = (rawProgress - checkpoints[currentCheckpointIndex]) * 0.15;
-            finalProgress = Math.min(1.1, checkpoints[currentCheckpointIndex] + extraProgress);
-          }
-        }
-      }
+      // Apply a smoother transition by interpolating between current and target progress
+      const smoothingFactor = 0.12; // Lower value = slower/smoother transition
+      const smoothedProgress = lastProgressRef.current + (easedProgress - lastProgressRef.current) * smoothingFactor;
+      lastProgressRef.current = smoothedProgress;
       
       // Set the progress for the bar
-      setScrollProgress(finalProgress);
+      setScrollProgress(smoothedProgress);
       
       // Get the progress bar's actual height for accurate calculations
       const progressBarHeight = progressBarRef.current.offsetHeight;
       
+      // Derive the smooth progress bar height from the smoothed progress
+      const smoothProgressBarHeight = progressBarHeight * (smoothedProgress / rawProgress || 1);
+      
       // Check if the progress bar is touching each circle
-      // We need to measure actual DOM elements for pixel-perfect detection
       const newCircleStates = itemRefs.current.map((itemRef, index) => {
         if (!itemRef) return false;
         
@@ -145,35 +122,35 @@ const Timeline = () => {
         // Calculate the circle's top position relative to the timeline's top
         const circleRelativeTop = circleRect.top - timelineRect.top;
         
-        // The progress bar's current height
-        const progressBarCurrentHeight = progressBarHeight;
+        // The progress bar's current height based on smoothed progress
+        const progressBarCurrentHeight = smoothProgressBarHeight;
         
         // The circle is lit when the progress bar's bottom edge touches or passes the circle's top
-        return progressBarCurrentHeight >= circleRelativeTop;
+        // Now activating 10px earlier by adding 10px to the progress bar height for this check
+        return progressBarCurrentHeight + 120 >= circleRelativeTop;
       });
       
       setCircleStates(newCircleStates);
       
-      // Calculate visibility for each timeline item
+      // Calculate visibility for each timeline item - adjust for smoother animation
       const newItemsVisibility = itemRefs.current.map((itemRef, index) => {
         if (!itemRef) return 0;
         
         const itemRect = itemRef.getBoundingClientRect();
         const itemTop = itemRect.top;
         
-        // Calculate visibility as item enters viewport
+        // Calculate visibility as item enters viewport with slower transition
         const visibilityTriggerPoint = 0.7; // Percentage of viewport height
         const itemVisiblePosition = (viewportHeight * visibilityTriggerPoint - itemTop) / (viewportHeight * 0.3);
+        const rawVisibility = Math.max(0, Math.min(1, itemVisiblePosition));
         
-        return Math.max(0, Math.min(1, itemVisiblePosition));
+        // Apply the same easing to item visibility to keep consistent with progress
+        const smoothVisibility = easeProgress(rawVisibility);
+        
+        return smoothVisibility;
       });
       
       setItemsVisibility(newItemsVisibility);
-    };
-
-    // Easing functions for smoother animations
-    const easeInOutCubic = (x) => {
-      return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
     };
     
     // Smoothly update with requestAnimationFrame
@@ -221,10 +198,12 @@ const Timeline = () => {
           {/* Progress line */}
           <div 
             ref={progressBarRef}
-            className="absolute top-0 w-full transition-all duration-500 ease-out overflow-visible" 
+            className="absolute top-0 w-full transition-none overflow-visible" 
             style={{ 
               height: `${scrollProgress * 100}%`,
-              background: 'linear-gradient(to bottom, transparent, #1E75FF 15%, #1E75FF 85%, transparent)'
+              background: '#1E75FF',
+              width: '4px',
+              left: '-1.5px'
             }}
           ></div>
         </div>
