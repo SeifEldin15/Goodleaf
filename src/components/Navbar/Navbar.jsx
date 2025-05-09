@@ -7,6 +7,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
   const [showGameDropdown, setShowGameDropdown] = useState(false);
+  const [showPartnersDropdown, setShowPartnersDropdown] = useState(false);
   
   // Animation variants
   const containerVariants = {
@@ -60,8 +61,8 @@ const Navbar = () => {
   const navItems = [
     { title: 'VPS Servers', path: '/vps-servers' },
     { title: 'Dedicated Servers', path: '/dedicated-servers' },
-    { title: 'Game Servers', path: '/game-servers', hasDropdown: true },
-    { title: 'Our Partners', path: '/partners' },
+    { title: 'Game Servers', path: '/game-servers', hasDropdown: true, dropdownType: 'game' },
+    { title: 'Our Partners', path: '/partners', hasDropdown: true, dropdownType: 'partners' },
     { title: 'Other', path: '/other' },
   ];
 
@@ -70,6 +71,15 @@ const Navbar = () => {
     { title: 'Mine Craft', price: '99.9$', icon: '/creeper.png' },
     { title: 'Mine Craft', price: '99.9$', icon: '/creeper.png' },
     { title: 'Mine Craft', price: '99.9$', icon: '/creeper.png ' },
+  ];
+
+  const partnerLinks = [
+    { title: 'Badd Blood Customs', url: 'https://www.baddbloodcustoms.com/#/', icon: '/partner-icons/badd-blood.png' },
+    { title: 'Community Development (cDev)', url: 'https://discord.com/oauth2/authorize?response_type=code&client_id=1266077438396338197&state=RAb__dmpA7lezjXsRnysvf7X3Xwl9eRvf5Uul_QaeDs&scope=identify+email&redirect_uri=https%3A%2F%2Fapi.cdev.bot%2Fapi%2Fauth%2Fsign-in%2Fcallback', icon: '/partner-icons/cdev.png' },
+    { title: 'Deltarix Scripts', url: 'https://deltarix-scripts.tebex.io/', icon: '/partner-icons/deltarix.png' },
+    { title: 'Rep Scripts', url: 'https://rep.tebex.io/', icon: '/partner-icons/rep.png' },
+    { title: 'Quasar Store', url: 'https://www.quasar-store.com/', icon: '/partner-icons/quasar.png' },
+    { title: 'Apex Studios', url: 'https://fivem.apx-studios.com/', icon: '/partner-icons/apex.png' },
   ];
 
   const ChevronDownIcon = () => (
@@ -92,7 +102,7 @@ const Navbar = () => {
   return (
     <nav 
       className={`fixed w-full transition-colors duration-300 px-4 py-6 z-[1000] ${
-        hasScrolled || isOpen || showGameDropdown ? 'bg-black' : 'bg-transparent'
+        hasScrolled || isOpen || showGameDropdown || showPartnersDropdown ? 'bg-black' : 'bg-transparent'
       }`}
     >
       <Parallax translateY={[-5, 5]}>
@@ -122,17 +132,23 @@ const Navbar = () => {
                   key={item.path}
                   variants={itemVariants}
                   className="relative group"
-                  onMouseEnter={() => setShowGameDropdown(true)}
-                  onMouseLeave={() => setShowGameDropdown(false)}
+                  onMouseEnter={() => {
+                    if (item.dropdownType === 'game') setShowGameDropdown(true);
+                    if (item.dropdownType === 'partners') setShowPartnersDropdown(true);
+                  }}
+                  onMouseLeave={() => {
+                    if (item.dropdownType === 'game') setShowGameDropdown(false);
+                    if (item.dropdownType === 'partners') setShowPartnersDropdown(false);
+                  }}
                 >
                   <div className="flex items-center cursor-pointer text-gray-300 hover:text-white transition-colors text-sm">
                     {item.title}
                     <ChevronDownIcon />
                   </div>
                   
-                  {/* Dropdown Menu */}
+                  {/* Game Servers Dropdown Menu */}
                   <AnimatePresence>
-                    {showGameDropdown && (
+                    {item.dropdownType === 'game' && showGameDropdown && (
                       <motion.div 
                         initial="hidden"
                         animate="visible"
@@ -154,6 +170,34 @@ const Navbar = () => {
                               </div>
                             </div>
                             <ChevronDownIcon />
+                          </motion.div>
+                        ))}
+                      </motion.div>
+                    )}
+                    
+                    {/* Partners Dropdown Menu */}
+                    {item.dropdownType === 'partners' && showPartnersDropdown && (
+                      <motion.div 
+                        initial="hidden"
+                        animate="visible"
+                        exit="exit"
+                        variants={dropdownVariants}
+                        className="absolute left-0 top-full mt-2 w-[250px] bg-black rounded-md shadow-lg p-2"
+                      >
+                        {partnerLinks.map((partner, index) => (
+                          <motion.div 
+                            key={index} 
+                            variants={itemVariants}
+                            className="hover:bg-[#222] rounded-md transition-colors"
+                          >
+                            <a 
+                              href={partner.url} 
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                              className="block py-3 px-4 text-gray-300 hover:text-white transition-colors text-sm"
+                            >
+                              {partner.title}
+                            </a>
                           </motion.div>
                         ))}
                       </motion.div>
@@ -244,14 +288,17 @@ const Navbar = () => {
                     <div>
                       <div 
                         className="flex items-center justify-between px-3 py-2 text-gray-300 hover:text-white transition-colors text-sm"
-                        onClick={() => setShowGameDropdown(!showGameDropdown)}
+                        onClick={() => {
+                          if (item.dropdownType === 'game') setShowGameDropdown(!showGameDropdown);
+                          if (item.dropdownType === 'partners') setShowPartnersDropdown(!showPartnersDropdown);
+                        }}
                       >
                         <span>{item.title}</span>
                         <ChevronDownIcon />
                       </div>
                       
                       <AnimatePresence>
-                        {showGameDropdown && (
+                        {item.dropdownType === 'game' && showGameDropdown && (
                           <motion.div 
                             initial={{ opacity: 0, height: 0 }}
                             animate={{ opacity: 1, height: "auto" }}
@@ -275,6 +322,33 @@ const Navbar = () => {
                                     <p className="text-xs text-gray-400">From {server.price}/month</p>
                                   </div>
                                 </Link>
+                              </motion.div>
+                            ))}
+                          </motion.div>
+                        )}
+                        
+                        {item.dropdownType === 'partners' && showPartnersDropdown && (
+                          <motion.div 
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            className="pl-4 space-y-1"
+                          >
+                            {partnerLinks.map((partner, sIndex) => (
+                              <motion.div
+                                key={sIndex}
+                                initial={{ opacity: 0, x: -10 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: sIndex * 0.05 }}
+                              >
+                                <a
+                                  href={partner.url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="block py-2 px-3 text-gray-300 hover:text-white transition-colors text-sm"
+                                >
+                                  {partner.title}
+                                </a>
                               </motion.div>
                             ))}
                           </motion.div>
