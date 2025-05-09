@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Parallax } from 'react-scroll-parallax';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -9,7 +9,13 @@ const Navbar = () => {
   const [showGameDropdown, setShowGameDropdown] = useState(false);
   const [showPartnersDropdown, setShowPartnersDropdown] = useState(false);
   const [showVpsDropdown, setShowVpsDropdown] = useState(false);
+  const location = useLocation();
   
+  // Scroll to top on route change
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -102,12 +108,12 @@ const Navbar = () => {
   ];
 
   const partnerLinks = [
-    { title: 'Badd Blood Customs', url: 'https://www.baddbloodcustoms.com/#/', icon: '/partner-icons/badd-blood.png' },
-    { title: 'Community Development (cDev)', url: 'https://discord.com/oauth2/authorize?response_type=code&client_id=1266077438396338197&state=RAb__dmpA7lezjXsRnysvf7X3Xwl9eRvf5Uul_QaeDs&scope=identify+email&redirect_uri=https%3A%2F%2Fapi.cdev.bot%2Fapi%2Fauth%2Fsign-in%2Fcallback', icon: '/partner-icons/cdev.png' },
-    { title: 'Deltarix Scripts', url: 'https://deltarix-scripts.tebex.io/', icon: '/partner-icons/deltarix.png' },
-    { title: 'Rep Scripts', url: 'https://rep.tebex.io/', icon: '/partner-icons/rep.png' },
-    { title: 'Quasar Store', url: 'https://www.quasar-store.com/', icon: '/partner-icons/quasar.png' },
-    { title: 'Apex Studios', url: 'https://fivem.apx-studios.com/', icon: '/partner-icons/apex.png' },
+    { title: 'Badd Blood Customs', url: 'https://www.baddbloodcustoms.com/#/', icon: '/Colocation-icons/badd-blood.png' },
+    { title: 'Community Development (cDev)', url: 'https://discord.com/oauth2/authorize?response_type=code&client_id=1266077438396338197&state=RAb__dmpA7lezjXsRnysvf7X3Xwl9eRvf5Uul_QaeDs&scope=identify+email&redirect_uri=https%3A%2F%2Fapi.cdev.bot%2Fapi%2Fauth%2Fsign-in%2Fcallback', icon: '/Colocation-icons/cdev.png' },
+    { title: 'Deltarix Scripts', url: 'https://deltarix-scripts.tebex.io/', icon: '/Colocation-icons/deltarix.png' },
+    { title: 'Rep Scripts', url: 'https://rep.tebex.io/', icon: '/Colocation-icons/rep.png' },
+    { title: 'Quasar Store', url: 'https://www.quasar-store.com/', icon: '/Colocation-icons/quasar.png' },
+    { title: 'Apex Studios', url: 'https://fivem.apx-studios.com/', icon: '/Colocation-icons/apex.png' },
   ];
 
   const ChevronDownIcon = () => (
@@ -126,6 +132,11 @@ const Navbar = () => {
       ></path>
     </svg>
   );
+
+  // Helper function for internal navigation with scroll to top
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
 
   return (
     <nav 
@@ -194,6 +205,7 @@ const Navbar = () => {
                             <Link 
                               to={option.path} 
                               className="block py-3 px-4 text-gray-300 hover:text-white transition-colors text-sm"
+                              onClick={scrollToTop}
                             >
                               {option.title}
                             </Link>
@@ -217,7 +229,7 @@ const Navbar = () => {
                             variants={dropdownItemVariants}
                             className="flex items-center justify-between bg-[#111] hover:bg-[#222] p-4 rounded-md transition-colors"
                           >
-                            <Link to="/gaming" className="flex items-center">
+                            <Link to="/gaming" className="flex items-center" onClick={scrollToTop}>
                               <img src={server.icon} alt={server.title} className="h-10 w-10 rounded-md mr-3" />
                               <div>
                                 <p className="text-white">{server.title}</p>
@@ -239,19 +251,20 @@ const Navbar = () => {
                         variants={dropdownVariants}
                         className="absolute left-0 top-full mt-2 w-[250px] bg-black rounded-md shadow-lg p-2"
                       >
-                        {partnerLinks.map((partner, index) => (
+                        {partnerLinks.map((Colocation, index) => (
                           <motion.div 
                             key={index} 
                             variants={dropdownItemVariants}
                             className="hover:bg-[#222] rounded-md transition-colors"
                           >
                             <a 
-                              href={partner.url} 
+                              href={Colocation.url} 
                               target="_blank" 
                               rel="noopener noreferrer"
                               className="block py-3 px-4 text-gray-300 hover:text-white transition-colors text-sm"
+                              onClick={scrollToTop}
                             >
-                              {partner.title}
+                              {Colocation.title}
                             </a>
                           </motion.div>
                         ))}
@@ -274,6 +287,7 @@ const Navbar = () => {
                     <Link
                       to={item.path}
                       className="text-gray-300 hover:text-white transition-colors text-sm"
+                      onClick={scrollToTop}
                     >
                       {item.title}
                     </Link>
@@ -292,6 +306,7 @@ const Navbar = () => {
               <Link
                 to="/get-started"
                 className="bg-primary-gradient text-white px-6 py-2 rounded-full font-medium hover:opacity-90 transition-opacity text-sm"
+                onClick={scrollToTop}
               >
                 Get Started
               </Link>
@@ -301,6 +316,7 @@ const Navbar = () => {
               <Link
                 to="/login"
                 className="bg-secondary-gradient text-white px-6 py-2 rounded-full font-medium hover:opacity-90 transition-opacity text-sm"
+                onClick={scrollToTop}
               >
                 Log in
               </Link>
@@ -384,6 +400,7 @@ const Navbar = () => {
                                 <Link
                                   to={option.path}
                                   className="block py-2 px-3 text-gray-300 hover:text-white transition-colors text-sm"
+                                  onClick={scrollToTop}
                                 >
                                   {option.title}
                                 </Link>
@@ -410,6 +427,7 @@ const Navbar = () => {
                                 <Link
                                   to="/gaming"
                                   className="flex items-center px-3 py-2 text-gray-300 hover:text-white transition-colors text-sm"
+                                  onClick={scrollToTop}
                                 >
                                   <img src={server.icon} alt={server.title} className="h-8 w-8 rounded-md mr-2" />
                                   <div>
@@ -430,7 +448,7 @@ const Navbar = () => {
                             variants={dropdownVariants}
                             className="pl-4 space-y-1"
                           >
-                            {partnerLinks.map((partner, sIndex) => (
+                            {partnerLinks.map((Colocation, sIndex) => (
                               <motion.div
                                 key={sIndex}
                                 initial={{ opacity: 0, x: -10 }}
@@ -438,12 +456,13 @@ const Navbar = () => {
                                 transition={{ delay: sIndex * 0.05 }}
                               >
                                 <a
-                                  href={partner.url}
+                                  href={Colocation.url}
                                   target="_blank"
                                   rel="noopener noreferrer"
                                   className="block py-2 px-3 text-gray-300 hover:text-white transition-colors text-sm"
+                                  onClick={scrollToTop}
                                 >
-                                  {partner.title}
+                                  {Colocation.title}
                                 </a>
                               </motion.div>
                             ))}
@@ -458,6 +477,7 @@ const Navbar = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="block px-3 py-2 text-gray-300 hover:text-white transition-colors text-sm"
+                        onClick={scrollToTop}
                       >
                         {item.title}
                       </a>
@@ -465,6 +485,7 @@ const Navbar = () => {
                       <Link
                         to={item.path}
                         className="block px-3 py-2 text-gray-300 hover:text-white transition-colors text-sm"
+                        onClick={scrollToTop}
                       >
                         {item.title}
                       </Link>
@@ -481,6 +502,7 @@ const Navbar = () => {
                 <Link
                   to="/get-started"
                   className="block px-3 py-2 bg-primary-gradient text-white rounded-full font-medium hover:opacity-90 transition-opacity text-center mx-2 text-sm"
+                  onClick={scrollToTop}
                 >
                   Get Started
                 </Link>
@@ -494,6 +516,7 @@ const Navbar = () => {
                 <Link
                   to="/login"
                   className="block px-3 py-2 bg-secondary-gradient text-white rounded-full font-medium hover:opacity-90 transition-opacity text-center mx-2 mt-2 text-sm"
+                  onClick={scrollToTop}
                 >
                   Log in
                 </Link>
