@@ -74,10 +74,18 @@ const Navbar = () => {
   ];
 
   const gameServers = [
-    { title: 'Mine Craft', price: '99.9$', icon: '/creeper.png' },
-    { title: 'Mine Craft', price: '99.9$', icon: '/creeper.png' },
-    { title: 'Mine Craft', price: '99.9$', icon: '/creeper.png' },
-    { title: 'Mine Craft', price: '99.9$', icon: '/creeper.png ' },
+    { title: 'Minecraft', price: 'From $9.99', icon: '/game-images/mc.png' },
+    { title: '7 Days to Die', price: 'From $14.99', icon: '/game-images/7dtd.png' },
+    { title: 'ARK: Survival Evolved', price: 'From $19.99', icon: '/game-images/ark.png' },
+    { title: 'ARK: Survival Ascended', price: 'From $24.99', icon: '/game-images/ark-sa.png' },
+    { title: 'Arma 3', price: 'From $16.99', icon: '/game-images/arma.png' },
+    { title: 'Counter-Strike 2', price: 'From $12.99', icon: '/game-images/cs2.png' },
+    { title: 'DayZ', price: 'From $19.99', icon: '/game-images/dayz.png' },
+    { title: 'FiveM', price: 'From $14.99', icon: '/game-images/fivem.png' },
+    { title: 'Garry\'s Mod', price: 'From $9.99', icon: '/game-images/gmod.png' },
+    { title: 'Palworld', price: 'From $19.99', icon: '/game-images/palworld.png' },
+    { title: 'Rust', price: 'From $24.99', icon: '/game-images/rust.png' },
+    { title: 'Unturned', price: 'From $8.99', icon: '/game-images/unturned.png' },
   ];
 
   const partnerLinks = [
@@ -197,13 +205,13 @@ const Navbar = () => {
                             variants={itemVariants}
                             className="flex items-center justify-between bg-[#111] hover:bg-[#222] p-4 rounded-md transition-colors"
                           >
-                            <div className="flex items-center">
+                            <Link to="/gaming" className="flex items-center">
                               <img src={server.icon} alt={server.title} className="h-10 w-10 rounded-md mr-3" />
                               <div>
                                 <p className="text-white">{server.title}</p>
-                                <p className="text-gray-400 text-sm">Starting from {server.price} per month</p>
+                                <p className="text-gray-400 text-sm">{server.price}</p>
                               </div>
-                            </div>
+                            </Link>
                             <ChevronDownIcon />
                           </motion.div>
                         ))}
@@ -386,13 +394,13 @@ const Navbar = () => {
                                 transition={{ delay: sIndex * 0.05 }}
                               >
                                 <Link
-                                  to={`/game-servers/${server.title.toLowerCase().replace(/\s+/g, '-')}`}
+                                  to="/gaming"
                                   className="flex items-center px-3 py-2 text-gray-300 hover:text-white transition-colors text-sm"
                                 >
                                   <img src={server.icon} alt={server.title} className="h-8 w-8 rounded-md mr-2" />
                                   <div>
                                     <p>{server.title}</p>
-                                    <p className="text-xs text-gray-400">From {server.price}/month</p>
+                                    <p className="text-xs text-gray-400">{server.price}</p>
                                   </div>
                                 </Link>
                               </motion.div>
