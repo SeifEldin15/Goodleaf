@@ -7,6 +7,7 @@ import Gold from './pages/Gold'
 import Silver from './pages/Silver'
 import Gaming from './pages/Gaming'
 import Partner from './pages/Partner'
+import Partners from './pages/partners'
 function App() {
   return (
     <ParallaxProvider>
@@ -18,6 +19,7 @@ function App() {
         <Route path="/silver" element={<Silver />} />
         <Route path="/gaming" element={<Gaming />} />
         <Route path="/partner" element={<Partner />} />
+        <Route path="/partners" element={<Partners />} />
       </Routes>
     </ParallaxProvider>
   )
