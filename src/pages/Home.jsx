@@ -149,7 +149,7 @@ function Home() {
       <div className='container mx-auto max-w-[95%] md:max-w-[85%] lg:max-w-[85%] px-4'>
         <div className="relative">
           <div className="absolute -left-[6%] top-[50px] z-0">
-            <img src="/blue-ball.png" alt="Blue ball" className="w-96 h-96 opacity-90" />
+            <img src="/blue-ball.webp" alt="Blue ball" className="w-96 h-96 opacity-90" />
           </div>
           <Pricing plans={plans} />
         </div>
@@ -157,13 +157,13 @@ function Home() {
         <div className='mt-[100px] flex justify-center mx-auto max-w-[95%] md:max-w-[85%] lg:max-w-[85%] px-4'>
           <div className="relative">
             <div className="absolute -right-[30%] top-[100px] z-0">
-              <img src="/purple-ball.png" alt="Purple ball" className="w-96 h-96" />
+              <img src="/purple-ball.webp" alt="Purple ball" className="w-96 h-96" />
             </div>
             <div className="absolute -left-[30%] top-[600px] z-0">
-              <img src="/blue-ball.png" alt="Blue ball" className="w-96 h-96 opacity-90" />
+              <img src="/blue-ball.webp" alt="Blue ball" className="w-96 h-96 opacity-90" />
             </div>
             <div className="absolute -right-[30%] top-[1100px] z-0">
-              <img src="/blue-ball.png" alt="Blue ball" className="w-96 h-96 opacity-90" />
+              <img src="/blue-ball.webp" alt="Blue ball" className="w-96 h-96 opacity-90" />
             </div>
         
             <Timeline />
@@ -173,7 +173,7 @@ function Home() {
         <div className='mt-[50px] mx-auto max-w-[95%] px-4'>
           <div className="relative">
             <div className="absolute -left-[12%] top-[50px] z-0">
-              <img src="/blue-ball.png" alt="Blue ball" className="w-96 h-96 opacity-90" />
+              <img src="/blue-ball.webp" alt="Blue ball" className="w-96 h-96 opacity-90" />
             </div>
             <Table />
           </div>
@@ -182,7 +182,7 @@ function Home() {
         <div className='mt-[100px] mx-auto max-w-[95%] px-4'>
           <div className="relative">
             <div className="absolute -right-[11%] top-[50px] z-0">
-              <img src="/purple-ball.png" alt="Purple ball" className="w-96 h-96" />
+              <img src="/purple-ball.webp" alt="Purple ball" className="w-96 h-96" />
             </div>
             <Graph />
           </div>
@@ -190,7 +190,7 @@ function Home() {
 
         <div className="relative">
           <div className="absolute -left-[6%] top-[-60px] z-0">
-            <img src="/blue-ball.png" alt="Blue ball" className="w-96 h-96 opacity-90" />
+            <img src="/blue-ball.webp" alt="Blue ball" className="w-96 h-96 opacity-90" />
           </div>
           <Refrences />
         </div>
@@ -198,7 +198,7 @@ function Home() {
 
       <div className="relative">
         <div className="absolute -right-[0%] top-[10px] z-0">
-          <img src="/purple-ball.png" alt="Purple ball" className="w-96 h-96" />
+          <img src="/purple-ball.webp" alt="Purple ball" className="w-96 h-96" />
         </div>
         <ReviewSlider />
       </div>
@@ -206,7 +206,7 @@ function Home() {
       <div className='container mx-auto max-w-[95%] md:max-w-[85%] lg:max-w-[85%] px-4'>
         <div className="relative">
           <div className="absolute -left-[9%] top-[50px] z-0">
-            <img src="/blue-ball.png" alt="Blue ball" className="w-96 h-96 opacity-90" />
+            <img src="/blue-ball.webp" alt="Blue ball" className="w-96 h-96 opacity-90" />
           </div>
           <FAQ categories={faqCategories} faqData={faqData} />
         </div>
@@ -214,7 +214,7 @@ function Home() {
 
       <div className="relative">
         <div className="absolute -right-[0%] top-[50px] z-0">
-          <img src="/purple-ball.png" alt="Purple ball" className="w-96 h-96" />
+          <img src="/purple-ball.webp" alt="Purple ball" className="w-96 h-96" />
         </div>
         <Map />
       </div>
