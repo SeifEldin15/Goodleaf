@@ -44,7 +44,7 @@ function Gaming() {
       <Navbar />
       <GamingHero />
       <div className="relative">
-        <div className="absolute -left-[6%] top-[50px] z-0">
+        <div className="absolute -left-[35%] md:-left-[12%] lg:-left-[16%] top-[50px] z-0">
           <img src="/blue-ball.webp" alt="Blue ball" className="w-96 h-96 opacity-90" />
         </div>
         <ReviewSlider />
@@ -64,13 +64,13 @@ function Gaming() {
           </h2>
         </div>
         <div className="relative">
-          <div className="absolute -right-[30%] top-[100px] z-0">
+          <div className="absolute -right-[30%] md:-right-[40%] lg:-right-[45%] top-[100px] z-0">
             <img src="/purple-ball.webp" alt="Purple ball" className="w-96 h-96" />
           </div>
           <PricingSlider />
         </div>
         <div className="relative">
-          <div className="absolute -left-[6%] top-[50px] z-0">
+          <div className="absolute -left-[35%] md:-left-[12%] lg:-left-[16%] top-[50px] z-0">
             <img src="/blue-ball.webp" alt="Blue ball" className="w-96 h-96 opacity-90" />
           </div>
           <FAQ categories={faqCategories} faqData={faqData} />

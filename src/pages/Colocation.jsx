@@ -19,7 +19,7 @@ const Partner = () => {
       </div> 
 
       <div className="max-w-[85%] mx-auto relative">
-        <div className="absolute -left-[6%] top-[50px] z-0">
+        <div className="absolute -left-[35%] md:-left-[12%] lg:-left-[16%] top-[50px] z-0">
           <img src="/blue-ball.webp" alt="Blue ball" className="w-96 h-96 opacity-90" />
         </div>
         <PartnerServices />
@@ -32,7 +32,7 @@ const Partner = () => {
         <div className="h-[1px] w-[300px] bg-[#007BFF]"></div>
       </div> 
       <div className="max-w-[85%] mx-auto relative">
-        <div className="absolute -right-[30%] top-[100px] z-0">
+        <div className="absolute -right-[30%] md:-right-[40%] lg:-right-[45%] top-[100px] z-0">
           <img src="/purple-ball.webp" alt="Purple ball" className="w-96 h-96" />
         </div>
         <Pricing2 />
@@ -47,7 +47,7 @@ const Partner = () => {
       </div> 
       {/* Hardware Migration Section */}
       <div className="py-8 md:py-16 px-4 md:px-10 flex flex-col md:flex-row justify-between items-center gap-8 md:gap-16 max-w-[95%] md:max-w-[90%] mx-auto relative">
-        <div className="absolute -left-[6%] top-[50px] z-0">
+        <div className="absolute -left-[35%] md:-left-[12%] lg:-left-[16%] top-[50px] z-0">
           <img src="/blue-ball.webp" alt="Blue ball" className="w-96 h-96 opacity-90" />
         </div>
         <div className="w-full md:w-5/12">

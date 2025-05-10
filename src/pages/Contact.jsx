@@ -17,7 +17,7 @@ function Contact() {
           </p>
           
           <div className="relative">
-            <div className="absolute -left-[6%] top-[50px] z-0">
+            <div className="absolute -left-[6%] md:-left-[12%] lg:-left-[16%] top-[50px] z-0">
               <img src="/blue-ball.webp" alt="Blue ball" className="w-96 h-96 opacity-90" />
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-5xl mx-auto">
@@ -48,7 +48,7 @@ function Contact() {
                 <p className="text-lg">Join our Discord</p>
               </div>
             </div>
-            <div className="absolute -right-[30%] top-[100px] z-0">
+            <div className="absolute -right-[30%] md:-right-[40%] lg:-right-[45%] top-[100px] z-0">
               <img src="/purple-ball.webp" alt="Purple ball" className="w-96 h-96" />
             </div>
           </div>
