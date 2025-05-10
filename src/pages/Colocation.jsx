@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from '../components/Navbar/Navbar'
-import ColocationHero from '../components/SecondaryHero/ColocationHero'
+import ColocationHero from '../components/HeroPartner/ColocationHero'
 import Footer from '../components/Footer/Footer'
 import PricingSlider from '../components/PricingSlider/PricingSlider'
 import ServerCompare from '../components/ServerCompare/ServerCompare'
