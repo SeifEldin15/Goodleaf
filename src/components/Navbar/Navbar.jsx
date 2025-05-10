@@ -9,11 +9,27 @@ const Navbar = () => {
   const [showGameDropdown, setShowGameDropdown] = useState(false);
   const [showPartnersDropdown, setShowPartnersDropdown] = useState(false);
   const [showVpsDropdown, setShowVpsDropdown] = useState(false);
+  const [showLocationDropdown, setShowLocationDropdown] = useState(false);
+  const [locationMap, setLocationMap] = useState(null);
   const location = useLocation();
   
   // Scroll to top on route change
   useEffect(() => {
     window.scrollTo(0, 0);
+  }, [location]);
+
+  // Determine which map to show based on URL
+  useEffect(() => {
+    const path = location.pathname.toLowerCase();
+    if (path.includes('texas') || path.includes('tx')) {
+      setLocationMap('/us-maps/tx.png');
+    } else if (path.includes('new-york') || path.includes('ny')) {
+      setLocationMap('/us-maps/NY.png');
+    } else if (path.includes('florida') || path.includes('fl')) {
+      setLocationMap('/us-maps/florida.png');
+    } else {
+      setLocationMap('/us-maps/us-map.png');
+    }
   }, [location]);
 
   // Animation variants
@@ -83,6 +99,7 @@ const Navbar = () => {
     { title: 'Dedicated Servers', path: 'https://goodleaf.cloud/dedi-server' },
     { title: 'Game Servers', path: '/game-servers', hasDropdown: true, dropdownType: 'game' },
     { title: 'Our Partners', path: '/partners' },
+    { title: 'Locations', path: '/locations', hasDropdown: true, dropdownType: 'location' },
     { title: 'Other', path: '/other' },
   ];
 
@@ -116,6 +133,12 @@ const Navbar = () => {
     { title: 'Apex Studios', url: 'https://fivem.apx-studios.com/', icon: '/Colocation-icons/apex.png' },
   ];
 
+  const locationOptions = [
+    { title: 'Texas', path: '/colocation?location=texas', icon: '/us-maps/tx.png' },
+    { title: 'New York', path: '/colocation?location=new-york', icon: '/us-maps/NY.png' },
+    { title: 'Florida', path: '/colocation?location=florida', icon: '/us-maps/florida.png' },
+  ];
+
   const ChevronDownIcon = () => (
     <svg
       className="h-4 w-4 ml-1"
@@ -141,7 +164,7 @@ const Navbar = () => {
   return (
     <nav 
       className={`fixed w-full transition-colors duration-300 px-4 py-6 z-[1000] ${
-        hasScrolled || isOpen || showGameDropdown || showPartnersDropdown || showVpsDropdown ? 'bg-black' : 'bg-transparent'
+        hasScrolled || isOpen || showGameDropdown || showPartnersDropdown || showVpsDropdown || showLocationDropdown ? 'bg-black' : 'bg-transparent'
       }`}
     >
       <Parallax translateY={[-5, 5]}>
@@ -151,13 +174,24 @@ const Navbar = () => {
           animate="visible"
           variants={containerVariants}
         >
-          {/* Logo */}
+          {/* Logo with Location Map */}
           <motion.div
             variants={itemVariants}
+            className="flex items-center space-x-4"
           >
             <Link to="/" className="flex items-center">
               <img src="/logo.png" alt="GoodLeaf" className="h-8" />
             </Link>
+            {locationMap && (
+              <motion.img
+                src={locationMap}
+                alt="Location Map"
+                className="h-8 rounded-md"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3 }}
+              />
+            )}
           </motion.div>
 
           {/* Desktop Navigation */}
@@ -175,11 +209,13 @@ const Navbar = () => {
                     if (item.dropdownType === 'game') setShowGameDropdown(true);
                     if (item.dropdownType === 'partners') setShowPartnersDropdown(true);
                     if (item.dropdownType === 'vps') setShowVpsDropdown(true);
+                    if (item.dropdownType === 'location') setShowLocationDropdown(true);
                   }}
                   onMouseLeave={() => {
                     if (item.dropdownType === 'game') setShowGameDropdown(false);
                     if (item.dropdownType === 'partners') setShowPartnersDropdown(false);
                     if (item.dropdownType === 'vps') setShowVpsDropdown(false);
+                    if (item.dropdownType === 'location') setShowLocationDropdown(false);
                   }}
                 >
                   <div className="flex items-center cursor-pointer text-gray-300 hover:text-white transition-colors text-sm">
@@ -187,8 +223,36 @@ const Navbar = () => {
                     <ChevronDownIcon />
                   </div>
                   
-                  {/* VPS Servers Dropdown Menu */}
+                  {/* Location Dropdown Menu */}
                   <AnimatePresence>
+                    {item.dropdownType === 'location' && showLocationDropdown && (
+                      <motion.div 
+                        initial="hidden"
+                        animate="visible"
+                        exit="exit"
+                        variants={dropdownVariants}
+                        className="absolute left-0 top-full mt-2 w-[250px] bg-black rounded-md shadow-lg p-2"
+                      >
+                        {locationOptions.map((option, index) => (
+                          <motion.div 
+                            key={index} 
+                            variants={dropdownItemVariants}
+                            className="hover:bg-[#222] rounded-md transition-colors"
+                          >
+                            <Link 
+                              to={option.path} 
+                              className="flex items-center py-3 px-4 text-gray-300 hover:text-white transition-colors text-sm"
+                              onClick={scrollToTop}
+                            >
+                              <img src={option.icon} alt={option.title} className="h-6 w-6 rounded-md mr-3" />
+                              {option.title}
+                            </Link>
+                          </motion.div>
+                        ))}
+                      </motion.div>
+                    )}
+                    
+                    {/* VPS Servers Dropdown Menu */}
                     {item.dropdownType === 'vps' && showVpsDropdown && (
                       <motion.div 
                         initial="hidden"
@@ -374,6 +438,7 @@ const Navbar = () => {
                           if (item.dropdownType === 'game') setShowGameDropdown(!showGameDropdown);
                           if (item.dropdownType === 'partners') setShowPartnersDropdown(!showPartnersDropdown);
                           if (item.dropdownType === 'vps') setShowVpsDropdown(!showVpsDropdown);
+                          if (item.dropdownType === 'location') setShowLocationDropdown(!showLocationDropdown);
                         }}
                       >
                         <span>{item.title}</span>
@@ -381,6 +446,35 @@ const Navbar = () => {
                       </div>
                       
                       <AnimatePresence>
+                        {/* Location Dropdown for Mobile */}
+                        {item.dropdownType === 'location' && showLocationDropdown && (
+                          <motion.div 
+                            initial="hidden"
+                            animate="visible"
+                            exit="exit"
+                            variants={dropdownVariants}
+                            className="pl-4 space-y-1"
+                          >
+                            {locationOptions.map((option, sIndex) => (
+                              <motion.div
+                                key={sIndex}
+                                initial={{ opacity: 0, x: -10 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: sIndex * 0.05 }}
+                              >
+                                <Link
+                                  to={option.path}
+                                  className="flex items-center px-3 py-2 text-gray-300 hover:text-white transition-colors text-sm"
+                                  onClick={scrollToTop}
+                                >
+                                  <img src={option.icon} alt={option.title} className="h-6 w-6 rounded-md mr-3" />
+                                  {option.title}
+                                </Link>
+                              </motion.div>
+                            ))}
+                          </motion.div>
+                        )}
+                        
                         {/* VPS Dropdown for Mobile */}
                         {item.dropdownType === 'vps' && showVpsDropdown && (
                           <motion.div 

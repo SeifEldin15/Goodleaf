@@ -1,14 +1,42 @@
 import React from 'react'
+import { useLocation } from 'react-router-dom'
+
 const HeroPartner = () => {
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const locationParam = searchParams.get('location')?.toLowerCase();
+  
+  // Determine which map to show based on URL query parameter
+  const getMapImage = () => {
+    if (locationParam === 'texas' || locationParam === 'tx') {
+      return '/us-maps/tx.png';
+    } else if (locationParam === 'new-york' || locationParam === 'ny') {
+      return '/us-maps/NY.png';
+    } else if (locationParam === 'florida' || locationParam === 'fl') {
+      return '/us-maps/florida.png';
+    }
+    return '/us-maps/us-map.png';
+  };
+
+  const getLocationTitle = () => {
+    if (locationParam === 'texas' || locationParam === 'tx') {
+      return 'TEXAS';
+    } else if (locationParam === 'new-york' || locationParam === 'ny') {
+      return 'NEW YORK';
+    } else if (locationParam === 'florida' || locationParam === 'fl') {
+      return 'FLORIDA';
+    }
+    return 'Colocation';
+  };
+
   return (
     <div>
-        
       <div className="text-white py-16 px-2 max-w-[95%] md:max-w-[85%] lg:max-w-[85%] mx-auto w-full relative">
         <div className="container mx-auto flex flex-col md:flex-row items-center justify-between min-h-[400px] mt-4 md:mt-8 gap-6">
           {/* Left Content - Vertically centered */}
           <div className="md:flex-1 max-w-xl">
             <h1 className="text-3xl md:text-6xl font-extrabold mb-6 text-center md:text-left mt-10 md:mt-0 lg:mt-0">
-              HOWDY <span className="text-[#0B7FE3]">Colocation</span>
+              HOWDY <span className="text-[#0B7FE3]">{getLocationTitle()}</span>
             </h1>
             <p className="text-gray-300 mb-8 text-center md:text-left">
               Check out the services we offer below such as FiveM Server Hosting. We're
@@ -38,8 +66,8 @@ const HeroPartner = () => {
               
               <div className="w-full relative rounded-lg overflow-hidden z-10">
                 <img 
-                  src="/us-map.png" 
-                  alt="United States Map" 
+                  src={getMapImage()} 
+                  alt="Location Map" 
                   className="w-full object-contain h-auto max-h-[500px] relative z-10"
                 />
               </div>
