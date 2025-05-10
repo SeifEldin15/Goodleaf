@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaFacebook, FaDiscord, FaInstagram } from 'react-icons/fa';
 import { SiX } from 'react-icons/si';
+import LazyImage from '../LazyImage/LazyImage';
 
 const Footer = () => {
     return (
@@ -9,7 +10,9 @@ const Footer = () => {
             <div className="container px-4 md:px-0 mx-auto flex flex-col md:flex-row justify-between max-w-7xl">
                 <div className="flex flex-col mb-8 md:mb-4 items-center md:items-start">
                     <Link to="/">
-                        <img src="/logo.webp" alt="GoodLeaf" className="max-w-48 md:max-w-56 mb-4" />
+                        <div className="max-w-48 md:max-w-56 mb-4">
+                            <LazyImage src="/logo.webp" alt="GoodLeaf" className="w-full" />
+                        </div>
                     </Link>
                     <p className="text-sm max-w-56 text-center md:text-left text-gray-400">
                         Fast, Affordable, Game Servers<br />

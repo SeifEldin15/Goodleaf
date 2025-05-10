@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import LazyImage from '../LazyImage/LazyImage';
 
 const Map = () => {
   const [locations, setLocations] = useState([
@@ -115,14 +116,18 @@ const Map = () => {
       >
         <div className="h-[1px] w-[30%] bg-gradient-to-r from-transparent via-[#1D8FEF] to-[#1D8FEF]" />
         <div className="mx-4">
-          <motion.img 
-            className='w-6' 
-            src="/header icons/review-icon.webp" 
-            alt=""
+          <motion.div
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1, rotate: 360 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-          />
+            className="w-6"
+          >
+            <LazyImage
+              src="/header icons/review-icon.webp"
+              alt=""
+              className="w-full"
+            />
+          </motion.div>
         </div>
         <div className="h-[1px] w-[30%] bg-gradient-to-r from-[#1D8FEF] via-[#1D8FEF] to-transparent" />
       </motion.div>
@@ -161,11 +166,13 @@ const Map = () => {
               transition: { duration: 0.2 } 
             }}
           >
-            <img 
-              src={`/flags/${location.country.toLowerCase()}.svg`} 
-              alt={`${location.country === 'US' ? 'US' : 'Netherlands'} Flag`} 
-              className="w-4 h-3 mr-2"
-            />
+            <div className="w-4 h-3 mr-2">
+              <LazyImage 
+                src={`/flags/${location.country.toLowerCase()}.svg`} 
+                alt={`${location.country === 'US' ? 'US' : 'Netherlands'} Flag`} 
+                className="w-full h-full"
+              />
+            </div>
             <span className="font-medium">{location.name}</span>
             <motion.span 
               className={`ml-2 text-xs ${getPingColor(location.latencyValue)}`}
@@ -198,15 +205,18 @@ const Map = () => {
         }}
         viewport={{ once: true, amount: 0.3 }}
       >
-        <motion.img 
-          src="/map.webp" 
-          alt="World Map" 
-          className="w-full h-auto"
+        <motion.div
           initial={{ filter: "blur(5px)", opacity: 0.5 }}
           animate={{ filter: "blur(0px)", opacity: 1 }}
           transition={{ duration: 1, delay: 0.6 }}
-        />
-    
+          className="w-full h-auto"
+        >
+          <LazyImage 
+            src="/map.webp" 
+            alt="World Map" 
+            className="w-full h-auto"
+          />
+        </motion.div>
       </motion.div>
     </motion.div>
   );

@@ -9,6 +9,7 @@ import modIcon from './svg/mod-icons.svg';
 import gameServerIcon from './svg/game-server-icon.svg';
 import { Parallax } from 'react-scroll-parallax';
 import { motion } from 'framer-motion';
+import LazyImage from '../LazyImage/LazyImage';
 
 // Animation variants
 const textVariants = {
@@ -78,7 +79,7 @@ const PricingCard = ({ title, price, features = [], location, labels = [], isSel
     >
       {/* Game Image Background */}
       <div className="absolute inset-0 z-0">
-        <img 
+        <LazyImage 
           src={gameBackgrounds[title] || "/pricing.webp"} 
           alt={`${title} background`} 
           className="w-full h-full object-cover opacity-30"
@@ -100,7 +101,9 @@ const PricingCard = ({ title, price, features = [], location, labels = [], isSel
           <div className="absolute right-6 bg-[#007BFF] text-white text-xs font-medium px-3 py-0.5">
             FEATURED
           </div>
-          <img src={gameServerIcon} alt="Game Server Icon" className="mb-2 w-6 h-6 text-[#007BFF] mr-2" />
+          <div className="mb-2 w-6 h-6 text-[#007BFF] mr-2">
+            <LazyImage src={gameServerIcon} alt="Game Server Icon" className="w-full h-full" />
+          </div>
           <div className="">
             <span className="text-[#007BFF] text-[18px] font-['Rajdhani'] font-medium">GAME SERVER</span>
           </div>
@@ -175,7 +178,9 @@ const PricingCard = ({ title, price, features = [], location, labels = [], isSel
               <div key={index} className="flex items-center text-gray-300 text-base">
                 <div className={`relative mr-3.5`}>
                   <div className={`absolute inset-0 ${iconColor} opacity-20 blur-md rounded-full`}></div>
-                  <img src={iconSrc} alt={`Feature ${index + 1}`} className={`relative w-7 h-7 ${iconColor}`} />
+                  <div className={`relative w-7 h-7 ${iconColor}`}>
+                    <LazyImage src={iconSrc} alt={`Feature ${index + 1}`} className="w-full h-full" />
+                  </div>
                 </div>
                 {feature}
               </div>

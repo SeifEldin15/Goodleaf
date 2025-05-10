@@ -6,6 +6,7 @@ import debianLogo from '/osses/3.webp';
 import centosLogo from '/osses/4.webp';
 import fedoraLogo from '/osses/5.webp';
 import archLogo from '/osses/6.webp';
+import LazyImage from '../LazyImage/LazyImage';
 
 function OSes() {
   const operatingSystems = [
@@ -100,14 +101,18 @@ function OSes() {
               whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
             >
               <div className="absolute inset-0 border-[1px] border-[rgb(4,8,191)] rounded-lg"></div>
-              <motion.img 
-                src={os.logo} 
-                alt={`${os.name} logo`} 
-                className="w-12 h-12 lg:w-16 lg:h-16 mb-4 relative z-10"
+              <motion.div
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-              />
+                className="w-12 h-12 lg:w-16 lg:h-16 mb-4 relative z-10"
+              >
+                <LazyImage 
+                  src={os.logo} 
+                  alt={`${os.name} logo`} 
+                  className="w-full h-full"
+                />
+              </motion.div>
               <motion.span 
                 className={`text-gray-300 font-medium relative z-10 text-sm lg:text-base`}
                 initial={{ opacity: 0, y: 10 }}

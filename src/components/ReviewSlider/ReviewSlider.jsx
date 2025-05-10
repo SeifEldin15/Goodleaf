@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { FaStar } from 'react-icons/fa';
+import LazyImage from '../LazyImage/LazyImage';
 
 const ReviewSlider = ({ reviews = sampleReviews }) => {
   const sliderRef = useRef(null);
@@ -15,10 +16,12 @@ const ReviewSlider = ({ reviews = sampleReviews }) => {
 
   return (
     <>
-         <div className="flex items-center justify-center mb-6 max-w-2xl mx-auto mt-12">
+      <div className="flex items-center justify-center mb-6 max-w-2xl mx-auto mt-12">
         <div className="h-[1px] w-[30%] bg-gradient-to-r from-transparent via-[#1D8FEF] to-[#1D8FEF]" />
         <div className="mx-4">
-        <img className='w-6' src="/header icons/review-icon.webp" alt="" />
+          <div className="w-6">
+            <LazyImage className="w-full" src="/header icons/review-icon.webp" alt="" />
+          </div>
         </div>
         <div className="h-[1px] w-[30%] bg-gradient-to-r from-[#1D8FEF] via-[#1D8FEF] to-transparent" />
       </div>
@@ -32,70 +35,70 @@ const ReviewSlider = ({ reviews = sampleReviews }) => {
         </p>
       </div>
       
-    <div className="w-full py-8 overflow-hidden">
-      <div className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
-        <ul ref={sliderRef} className="flex items-center justify-center md:justify-start animate-infinite-scroll">
-          {reviews.map((review, index) => (
-            <li 
-              key={`review-${index}`} 
-              className="review-item flex-shrink-0 w-80 mx-4"
-            >
-              <div className="bg-gray-800 rounded-lg p-6 h-full">
-                <div className="flex flex-col items-center mb-4">
-                  <div className="w-16 h-16 rounded-full overflow-hidden mb-2">
-                    <img 
-                      src={review.image} 
-                      alt={`${review.name}'s profile`} 
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <h3 className="text-blue-400 text-lg font-medium">{review.name}</h3>
-                  <div className="flex items-center mt-1">
-                    <div className="flex text-yellow-400">
-                      {[...Array(5)].map((_, i) => (
-                        <FaStar key={i} />
-                      ))}
+      <div className="w-full py-8 overflow-hidden">
+        <div className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
+          <ul ref={sliderRef} className="flex items-center justify-center md:justify-start animate-infinite-scroll">
+            {reviews.map((review, index) => (
+              <li 
+                key={`review-${index}`} 
+                className="review-item flex-shrink-0 w-80 mx-4"
+              >
+                <div className="bg-gray-800 rounded-lg p-6 h-full">
+                  <div className="flex flex-col items-center mb-4">
+                    <div className="w-16 h-16 rounded-full overflow-hidden mb-2">
+                      <LazyImage 
+                        src={review.image} 
+                        alt={`${review.name}'s profile`} 
+                        className="w-full h-full object-cover"
+                      />
                     </div>
-                    <span className="text-white ml-2">{review.rating} Rating</span>
-                  </div>
-                </div>
-                <p className="text-gray-300 text-center">{review.text}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
-        <ul className="flex items-center justify-center md:justify-start animate-infinite-scroll">
-          {reviews.map((review, index) => (
-            <li 
-              key={`review-clone-${index}`} 
-              className="review-item flex-shrink-0 w-80 mx-4"
-            >
-              <div className="bg-gray-800 rounded-lg p-6 h-full">
-                <div className="flex flex-col items-center mb-4">
-                  <div className="w-16 h-16 rounded-full overflow-hidden mb-2">
-                    <img 
-                      src={review.image} 
-                      alt={`${review.name}'s profile`} 
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <h3 className="text-blue-400 text-lg font-medium">{review.name}</h3>
-                  <div className="flex items-center mt-1">
-                    <div className="flex text-yellow-400">
-                      {[...Array(5)].map((_, i) => (
-                        <FaStar key={i} />
-                      ))}
+                    <h3 className="text-blue-400 text-lg font-medium">{review.name}</h3>
+                    <div className="flex items-center mt-1">
+                      <div className="flex text-yellow-400">
+                        {[...Array(5)].map((_, i) => (
+                          <FaStar key={i} />
+                        ))}
+                      </div>
+                      <span className="text-white ml-2">{review.rating} Rating</span>
                     </div>
-                    <span className="text-white ml-2">{review.rating} Rating</span>
                   </div>
+                  <p className="text-gray-300 text-center">{review.text}</p>
                 </div>
-                <p className="text-gray-300 text-center">{review.text}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
+              </li>
+            ))}
+          </ul>
+          <ul className="flex items-center justify-center md:justify-start animate-infinite-scroll">
+            {reviews.map((review, index) => (
+              <li 
+                key={`review-clone-${index}`} 
+                className="review-item flex-shrink-0 w-80 mx-4"
+              >
+                <div className="bg-gray-800 rounded-lg p-6 h-full">
+                  <div className="flex flex-col items-center mb-4">
+                    <div className="w-16 h-16 rounded-full overflow-hidden mb-2">
+                      <LazyImage 
+                        src={review.image} 
+                        alt={`${review.name}'s profile`} 
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <h3 className="text-blue-400 text-lg font-medium">{review.name}</h3>
+                    <div className="flex items-center mt-1">
+                      <div className="flex text-yellow-400">
+                        {[...Array(5)].map((_, i) => (
+                          <FaStar key={i} />
+                        ))}
+                      </div>
+                      <span className="text-white ml-2">{review.rating} Rating</span>
+                    </div>
+                  </div>
+                  <p className="text-gray-300 text-center">{review.text}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
-    </div>
     </>
   );
 };
