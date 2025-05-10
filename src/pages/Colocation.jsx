@@ -125,10 +125,12 @@ const Partner = () => {
       </div>
       
       <div className="relative">
-        <div className="absolute -left-[35%] md:-left-[15%] lg:-left-[20%] top-[50px] z-0">
+        <div className='container mx-auto max-w-[95%] md:max-w-[85%] lg:max-w-[85%] px-4'>
+          <FAQ categories={faqCategories} faqData={faqData} />
+        </div>
+        <div className="absolute -right-[35%] md:-right-[15%] lg:-right-[10%] top-[200px] z-0">
           <LazyImage src="/blue-ball.webp" alt="Blue ball" className="w-96 h-96 opacity-90" />
         </div>
-        <FAQ categories={faqCategories} faqData={faqData} />
       </div>
 
       <Footer />
