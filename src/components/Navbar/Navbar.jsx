@@ -98,9 +98,8 @@ const Navbar = () => {
     { title: 'VPS Servers', path: '/vps-servers', hasDropdown: true, dropdownType: 'vps' },
     { title: 'Dedicated Servers', path: 'https://goodleaf.cloud/dedi-server' },
     { title: 'Game Servers', path: '/game-servers', hasDropdown: true, dropdownType: 'game' },
-    { title: 'Our Partners', path: '/partners' },
     { title: 'Locations', path: '/locations', hasDropdown: true, dropdownType: 'location' },
-    { title: 'Other', path: '/other' },
+    { title: 'Our Partners', path: '/partners' },
   ];
 
   const vpsOptions = [
@@ -244,7 +243,6 @@ const Navbar = () => {
                               className="flex items-center py-3 px-4 text-gray-300 hover:text-white transition-colors text-sm"
                               onClick={scrollToTop}
                             >
-                              <img src={option.icon} alt={option.title} className="h-6 w-6 rounded-md mr-3" />
                               {option.title}
                             </Link>
                           </motion.div>
@@ -467,7 +465,6 @@ const Navbar = () => {
                                   className="flex items-center px-3 py-2 text-gray-300 hover:text-white transition-colors text-sm"
                                   onClick={scrollToTop}
                                 >
-                                  <img src={option.icon} alt={option.title} className="h-6 w-6 rounded-md mr-3" />
                                   {option.title}
                                 </Link>
                               </motion.div>
