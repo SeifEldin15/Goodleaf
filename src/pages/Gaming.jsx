@@ -5,6 +5,7 @@ import Footer from '../components/Footer/Footer'
 import ReviewSlider from '../components/ReviewSlider/ReviewSlider'
 import PricingSlider from '../components/PricingSlider/PricingSlider'
 import FAQ from '../components/FAQ/FAQ'
+import LazyImage from '../components/LazyImage/LazyImage'
 
 const faqCategories = [
   {
@@ -45,7 +46,7 @@ function Gaming() {
       <GamingHero />
       <div className="relative">
         <div className="absolute -left-[35%] md:-left-[12%] lg:-left-[16%] top-[50px] z-0">
-          <img src="/blue-ball.webp" alt="Blue ball" className="w-96 h-96 opacity-90" />
+          <LazyImage src="/blue-ball.webp" alt="Blue ball" className="w-96 h-96 opacity-90" />
         </div>
         <ReviewSlider />
       </div>
@@ -65,13 +66,13 @@ function Gaming() {
         </div>
         <div className="relative">
           <div className="absolute -right-[30%] md:-right-[40%] lg:-right-[45%] top-[100px] z-0">
-            <img src="/purple-ball.webp" alt="Purple ball" className="w-96 h-96" />
+            <LazyImage src="/purple-ball.webp" alt="Purple ball" className="w-96 h-96" />
           </div>
           <PricingSlider />
         </div>
         <div className="relative">
           <div className="absolute -left-[35%] md:-left-[12%] lg:-left-[16%] top-[50px] z-0">
-            <img src="/blue-ball.webp" alt="Blue ball" className="w-96 h-96 opacity-90" />
+            <LazyImage src="/blue-ball.webp" alt="Blue ball" className="w-96 h-96 opacity-90" />
           </div>
           <FAQ categories={faqCategories} faqData={faqData} />
         </div>

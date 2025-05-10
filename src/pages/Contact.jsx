@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar/Navbar'
 import Footer from '../components/Footer/Footer'
 import { MdOutlineEmail } from 'react-icons/md'
 import { BsPhone, BsDiscord } from 'react-icons/bs'
+import LazyImage from '../components/LazyImage/LazyImage'
 
 function Contact() {
   return (
@@ -18,7 +19,7 @@ function Contact() {
           
           <div className="relative">
             <div className="absolute -left-[6%] md:-left-[12%] lg:-left-[16%] top-[50px] z-0">
-              <img src="/blue-ball.webp" alt="Blue ball" className="w-96 h-96 opacity-90" />
+              <LazyImage src="/blue-ball.webp" alt="Blue ball" className="w-96 h-96 opacity-90" />
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-5xl mx-auto">
               <div className="flex flex-col items-center">
@@ -49,7 +50,7 @@ function Contact() {
               </div>
             </div>
             <div className="absolute -right-[30%] md:-right-[40%] lg:-right-[45%] top-[100px] z-0">
-              <img src="/purple-ball.webp" alt="Purple ball" className="w-96 h-96" />
+              <LazyImage src="/purple-ball.webp" alt="Purple ball" className="w-96 h-96" />
             </div>
           </div>
         </div>

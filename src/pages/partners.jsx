@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Parallax } from 'react-scroll-parallax';
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
+import LazyImage from '../components/LazyImage/LazyImage';
 
 const Partners = () => {
   const partnerLinks = [
@@ -66,7 +67,7 @@ const Partners = () => {
           {/* Partners Grid */}
           <div className="relative">
             <div className="absolute -left-[35%] md:-left-[12%] lg:-left-[16%] top-[50px] z-0">
-              <img src="/blue-ball.webp" alt="Blue ball" className="w-96 h-96 opacity-90" />
+              <LazyImage src="/blue-ball.webp" alt="Blue ball" className="w-96 h-96 opacity-90" />
             </div>
             <motion.div
               initial="hidden"
@@ -127,7 +128,7 @@ const Partners = () => {
           {/* Call to Action */}
           <div className="relative">
             <div className="absolute -right-[30%] md:-right-[40%] lg:-right-[45%] top-[100px] z-0">
-              <img src="/purple-ball.webp" alt="Purple ball" className="w-96 h-96" />
+              <LazyImage src="/purple-ball.webp" alt="Purple ball" className="w-96 h-96" />
             </div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
