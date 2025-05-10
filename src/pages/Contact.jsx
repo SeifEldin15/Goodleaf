@@ -16,32 +16,40 @@ function Contact() {
             you're looking for a team to build your complete web presence.
           </p>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-5xl mx-auto">
-            <div className="flex flex-col items-center">
-              <div className="mb-6 p-4 rounded-full border-2 border-white">
-                <MdOutlineEmail className="w-12 h-12 text-white" />
-              </div>
-              <h2 className="text-3xl font-bold mb-4">Email</h2>
-              <p className="text-xl mb-2">support@goodleafdev.com</p>
-              <p className="text-lg">Mail Us 24/7</p>
+          <div className="relative">
+            <div className="absolute -left-[6%] top-[50px] z-0">
+              <img src="/blue-ball.png" alt="Blue ball" className="w-96 h-96 opacity-90" />
             </div>
-
-            <div className="flex flex-col items-center">
-              <div className="mb-6 p-4 rounded-full border-2 border-white">
-                <BsPhone className="w-12 h-12 text-white" />
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-5xl mx-auto">
+              <div className="flex flex-col items-center">
+                <div className="mb-6 p-4 rounded-full border-2 border-white">
+                  <MdOutlineEmail className="w-12 h-12 text-white" />
+                </div>
+                <h2 className="text-3xl font-bold mb-4">Email</h2>
+                <p className="text-xl mb-2">support@goodleafdev.com</p>
+                <p className="text-lg">Mail Us 24/7</p>
               </div>
-              <h2 className="text-3xl font-bold mb-4">Phone</h2>
-              <p className="text-xl mb-2">+1 (609) 445-4316</p>
-              <p className="text-lg">Contact Us (Mon-Fri)</p>
+
+              <div className="flex flex-col items-center">
+                <div className="mb-6 p-4 rounded-full border-2 border-white">
+                  <BsPhone className="w-12 h-12 text-white" />
+                </div>
+                <h2 className="text-3xl font-bold mb-4">Phone</h2>
+                <p className="text-xl mb-2">+1 (609) 445-4316</p>
+                <p className="text-lg">Contact Us (Mon-Fri)</p>
+              </div>
+
+              <div className="flex flex-col items-center">
+                <div className="mb-6 p-4 rounded-full border-2 border-white">
+                  <BsDiscord className="w-12 h-12 text-white" />
+                </div>
+                <h2 className="text-3xl font-bold mb-4">Discord</h2>
+                <p className="text-xl mb-2">discord.gg/GZKfRnj2H</p>
+                <p className="text-lg">Join our Discord</p>
+              </div>
             </div>
-
-            <div className="flex flex-col items-center">
-              <div className="mb-6 p-4 rounded-full border-2 border-white">
-                <BsDiscord className="w-12 h-12 text-white" />
-              </div>
-              <h2 className="text-3xl font-bold mb-4">Discord</h2>
-              <p className="text-xl mb-2">discord.gg/GZKfRnj2H</p>
-              <p className="text-lg">Join our Discord</p>
+            <div className="absolute -right-[30%] top-[100px] z-0">
+              <img src="/purple-ball.png" alt="Purple ball" className="w-96 h-96" />
             </div>
           </div>
         </div>

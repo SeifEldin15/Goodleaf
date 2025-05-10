@@ -18,7 +18,10 @@ const Partner = () => {
         <div className="h-[1px] w-[300px] bg-[#007BFF]"></div>
       </div> 
 
-      <div className="max-w-[85%] mx-auto">
+      <div className="max-w-[85%] mx-auto relative">
+        <div className="absolute -left-[6%] top-[50px] z-0">
+          <img src="/blue-ball.png" alt="Blue ball" className="w-96 h-96 opacity-90" />
+        </div>
         <PartnerServices />
       </div>
       <div className="flex items-center justify-center gap-4 mb-20 mt-20">
@@ -28,11 +31,14 @@ const Partner = () => {
         </div>
         <div className="h-[1px] w-[300px] bg-[#007BFF]"></div>
       </div> 
-<div className="max-w-[85%] mx-auto">
-  <Pricing2 />
-</div>
+      <div className="max-w-[85%] mx-auto relative">
+        <div className="absolute -right-[30%] top-[100px] z-0">
+          <img src="/purple-ball.png" alt="Purple ball" className="w-96 h-96" />
+        </div>
+        <Pricing2 />
+      </div>
 
-<div className="flex items-center justify-center gap-4 mb-10 mt-20">
+      <div className="flex items-center justify-center gap-4 mb-10 mt-20">
         <div className="h-[1px] w-[300px] bg-[#007BFF]"></div>
         <div className="border border-[#1D90F9] px-[133.35px] py-[8.5px] shadow-[0_10px_10px_rgba(29,144,249,0.6)]">
           <p className="text-[#1D90F9] text-sm ">MIGRATE YOUR HARDWARE</p>
@@ -40,7 +46,10 @@ const Partner = () => {
         <div className="h-[1px] w-[300px] bg-[#007BFF]"></div>
       </div> 
       {/* Hardware Migration Section */}
-      <div className="py-8 md:py-16 px-4 md:px-10 flex flex-col md:flex-row justify-between items-center gap-8 md:gap-16 max-w-[95%] md:max-w-[90%] mx-auto">
+      <div className="py-8 md:py-16 px-4 md:px-10 flex flex-col md:flex-row justify-between items-center gap-8 md:gap-16 max-w-[95%] md:max-w-[90%] mx-auto relative">
+        <div className="absolute -left-[6%] top-[50px] z-0">
+          <img src="/blue-ball.png" alt="Blue ball" className="w-96 h-96 opacity-90" />
+        </div>
         <div className="w-full md:w-5/12">
           <h2 className="text-white text-3xl md:text-4xl font-bold mb-3 text-center md:text-left">
             We can also migrate your <br className="hidden md:block" />

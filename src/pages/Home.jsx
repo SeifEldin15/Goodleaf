@@ -142,28 +142,83 @@ function Home() {
     <div>
       <Navbar />
       <Hero />
-      <div className='container mx-auto max-w-[95%] md:max-w-[85%] lg:max-w-[85%] px-4  mb-[50px]'>
+      <div className='container mx-auto max-w-[95%] md:max-w-[85%] lg:max-w-[85%] px-4 mb-[50px]'>
         <LogoSlider />
       </div>
       <OSes />
       <div className='container mx-auto max-w-[95%] md:max-w-[85%] lg:max-w-[85%] px-4'>
-        <Pricing plans={plans} />
+        <div className="relative">
+          <div className="absolute -left-[6%] top-[50px] z-0">
+            <img src="/blue-ball.png" alt="Blue ball" className="w-96 h-96 opacity-90" />
+          </div>
+          <Pricing plans={plans} />
+        </div>
+
         <div className='mt-[100px] flex justify-center mx-auto max-w-[95%] md:max-w-[85%] lg:max-w-[85%] px-4'>
-          <Timeline />
+          <div className="relative">
+            <div className="absolute -right-[30%] top-[100px] z-0">
+              <img src="/purple-ball.png" alt="Purple ball" className="w-96 h-96" />
+            </div>
+            <div className="absolute -left-[30%] top-[600px] z-0">
+              <img src="/blue-ball.png" alt="Blue ball" className="w-96 h-96 opacity-90" />
+            </div>
+            <div className="absolute -right-[30%] top-[1100px] z-0">
+              <img src="/blue-ball.png" alt="Blue ball" className="w-96 h-96 opacity-90" />
+            </div>
+        
+            <Timeline />
+          </div>
         </div>
+
         <div className='mt-[50px] mx-auto max-w-[95%] px-4'>
-          <Table />
+          <div className="relative">
+            <div className="absolute -left-[12%] top-[50px] z-0">
+              <img src="/blue-ball.png" alt="Blue ball" className="w-96 h-96 opacity-90" />
+            </div>
+            <Table />
+          </div>
         </div>
+
         <div className='mt-[100px] mx-auto max-w-[95%] px-4'>
-          <Graph />
+          <div className="relative">
+            <div className="absolute -right-[11%] top-[50px] z-0">
+              <img src="/purple-ball.png" alt="Purple ball" className="w-96 h-96" />
+            </div>
+            <Graph />
+          </div>
         </div>
-        <Refrences />
+
+        <div className="relative">
+          <div className="absolute -left-[6%] top-[-60px] z-0">
+            <img src="/blue-ball.png" alt="Blue ball" className="w-96 h-96 opacity-90" />
+          </div>
+          <Refrences />
+        </div>
       </div>
-      <ReviewSlider />
+
+      <div className="relative">
+        <div className="absolute -right-[0%] top-[10px] z-0">
+          <img src="/purple-ball.png" alt="Purple ball" className="w-96 h-96" />
+        </div>
+        <ReviewSlider />
+      </div>
+
       <div className='container mx-auto max-w-[95%] md:max-w-[85%] lg:max-w-[85%] px-4'>
-        <FAQ categories={faqCategories} faqData={faqData} />
+        <div className="relative">
+          <div className="absolute -left-[9%] top-[50px] z-0">
+            <img src="/blue-ball.png" alt="Blue ball" className="w-96 h-96 opacity-90" />
+          </div>
+          <FAQ categories={faqCategories} faqData={faqData} />
+        </div>
       </div>
-      <Map />
+
+      <div className="relative">
+        <div className="absolute -right-[0%] top-[50px] z-0">
+          <img src="/purple-ball.png" alt="Purple ball" className="w-96 h-96" />
+        </div>
+        <Map />
+      </div>
+
       <Footer />
     </div>
   )
