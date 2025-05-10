@@ -10,26 +10,11 @@ const Navbar = () => {
   const [showPartnersDropdown, setShowPartnersDropdown] = useState(false);
   const [showVpsDropdown, setShowVpsDropdown] = useState(false);
   const [showLocationDropdown, setShowLocationDropdown] = useState(false);
-  const [locationMap, setLocationMap] = useState(null);
   const location = useLocation();
   
   // Scroll to top on route change
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [location]);
-
-  // Determine which map to show based on URL
-  useEffect(() => {
-    const path = location.pathname.toLowerCase();
-    if (path.includes('texas') || path.includes('tx')) {
-      setLocationMap('/us-maps/tx.png');
-    } else if (path.includes('new-york') || path.includes('ny')) {
-      setLocationMap('/us-maps/NY.png');
-    } else if (path.includes('florida') || path.includes('fl')) {
-      setLocationMap('/us-maps/florida.png');
-    } else {
-      setLocationMap('/us-maps/us-map.png');
-    }
   }, [location]);
 
   // Animation variants
@@ -173,7 +158,7 @@ const Navbar = () => {
           animate="visible"
           variants={containerVariants}
         >
-          {/* Logo with Location Map */}
+          {/* Logo */}
           <motion.div
             variants={itemVariants}
             className="flex items-center space-x-4"
@@ -181,16 +166,6 @@ const Navbar = () => {
             <Link to="/" className="flex items-center">
               <img src="/logo.png" alt="GoodLeaf" className="h-8" />
             </Link>
-            {locationMap && (
-              <motion.img
-                src={locationMap}
-                alt="Location Map"
-                className="h-8 rounded-md"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3 }}
-              />
-            )}
           </motion.div>
 
           {/* Desktop Navigation */}
