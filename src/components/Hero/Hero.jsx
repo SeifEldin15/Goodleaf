@@ -1,7 +1,6 @@
 import React from 'react'
 import Lottie from 'lottie-react'
 import { heroAnimation } from '../../utils/animateHero'
-import HeroBg from "../../assets/hero-bg.webp"
 import FeatureCards from '../FeatureCards/FeatureCards'
 import { Parallax } from 'react-scroll-parallax'
 import { motion } from 'framer-motion'
@@ -96,7 +95,7 @@ function Hero() {
           </Parallax>
         </div>
       </div>
-      <img src={HeroBg} alt="Hero Background" className="absolute left-0 right-0 w-full object-cover z-[-1] md:mt-[-500px] lg:mt-[-450px] hidden md:block" />
+      <img src='/hero-bg.webp' alt="Hero Background" className="absolute left-0 right-0 w-full object-cover z-[-1] md:mt-[-500px] lg:mt-[-450px] hidden md:block" />
     </div>
   )
 }
