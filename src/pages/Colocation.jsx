@@ -125,6 +125,7 @@ const Partner = () => {
       </div>
       
       <div className="relative">
+ 
         <div className='container mx-auto max-w-[95%] md:max-w-[85%] lg:max-w-[85%] px-4'>
           <FAQ categories={faqCategories} faqData={faqData} />
         </div>
