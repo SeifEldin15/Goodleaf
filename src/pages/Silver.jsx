@@ -122,21 +122,21 @@ function Silver() {
       <div className='container mx-auto max-w-[95%] md:max-w-[85%] lg:max-w-[85%] px-4'>
         <div className="relative">
           <div className="absolute -left-[6%] top-[50px] z-0">
-            <img src="/blue-ball.png" alt="Blue ball" className="w-96 h-96 opacity-90" />
+            <img src="/blue-ball.webp" alt="Blue ball" className="w-96 h-96 opacity-90" />
           </div>
           <Pricing plans={plans}/>
         </div>
 
         <div className="relative">
           <div className="absolute -right-[11%] top-[50px] z-0">
-            <img src="/purple-ball.png" alt="Purple ball" className="w-96 h-96" />
+            <img src="/purple-ball.webp" alt="Purple ball" className="w-96 h-96" />
           </div>
           <ServerCompare />
         </div>
 
         <div className="relative">
           <div className="absolute -left-[9%] top-[50px] z-0">
-            <img src="/blue-ball.png" alt="Blue ball" className="w-96 h-96 opacity-90" />
+            <img src="/blue-ball.webp" alt="Blue ball" className="w-96 h-96 opacity-90" />
           </div>
           <FAQ categories={faqCategories} faqData={faqData} />
         </div>

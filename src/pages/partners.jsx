@@ -6,12 +6,12 @@ import Footer from '../components/Footer/Footer';
 
 const Partners = () => {
   const partnerLinks = [
-    { title: 'Badd Blood Customs', url: 'https://www.baddbloodcustoms.com/#/', icon: '/partner-icons/baddblood.png', description: 'Custom vehicle modifications and styling services.' },
-    { title: 'Community Development (cDev)', url: 'https://discord.com/oauth2/authorize?response_type=code&client_id=1266077438396338197&state=RAb__dmpA7lezjXsRnysvf7X3Xwl9eRvf5Uul_QaeDs&scope=identify+email&redirect_uri=https%3A%2F%2Fapi.cdev.bot%2Fapi%2Fauth%2Fsign-in%2Fcallback', icon: '/partner-icons/cdev.png', description: 'Community development tools and services.' },
-    { title: 'Deltarix Scripts', url: 'https://deltarix-scripts.tebex.io/', icon: '/partner-icons/deltarix.png', description: 'High-quality scripts for game servers and development.' },
-    { title: 'Rep Scripts', url: 'https://rep.tebex.io/', icon: '/partner-icons/rep.png', description: 'Premium game server scripts and modifications.' },
-    { title: 'Quasar Store', url: 'https://www.quasar-store.com/', icon: '/partner-icons/quasar.png', description: 'Digital assets and tools for game development.' },
-    { title: 'Apex Studios', url: 'https://fivem.apx-studios.com/', icon: '/partner-icons/apex.png', description: 'FiveM server development and customization.' }
+    { title: 'Badd Blood Customs', url: 'https://www.baddbloodcustoms.com/#/', icon: '/partner-icons/baddblood.webp', description: 'Custom vehicle modifications and styling services.' },
+    { title: 'Community Development (cDev)', url: 'https://discord.com/oauth2/authorize?response_type=code&client_id=1266077438396338197&state=RAb__dmpA7lezjXsRnysvf7X3Xwl9eRvf5Uul_QaeDs&scope=identify+email&redirect_uri=https%3A%2F%2Fapi.cdev.bot%2Fapi%2Fauth%2Fsign-in%2Fcallback', icon: '/partner-icons/cdev.webp', description: 'Community development tools and services.' },
+    { title: 'Deltarix Scripts', url: 'https://deltarix-scripts.tebex.io/', icon: '/partner-icons/deltarix.webp', description: 'High-quality scripts for game servers and development.' },
+    { title: 'Rep Scripts', url: 'https://rep.tebex.io/', icon: '/partner-icons/rep.webp', description: 'Premium game server scripts and modifications.' },
+    { title: 'Quasar Store', url: 'https://www.quasar-store.com/', icon: '/partner-icons/quasar.webp', description: 'Digital assets and tools for game development.' },
+    { title: 'Apex Studios', url: 'https://fivem.apx-studios.com/', icon: '/partner-icons/apex.webp', description: 'FiveM server development and customization.' }
   ];
 
   // Animation variants
@@ -66,7 +66,7 @@ const Partners = () => {
           {/* Partners Grid */}
           <div className="relative">
             <div className="absolute -left-[6%] top-[50px] z-0">
-              <img src="/blue-ball.png" alt="Blue ball" className="w-96 h-96 opacity-90" />
+              <img src="/blue-ball.webp" alt="Blue ball" className="w-96 h-96 opacity-90" />
             </div>
             <motion.div
               initial="hidden"
@@ -127,7 +127,7 @@ const Partners = () => {
           {/* Call to Action */}
           <div className="relative">
             <div className="absolute -right-[30%] top-[100px] z-0">
-              <img src="/purple-ball.png" alt="Purple ball" className="w-96 h-96" />
+              <img src="/purple-ball.webp" alt="Purple ball" className="w-96 h-96" />
             </div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}

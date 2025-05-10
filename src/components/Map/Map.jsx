@@ -117,7 +117,7 @@ const Map = () => {
         <div className="mx-4">
           <motion.img 
             className='w-6' 
-            src="/header icons/review-icon.png" 
+            src="/header icons/review-icon.webp" 
             alt=""
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1, rotate: 360 }}
@@ -199,7 +199,7 @@ const Map = () => {
         viewport={{ once: true, amount: 0.3 }}
       >
         <motion.img 
-          src="/map.png" 
+          src="/map.webp" 
           alt="World Map" 
           className="w-full h-auto"
           initial={{ filter: "blur(5px)", opacity: 0.5 }}

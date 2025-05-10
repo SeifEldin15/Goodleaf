@@ -20,7 +20,7 @@ const Partner = () => {
 
       <div className="max-w-[85%] mx-auto relative">
         <div className="absolute -left-[6%] top-[50px] z-0">
-          <img src="/blue-ball.png" alt="Blue ball" className="w-96 h-96 opacity-90" />
+          <img src="/blue-ball.webp" alt="Blue ball" className="w-96 h-96 opacity-90" />
         </div>
         <PartnerServices />
       </div>
@@ -33,7 +33,7 @@ const Partner = () => {
       </div> 
       <div className="max-w-[85%] mx-auto relative">
         <div className="absolute -right-[30%] top-[100px] z-0">
-          <img src="/purple-ball.png" alt="Purple ball" className="w-96 h-96" />
+          <img src="/purple-ball.webp" alt="Purple ball" className="w-96 h-96" />
         </div>
         <Pricing2 />
       </div>
@@ -48,7 +48,7 @@ const Partner = () => {
       {/* Hardware Migration Section */}
       <div className="py-8 md:py-16 px-4 md:px-10 flex flex-col md:flex-row justify-between items-center gap-8 md:gap-16 max-w-[95%] md:max-w-[90%] mx-auto relative">
         <div className="absolute -left-[6%] top-[50px] z-0">
-          <img src="/blue-ball.png" alt="Blue ball" className="w-96 h-96 opacity-90" />
+          <img src="/blue-ball.webp" alt="Blue ball" className="w-96 h-96 opacity-90" />
         </div>
         <div className="w-full md:w-5/12">
           <h2 className="text-white text-3xl md:text-4xl font-bold mb-3 text-center md:text-left">
@@ -70,7 +70,7 @@ const Partner = () => {
           </div>
         </div>
         <div className="relative w-full md:w-6/12 flex justify-center md:justify-end">
-          <img src="/migrate.png" alt="Hardware Migration" className="w-full max-w-[350px] md:max-w-[600px] object-contain" />
+          <img src="/migrate.webp" alt="Hardware Migration" className="w-full max-w-[350px] md:max-w-[600px] object-contain" />
         </div>
       </div>
       

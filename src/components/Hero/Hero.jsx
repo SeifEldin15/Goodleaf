@@ -1,7 +1,7 @@
 import React from 'react'
 import Lottie from 'lottie-react'
 import { heroAnimation } from '../../utils/animateHero'
-import HeroBg from "../../assets/hero-bg.png"
+import HeroBg from "../../assets/hero-bg.webp"
 import FeatureCards from '../FeatureCards/FeatureCards'
 import { Parallax } from 'react-scroll-parallax'
 import { motion } from 'framer-motion'

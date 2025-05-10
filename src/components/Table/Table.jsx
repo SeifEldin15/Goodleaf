@@ -162,7 +162,7 @@ const Table = () => {
       >
         <div className="h-[1px] w-[30%] bg-gradient-to-r from-transparent via-[#1D8FEF] to-[#1D8FEF]" />
         <div className="mx-4">
-         <img className='w-6' src="/header icons/table-ico.png" alt="" />
+         <img className='w-6' src="/header icons/table-ico.webp" alt="" />
         </div>
         <div className="h-[1px] w-[30%] bg-gradient-to-r from-[#1D8FEF] via-[#1D8FEF] to-transparent" />
       </motion.div>
@@ -258,8 +258,8 @@ const Table = () => {
                   transition={{ duration: 0.5, delay: 0.5 }}
                 >
                   <div className="flex flex-col items-center">
-                    <img src="/Mask group.png" alt="" />
-                    <img src="/Good leaf.png" alt="" />
+                    <img src="/Mask group.webp" alt="" />
+                    <img src="/Good leaf.webp" alt="" />
                   </div>
                 </motion.th>
                 <motion.th 

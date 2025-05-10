@@ -94,33 +94,33 @@ const Navbar = () => {
   ];
 
   const gameServers = [
-    { title: 'Minecraft', price: 'From $9.99', icon: '/game-images/mc.png' },
-    { title: '7 Days to Die', price: 'From $14.99', icon: '/game-images/7dtd.png' },
-    { title: 'ARK: Survival Evolved', price: 'From $19.99', icon: '/game-images/ark.png' },
-    { title: 'ARK: Survival Ascended', price: 'From $24.99', icon: '/game-images/ark-sa.png' },
-    { title: 'Arma 3', price: 'From $16.99', icon: '/game-images/arma.png' },
-    { title: 'Counter-Strike 2', price: 'From $12.99', icon: '/game-images/cs2.png' },
-    { title: 'DayZ', price: 'From $19.99', icon: '/game-images/dayz.png' },
-    { title: 'FiveM', price: 'From $14.99', icon: '/game-images/fivem.png' },
-    { title: 'Garry\'s Mod', price: 'From $9.99', icon: '/game-images/gmod.png' },
-    { title: 'Palworld', price: 'From $19.99', icon: '/game-images/palworld.png' },
-    { title: 'Rust', price: 'From $24.99', icon: '/game-images/rust.png' },
-    { title: 'Unturned', price: 'From $8.99', icon: '/game-images/unturned.png' },
+    { title: 'Minecraft', price: 'From $9.99', icon: '/game-images/mc.webp' },
+    { title: '7 Days to Die', price: 'From $14.99', icon: '/game-images/7dtd.webp' },
+    { title: 'ARK: Survival Evolved', price: 'From $19.99', icon: '/game-images/ark.webp' },
+    { title: 'ARK: Survival Ascended', price: 'From $24.99', icon: '/game-images/ark-sa.webp' },
+    { title: 'Arma 3', price: 'From $16.99', icon: '/game-images/arma.webp' },
+    { title: 'Counter-Strike 2', price: 'From $12.99', icon: '/game-images/cs2.webp' },
+    { title: 'DayZ', price: 'From $19.99', icon: '/game-images/dayz.webp' },
+    { title: 'FiveM', price: 'From $14.99', icon: '/game-images/fivem.webp' },
+    { title: 'Garry\'s Mod', price: 'From $9.99', icon: '/game-images/gmod.webp' },
+    { title: 'Palworld', price: 'From $19.99', icon: '/game-images/palworld.webp' },
+    { title: 'Rust', price: 'From $24.99', icon: '/game-images/rust.webp' },
+    { title: 'Unturned', price: 'From $8.99', icon: '/game-images/unturned.webp' },
   ];
 
   const partnerLinks = [
-    { title: 'Badd Blood Customs', url: 'https://www.baddbloodcustoms.com/#/', icon: '/Colocation-icons/badd-blood.png' },
-    { title: 'Community Development (cDev)', url: 'https://discord.com/oauth2/authorize?response_type=code&client_id=1266077438396338197&state=RAb__dmpA7lezjXsRnysvf7X3Xwl9eRvf5Uul_QaeDs&scope=identify+email&redirect_uri=https%3A%2F%2Fapi.cdev.bot%2Fapi%2Fauth%2Fsign-in%2Fcallback', icon: '/Colocation-icons/cdev.png' },
-    { title: 'Deltarix Scripts', url: 'https://deltarix-scripts.tebex.io/', icon: '/Colocation-icons/deltarix.png' },
-    { title: 'Rep Scripts', url: 'https://rep.tebex.io/', icon: '/Colocation-icons/rep.png' },
-    { title: 'Quasar Store', url: 'https://www.quasar-store.com/', icon: '/Colocation-icons/quasar.png' },
-    { title: 'Apex Studios', url: 'https://fivem.apx-studios.com/', icon: '/Colocation-icons/apex.png' },
+    { title: 'Badd Blood Customs', url: 'https://www.baddbloodcustoms.com/#/', icon: '/Colocation-icons/badd-blood.webp' },
+    { title: 'Community Development (cDev)', url: 'https://discord.com/oauth2/authorize?response_type=code&client_id=1266077438396338197&state=RAb__dmpA7lezjXsRnysvf7X3Xwl9eRvf5Uul_QaeDs&scope=identify+email&redirect_uri=https%3A%2F%2Fapi.cdev.bot%2Fapi%2Fauth%2Fsign-in%2Fcallback', icon: '/Colocation-icons/cdev.webp' },
+    { title: 'Deltarix Scripts', url: 'https://deltarix-scripts.tebex.io/', icon: '/Colocation-icons/deltarix.webp' },
+    { title: 'Rep Scripts', url: 'https://rep.tebex.io/', icon: '/Colocation-icons/rep.webp' },
+    { title: 'Quasar Store', url: 'https://www.quasar-store.com/', icon: '/Colocation-icons/quasar.webp' },
+    { title: 'Apex Studios', url: 'https://fivem.apx-studios.com/', icon: '/Colocation-icons/apex.webp' },
   ];
 
   const locationOptions = [
-    { title: 'Texas', path: '/colocation?location=texas', icon: '/us-maps/tx.png' },
-    { title: 'New York', path: '/colocation?location=new-york', icon: '/us-maps/NY.png' },
-    { title: 'Florida', path: '/colocation?location=florida', icon: '/us-maps/florida.png' },
+    { title: 'Texas', path: '/colocation?location=texas', icon: '/us-maps/tx.webp' },
+    { title: 'New York', path: '/colocation?location=new-york', icon: '/us-maps/NY.webp' },
+    { title: 'Florida', path: '/colocation?location=florida', icon: '/us-maps/florida.webp' },
   ];
 
   const ChevronDownIcon = () => (
@@ -164,7 +164,7 @@ const Navbar = () => {
             className="flex items-center space-x-4"
           >
             <Link to="/" className="flex items-center">
-              <img src="/logo.png" alt="GoodLeaf" className="h-8" />
+              <img src="/logo.webp" alt="GoodLeaf" className="h-8" />
             </Link>
           </motion.div>
 

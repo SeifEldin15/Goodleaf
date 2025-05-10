@@ -15,37 +15,37 @@ const Timeline = () => {
       id: 1,
       title: "4 Tbps DDoS Protection",
       description: "4 Tbps CosmicGuard's and GCore deliver unbeatable DDoS protection for ultimate reliability and security.",
-      icon: "/timeline/timeline1.png"
+      icon: "/timeline/timeline1.webp"
     },
     {
       id: 2,
       title: "Internet Speed",
       description: "From 10 Gbps to an incredible 20 Gbps—try matching that speed. Youcan't. It's unmatched and unrivaled.",
-      icon: "/timeline/timeline2.png"
+      icon: "/timeline/timeline2.webp"
     },
     {
       id: 3,
       title: "Powerful Hardware",
       description: "Powered by Ryzen & AMD EPYC CPUs, high-speed RAM, delivering unmatched performance and reliability.",
-      icon: "/timeline/timeline3.png"
+      icon: "/timeline/timeline3.webp"
     },
     {
       id: 4,
       title: "Windows OS",
       description: "Experience the full benefits of a Windows operating system with unmatched performance and ease.",
-      icon: "/timeline/timeline4.png"
+      icon: "/timeline/timeline4.webp"
     },
     {
       id: 5,
       title: "Worldwide Locations",
       description: "Strategically located data centers in various locations around the world for global performance.",
-      icon: "/timeline/timeline5.png"
+      icon: "/timeline/timeline5.webp"
     },
     {
       id: 6,
       title: "24/7 Support",
       description: "Round-the-clock technical support team ready to assist you with any questions or concerns.",
-      icon: "/timeline/timeline5.png"
+      icon: "/timeline/timeline5.webp"
     }
   ];
   

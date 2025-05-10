@@ -1,11 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import windowsLogo from '/osses/1.png';
-import ubuntuLogo from '/osses/2.png';
-import debianLogo from '/osses/3.png';
-import centosLogo from '/osses/4.png';
-import fedoraLogo from '/osses/5.png';
-import archLogo from '/osses/6.png';
+import windowsLogo from '/osses/1.webp';
+import ubuntuLogo from '/osses/2.webp';
+import debianLogo from '/osses/3.webp';
+import centosLogo from '/osses/4.webp';
+import fedoraLogo from '/osses/5.webp';
+import archLogo from '/osses/6.webp';
 
 function OSes() {
   const operatingSystems = [

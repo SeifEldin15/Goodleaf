@@ -18,7 +18,7 @@ const ReviewSlider = ({ reviews = sampleReviews }) => {
          <div className="flex items-center justify-center mb-6 max-w-2xl mx-auto mt-12">
         <div className="h-[1px] w-[30%] bg-gradient-to-r from-transparent via-[#1D8FEF] to-[#1D8FEF]" />
         <div className="mx-4">
-        <img className='w-6' src="/header icons/review-icon.png" alt="" />
+        <img className='w-6' src="/header icons/review-icon.webp" alt="" />
         </div>
         <div className="h-[1px] w-[30%] bg-gradient-to-r from-[#1D8FEF] via-[#1D8FEF] to-transparent" />
       </div>

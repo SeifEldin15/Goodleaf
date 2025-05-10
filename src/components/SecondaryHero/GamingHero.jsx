@@ -3,9 +3,9 @@ import React, { useState, useEffect } from 'react'
 function GamingHero() {
   // Array of background images
   const backgroundImages = [
-    '/gaming-hero/gaming-hero-2.png',
-    '/gaming-hero/gaming-hero-1.png',
-    '/gaming-hero/gaming-hero-3.png',
+    '/gaming-hero/gaming-hero-2.webp',
+    '/gaming-hero/gaming-hero-1.webp',
+    '/gaming-hero/gaming-hero-3.webp',
     // Add more image paths as needed
   ];
 

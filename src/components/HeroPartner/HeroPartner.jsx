@@ -9,13 +9,13 @@ const HeroPartner = () => {
   // Determine which map to show based on URL query parameter
   const getMapImage = () => {
     if (locationParam === 'texas' || locationParam === 'tx') {
-      return '/us-maps/tx.png';
+      return '/us-maps/tx.webp';
     } else if (locationParam === 'new-york' || locationParam === 'ny') {
-      return '/us-maps/NY.png';
+      return '/us-maps/NY.webp';
     } else if (locationParam === 'florida' || locationParam === 'fl') {
-      return '/us-maps/florida.png';
+      return '/us-maps/florida.webp';
     }
-    return '/us-maps/us-map.png';
+    return '/us-maps/us-map.webp';
   };
 
   const getLocationTitle = () => {
@@ -56,13 +56,7 @@ const HeroPartner = () => {
           <div className="md:flex-1 flex justify-center md:justify-end items-center">
             <div className="w-full max-w-[400px] md:max-w-[550px] lg:max-w-[650px] relative">
               {/* Blue glow effect behind the map */}
-              <div className="absolute inset-0 z-0 flex items-center justify-center">
-                <img 
-                  src="/glow-ball-blue.png" 
-                  alt="Blue glow effect" 
-                  className="w-[140%] h-[140%] object-contain absolute -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2"
-                />
-              </div>
+      
               
               <div className="w-full relative rounded-lg overflow-hidden z-10">
                 <img 

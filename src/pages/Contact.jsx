@@ -7,7 +7,7 @@ import { BsPhone, BsDiscord } from 'react-icons/bs'
 function Contact() {
   return (
     <>
-      <div className="bg-[url('/get-in-touch.png')] bg-cover bg-center min-h-screen ">
+      <div className="bg-[url('/get-in-touch.webp')] bg-cover bg-center min-h-screen ">
         <Navbar />
         <div className="container mx-auto px-4 py-24 text-white text-center">
           <h1 className="text-6xl font-bold mb-6 mt-20">GET IN TOUCH WITH US</h1>
@@ -18,7 +18,7 @@ function Contact() {
           
           <div className="relative">
             <div className="absolute -left-[6%] top-[50px] z-0">
-              <img src="/blue-ball.png" alt="Blue ball" className="w-96 h-96 opacity-90" />
+              <img src="/blue-ball.webp" alt="Blue ball" className="w-96 h-96 opacity-90" />
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-5xl mx-auto">
               <div className="flex flex-col items-center">
@@ -49,7 +49,7 @@ function Contact() {
               </div>
             </div>
             <div className="absolute -right-[30%] top-[100px] z-0">
-              <img src="/purple-ball.png" alt="Purple ball" className="w-96 h-96" />
+              <img src="/purple-ball.webp" alt="Purple ball" className="w-96 h-96" />
             </div>
           </div>
         </div>

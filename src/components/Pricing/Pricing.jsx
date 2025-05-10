@@ -47,14 +47,14 @@ const cardVariants = {
 
 // Define background images for each game
 const gameBackgrounds = {
-  "Minecraft": "/pricing.png",
-  "Rust": "/pricing.png",
-  "ARK": "/pricing.png",
-  "Valheim": "/pricing.png",
-  "CS2": "/pricing.png",
-  "Terraria": "/pricing.png",
-  "GTA": "/pricing.png",
-  "DayZ": "/pricing.png"
+  "Minecraft": "/pricing.webp",
+  "Rust": "/pricing.webp",
+  "ARK": "/pricing.webp",
+  "Valheim": "/pricing.webp",
+  "CS2": "/pricing.webp",
+  "Terraria": "/pricing.webp",
+  "GTA": "/pricing.webp",
+  "DayZ": "/pricing.webp"
 };
 
 const PricingCard = ({ title, price, features = [], location, labels = [], isSelected, index }) => (
@@ -79,7 +79,7 @@ const PricingCard = ({ title, price, features = [], location, labels = [], isSel
       {/* Game Image Background */}
       <div className="absolute inset-0 z-0">
         <img 
-          src={gameBackgrounds[title] || "/pricing.png"} 
+          src={gameBackgrounds[title] || "/pricing.webp"} 
           alt={`${title} background`} 
           className="w-full h-full object-cover opacity-30"
           style={{ objectPosition: "center 20%" }}
