@@ -4,6 +4,8 @@ const BronzeHero = () => {
   return (
     <div className="relative flex items-center justify-center text-center text-white min-h-[600px] md:min-h-[800px] lg:min-h-[900px] bg-[#1a1a2e] bg-cover bg-center bg-no-repeat" style={{backgroundImage: "url('/heros-assets/bronze.webp')"}}>
       <div className="absolute top-0 left-0 w-full h-full bg-black/20"></div>
+      <div className="absolute top-0 left-0 right-0 h-[20%] bg-gradient-to-b from-black/70 to-transparent z-20"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-[40%] bg-gradient-to-t from-black/70 to-transparent z-20"></div>
       <div className="z-10 w-full max-w-[1200px] px-4 md:px-6">
         <h1 
           className="font-['Rajdhani'] font-bold text-[40px] sm:text-[60px] md:text-[80px] leading-[1] sm:leading-[70px] text-center uppercase mx-auto relative w-full md:w-[594px] shadow-[0px_0px_6px_rgba(192,192,192,0.1)]" 
