@@ -6,6 +6,8 @@ import ReviewSlider from '../components/ReviewSlider/ReviewSlider'
 import PricingSlider from '../components/PricingSlider/PricingSlider'
 import FAQ from '../components/FAQ/FAQ'
 import LazyImage from '../components/LazyImage/LazyImage'
+import FiveMWalkthrough from '../components/FiveMWalkthrough'
+import FeaturesPanel from '../components/FeatureCards/FeaturesPanel'
 
 const faqCategories = [
   {
@@ -73,6 +75,11 @@ function Gaming() {
         <div className="relative">
           <div className="absolute -left-[35%] md:-left-[12%] lg:-left-[16%] top-[50px] z-0">
             <LazyImage src="/blue-ball.webp" alt="Blue ball" className="w-96 h-96 opacity-90" />
+          </div>
+          <div className='max-w-[95%] md:max-w-[85%] lg:max-w-[85%] mx-auto mt-24'>
+            <FeaturesPanel />
+            <div className='max-w-[95%] md:max-w-[85%] lg:max-w-[85%] mx-auto mt-12'></div>
+            <FiveMWalkthrough />
           </div>
           <FAQ categories={faqCategories} faqData={faqData} />
         </div>
