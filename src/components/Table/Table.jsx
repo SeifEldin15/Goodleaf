@@ -148,6 +148,24 @@ const Table = () => {
     return <span className="text-blue-400">{value}</span>;
   };
 
+  // Animation for heading letters
+  const heading = "UNMATCHED VALUE & PERFORMANCE";
+  const blueStart = heading.indexOf("PERFORMANCE");
+  const headingChars = heading.split("");
+  const headingVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.04,
+        delayChildren: 0.2
+      }
+    }
+  };
+  const charVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 500, damping: 30 } }
+  };
+
   return (
     <motion.div 
       className="w-[90%] mx-auto py-8 mt-[0px]"
@@ -172,12 +190,23 @@ const Table = () => {
         variants={itemVariants}
       >
         <motion.h2 
-          className="text-3xl md:text-4xl font-bold text-white mb-4"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-3xl md:text-4xl font-bold text-white mb-4 flex flex-wrap justify-center"
+          variants={headingVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.7 }}
         >
-          UNMATCHED VALUE & PERFORMANCE
+          {headingChars.map((char, i) =>
+            i < blueStart ? (
+              <motion.span key={i} variants={charVariants} className="inline-block">
+                {char === " " ? '\u00A0' : char}
+              </motion.span>
+            ) : (
+              <motion.span key={i} variants={charVariants} className="inline-block text-blue-500">
+                {char === " " ? '\u00A0' : char}
+              </motion.span>
+            )
+          )}
         </motion.h2>
         <motion.p 
           className="text-gray-400 max-w-2xl mx-auto text-sm md:text-base"

@@ -36,6 +36,16 @@ const Partners = () => {
     }
   };
 
+  // Helper for randomized ball classes
+  const partnerBalls = [
+    { src: "/blue-ball.webp", alt: "Blue ball", className: "w-[32rem] h-[32rem] opacity-90 -left-[30%] md:-left-[10%] lg:-left-[16%] top-[30px]" },
+    { src: "/purple-ball.webp", alt: "Purple ball", className: "w-[36rem] h-[36rem] -right-[38%] md:-right-[40%] lg:-right-[45%] top-[100px]" },
+    { src: "/blue-ball.webp", alt: "Blue ball", className: "w-[38rem] h-[38rem] opacity-90 -left-[28%] md:-left-[12%] lg:-left-[18%] top-[400px]" },
+    { src: "/purple-ball.webp", alt: "Purple ball", className: "w-[32rem] h-[32rem] -right-[28%] md:-right-[18%] lg:-right-[23%] top-[700px]" },
+    { src: "/blue-ball.webp", alt: "Blue ball", className: "w-[30rem] h-[30rem] opacity-90 -left-[20%] md:-left-[8%] lg:-left-[12%] top-[1000px]" },
+    { src: "/purple-ball.webp", alt: "Purple ball", className: "w-[40rem] h-[40rem] -right-[35%] md:-right-[25%] lg:-right-[30%] top-[1300px]" },
+  ];
+
   return (
     <div>
       <Navbar />
@@ -66,8 +76,15 @@ const Partners = () => {
 
           {/* Partners Grid */}
           <div className="relative">
-            <div className="absolute -left-[35%] md:-left-[12%] lg:-left-[16%] top-[50px] z-0">
-              <LazyImage src="/blue-ball.webp" alt="Blue ball" className="w-96 h-96 opacity-90" />
+            {/* Circles for the partners grid section */}
+            <div className={`absolute z-0 ${partnerBalls[0].className}`}>
+              <img src={partnerBalls[0].src} alt={partnerBalls[0].alt} className="w-full h-full opacity-90" />
+            </div>
+            <div className={`absolute z-0 ${partnerBalls[1].className}`}>
+              <img src={partnerBalls[1].src} alt={partnerBalls[1].alt} className="w-full h-full" />
+            </div>
+            <div className={`absolute z-0 ${partnerBalls[2].className}`}>
+              <img src={partnerBalls[2].src} alt={partnerBalls[2].alt} className="w-full h-full opacity-90" />
             </div>
             <motion.div
               initial="hidden"
@@ -127,9 +144,6 @@ const Partners = () => {
 
           {/* Call to Action */}
           <div className="relative">
-            <div className="absolute -right-[30%] md:-right-[40%] lg:-right-[45%] top-[100px] z-0">
-              <LazyImage src="/purple-ball.webp" alt="Purple ball" className="w-96 h-96" />
-            </div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}

@@ -115,6 +115,16 @@ const faqData = {
   ]
 };
 
+// Helper for randomized ball classes
+const ballConfigs = [
+  { src: "/blue-ball.webp", alt: "Blue ball", className: "w-[32rem] h-[32rem] opacity-90 -left-[33%] md:-left-[10%] lg:-left-[18%] top-[30px]" },
+  { src: "/purple-ball.webp", alt: "Purple ball", className: "w-[36rem] h-[36rem] -right-[38%] md:-right-[18%] lg:-right-[26%] top-[70px]" },
+  { src: "/blue-ball.webp", alt: "Blue ball", className: "w-[38rem] h-[38rem] opacity-90 -left-[33%] md:-left-[13%] lg:-left-[22%] top-[70px]" },
+  { src: "/purple-ball.webp", alt: "Purple ball", className: "w-[32rem] h-[32rem] -right-[28%] md:-right-[18%] lg:-right-[23%] top-[400px]" },
+  { src: "/blue-ball.webp", alt: "Blue ball", className: "w-[30rem] h-[30rem] opacity-90 -left-[20%] md:-left-[8%] lg:-left-[12%] top-[700px]" },
+  { src: "/purple-ball.webp", alt: "Purple ball", className: "w-[40rem] h-[40rem] -right-[35%] md:-right-[25%] lg:-right-[30%] top-[1000px]" },
+];
+
 function Gold() {
   return (
     <div>
@@ -122,23 +132,25 @@ function Gold() {
       <GoldHero />
       <div className='container mx-auto max-w-[95%] md:max-w-[85%] lg:max-w-[85%] px-4'>
         <div className="relative">
-          <div className="absolute -left-[35%] md:-left-[12%] lg:-left-[16%] top-[50px] z-0">
-            <LazyImage src="/blue-ball.webp" alt="Blue ball" className="w-96 h-96 opacity-90" />
+          <div className={`absolute z-0 ${ballConfigs[0].className}`}>
+            <img src={ballConfigs[0].src} alt={ballConfigs[0].alt} className="w-full h-full opacity-90" />
+          </div>
+          <div className={`absolute z-0 ${ballConfigs[1].className}`}>
+            <img src={ballConfigs[1].src} alt={ballConfigs[1].alt} className="w-full h-full" />
           </div>
           <Pricing plans={plans} />
         </div>
-
         <div className="relative">
-          <div className="absolute -right-[40%] md:-right-[18%] lg:-right-[24%] top-[50px] z-0">
-            <LazyImage src="/purple-ball.webp" alt="Purple ball" className="w-96 h-96" />
+          <div className={`absolute z-0 ${ballConfigs[2].className}`}>
+            <img src={ballConfigs[2].src} alt={ballConfigs[2].alt} className="w-full h-full opacity-90" />
+          </div>
+          <div className={`absolute z-0 ${ballConfigs[3].className}`}>
+            <img src={ballConfigs[3].src} alt={ballConfigs[3].alt} className="w-full h-full" />
           </div>
           <ServerCompare />
         </div>
-
         <div className="relative">
-          <div className="absolute -left-[35%] md:-left-[15%] lg:-left-[20%] top-[50px] z-0">
-            <LazyImage src="/blue-ball.webp" alt="Blue ball" className="w-96 h-96 opacity-90" />
-          </div>
+        
           <FAQ categories={faqCategories} faqData={faqData} />
         </div>
       </div>

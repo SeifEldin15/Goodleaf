@@ -4,6 +4,8 @@ import cpuIcon from './svg/cpu-icons.svg';
 import storageIcon from './svg/storage-icons.svg';
 import dashboardIcon from './svg/dashboard-icons.svg';
 import ddosIcon from './svg/ddos-icons.svg';
+import LocationFlagsPing from '../LocationFlagsPing/LocationFlagsPing';
+import { useLocation } from 'react-router-dom';
 
 // Server rack images from public folder
 const singleDeviceImg = '/pricing/pricing1.avif';
@@ -70,6 +72,19 @@ const PricingCard = ({ title, price, features, isPopular, discount, buttonText, 
 );
 
 const Pricing2 = () => {
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const locationParam = searchParams.get('location')?.toLowerCase();
+
+  let cities = ["Texas", "Miami", "New York"];
+  if (locationParam === 'texas' || locationParam === 'tx') {
+    cities = ["Texas"];
+  } else if (locationParam === 'new-york' || locationParam === 'ny') {
+    cities = ["New York"];
+  } else if (locationParam === 'florida' || locationParam === 'fl') {
+    cities = ["Miami"];
+  }
+
   const pricingPlans = [
     {
       title: "Single Device",
@@ -153,23 +168,7 @@ const Pricing2 = () => {
         </div>
         
         {/* Datacenter locations */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12 text-center">
-          <div className="flex items-center">
-            <div className="w-4 h-4 bg-green-500 rounded-full mr-2"></div>
-            <span className="text-gray-800 dark:text-white font-medium mr-1">Dallas</span>
-            <span className="text-gray-500">54 ms</span>
-          </div>
-          <div className="flex items-center">
-            <div className="w-4 h-4 bg-blue-500 rounded-full mr-2"></div>
-            <span className="text-gray-800 dark:text-white font-medium mr-1">Miami</span>
-            <span className="text-gray-500">50 ms</span>
-          </div>
-          <div className="flex items-center">
-            <div className="w-4 h-4 bg-purple-500 rounded-full mr-2"></div>
-            <span className="text-gray-800 dark:text-white font-medium mr-1">New York</span>
-            <span className="text-gray-500">20 ms</span>
-          </div>
-        </div>
+        <LocationFlagsPing simple cities={cities} />
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {pricingPlans.map((plan, index) => (

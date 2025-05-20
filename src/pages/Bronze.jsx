@@ -115,6 +115,16 @@ const faqData = {
   ]
 };
 
+// Helper for randomized ball classes
+const bronzeBalls = [
+  { src: "/blue-ball.webp", alt: "Blue ball", className: "w-[32rem] h-[32rem] opacity-90 -left-[33%] md:-left-[10%] lg:-left-[18%] top-[30px]" },
+  { src: "/purple-ball.webp", alt: "Purple ball", className: "w-[36rem] h-[36rem] -right-[38%] md:-right-[18%] lg:-right-[26%] top-[70px]" },
+  { src: "/blue-ball.webp", alt: "Blue ball", className: "w-[38rem] h-[38rem] opacity-90 -left-[33%] md:-left-[13%] lg:-left-[22%] top-[70px]" },
+  { src: "/purple-ball.webp", alt: "Purple ball", className: "w-[32rem] h-[32rem] -right-[28%] md:-right-[18%] lg:-right-[23%] top-[400px]" },
+  { src: "/blue-ball.webp", alt: "Blue ball", className: "w-[30rem] h-[30rem] opacity-90 -left-[20%] md:-left-[8%] lg:-left-[12%] top-[700px]" },
+  { src: "/purple-ball.webp", alt: "Purple ball", className: "w-[40rem] h-[40rem] -right-[35%] md:-right-[25%] lg:-right-[30%] top-[1000px]" },
+];
+
 function Bronze() {
   return (
     <div>
@@ -128,25 +138,25 @@ function Bronze() {
           </div>
           <div className="h-[1px] w-[300px] bg-[#007BFF]"></div>
         </div> 
-
         <div className="relative">
-          <div className="absolute -left-[35%] md:-left-[12%] lg:-left-[16%] top-[50px] z-0">
-            <LazyImage src="/blue-ball.webp" alt="Blue ball" className="w-96 h-96 opacity-90" />
+          <div className={`absolute z-0 ${bronzeBalls[0].className}`}>
+            <img src={bronzeBalls[0].src} alt={bronzeBalls[0].alt} className="w-full h-full opacity-90" />
+          </div>
+          <div className={`absolute z-0 ${bronzeBalls[1].className}`}>
+            <img src={bronzeBalls[1].src} alt={bronzeBalls[1].alt} className="w-full h-full" />
           </div>
           <Pricing plans={plans}/>
         </div>
-
         <div className="relative">
-          <div className="absolute -right-[40%] md:-right-[18%] lg:-right-[24%] top-[50px] z-0">
-            <LazyImage src="/purple-ball.webp" alt="Purple ball" className="w-96 h-96" />
+          <div className={`absolute z-0 ${bronzeBalls[2].className}`}>
+            <img src={bronzeBalls[2].src} alt={bronzeBalls[2].alt} className="w-full h-full opacity-90" />
+          </div>
+          <div className={`absolute z-0 ${bronzeBalls[3].className}`}>
+            <img src={bronzeBalls[3].src} alt={bronzeBalls[3].alt} className="w-full h-full" />
           </div>
           <ServerCompare />
         </div>
-
         <div className="relative">
-          <div className="absolute -left-[35%] md:-left-[15%] lg:-left-[20%] top-[50px] z-0">
-            <LazyImage src="/blue-ball.webp" alt="Blue ball" className="w-96 h-96 opacity-90" />
-          </div>
           <FAQ categories={faqCategories} faqData={faqData} />
         </div>
       </div>

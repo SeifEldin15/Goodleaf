@@ -41,14 +41,24 @@ const faqData = {
   ]
 };
 
+// Helper for randomized ball classes
+const gamingBalls = [
+  { src: "/blue-ball.webp", alt: "Blue ball", className: "w-[34rem] h-[34rem] opacity-90 -left-[32%] md:-left-[10%] lg:-left-[18%] top-[40px]" },
+  { src: "/purple-ball.webp", alt: "Purple ball", className: "w-[36rem] h-[36rem] -right-[38%] md:-right-[40%] lg:-right-[45%] top-[100px]" },
+  { src: "/blue-ball.webp", alt: "Blue ball", className: "w-[38rem] h-[38rem] opacity-90 -left-[32%] md:-left-[10%] lg:-left-[18%] top-[50px]" },
+  { src: "/purple-ball.webp", alt: "Purple ball", className: "w-[32rem] h-[32rem] -right-[28%] md:-right-[18%] lg:-right-[23%] top-[600px]" },
+  { src: "/blue-ball.webp", alt: "Blue ball", className: "w-[30rem] h-[30rem] opacity-90 -left-[20%] md:-left-[8%] lg:-left-[12%] top-[900px]" },
+  { src: "/purple-ball.webp", alt: "Purple ball", className: "w-[40rem] h-[40rem] -right-[35%] md:-right-[25%] lg:-right-[30%] top-[1300px]" },
+];
+
 function Gaming() {
   return (
     <div>
       <Navbar />
       <GamingHero />
       <div className="relative">
-        <div className="absolute -left-[35%] md:-left-[12%] lg:-left-[16%] top-[50px] z-0">
-          <LazyImage src="/blue-ball.webp" alt="Blue ball" className="w-96 h-96 opacity-90" />
+        <div className={`absolute z-0 ${gamingBalls[0].className}`}>
+          <img src={gamingBalls[0].src} alt={gamingBalls[0].alt} className="w-full h-full opacity-90" />
         </div>
         <ReviewSlider />
       </div>
@@ -67,14 +77,23 @@ function Gaming() {
           </h2>
         </div>
         <div className="relative">
-          <div className="absolute -right-[30%] md:-right-[40%] lg:-right-[45%] top-[100px] z-0">
-            <LazyImage src="/purple-ball.webp" alt="Purple ball" className="w-96 h-96" />
+          <div className={`absolute z-0 ${gamingBalls[1].className}`}>
+            <img src={gamingBalls[1].src} alt={gamingBalls[1].alt} className="w-full h-full" />
           </div>
           <PricingSlider />
         </div>
         <div className="relative">
-          <div className="absolute -left-[35%] md:-left-[12%] lg:-left-[16%] top-[50px] z-0">
-            <LazyImage src="/blue-ball.webp" alt="Blue ball" className="w-96 h-96 opacity-90" />
+          <div className={`absolute z-0 ${gamingBalls[2].className}`}>
+            <img src={gamingBalls[2].src} alt={gamingBalls[2].alt} className="w-full h-full opacity-90" />
+          </div>
+          <div className={`absolute z-0 ${gamingBalls[3].className}`}>
+            <img src={gamingBalls[3].src} alt={gamingBalls[3].alt} className="w-full h-full" />
+          </div>
+          <div className={`absolute z-0 ${gamingBalls[4].className}`}>
+            <img src={gamingBalls[4].src} alt={gamingBalls[4].alt} className="w-full h-full opacity-90" />
+          </div>
+          <div className={`absolute z-0 ${gamingBalls[5].className}`}>
+            <img src={gamingBalls[5].src} alt={gamingBalls[5].alt} className="w-full h-full" />
           </div>
           <div className='max-w-[95%] md:max-w-[85%] lg:max-w-[85%] mx-auto mt-24'>
             <FeaturesPanel />

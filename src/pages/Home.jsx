@@ -138,6 +138,20 @@ const faqData = {
   ]
 };
 
+// Helper for randomized ball classes
+const homeBalls = [
+  { src: "/blue-ball.webp", alt: "Blue ball", className: "w-[34rem] h-[34rem] opacity-90 -left-[38%] md:-left-[13%] lg:-left-[19%] top-[40px]" },
+  { src: "/purple-ball.webp", alt: "Purple ball", className: "w-[36rem] h-[36rem] -right-[48%] md:-right-[36%] lg:-right-[41%] top-[120px]" },
+  { src: "/blue-ball.webp", alt: "Blue ball", className: "w-[40rem] h-[40rem] opacity-90 -left-[48%] md:-left-[36%] lg:-left-[41%] top-[650px]" },
+  { src: "/blue-ball.webp", alt: "Blue ball", className: "w-[30rem] h-[30rem] opacity-90 -right-[52%] md:-right-[38%] lg:-right-[43%] top-[1150px]" },
+  { src: "/blue-ball.webp", alt: "Blue ball", className: "w-[32rem] h-[32rem] opacity-90 -left-[43%] md:-left-[16%] lg:-left-[22%] top-[60px]" },
+  { src: "/purple-ball.webp", alt: "Purple ball", className: "w-[38rem] h-[38rem] -right-[48%] md:-right-[16%] lg:-right-[22%] top-[60px]" },
+  { src: "/blue-ball.webp", alt: "Blue ball", className: "w-[36rem] h-[36rem] opacity-90 -left-[33%] md:-left-[13%] lg:-left-[19%] top-[-80px]" },
+  { src: "/purple-ball.webp", alt: "Purple ball", className: "w-[34rem] h-[34rem] -right-[23%] md:-right-[7%] lg:-right-[13%] top-[0px]" },
+  { src: "/blue-ball.webp", alt: "Blue ball", className: "w-[32rem] h-[32rem] opacity-90 -left-[23%] md:-left-[13%] lg:-left-[17%] top-[60px]" },
+  { src: "/purple-ball.webp", alt: "Purple ball", className: "w-[36rem] h-[36rem] -right-[23%] md:-right-[7%] lg:-right-[13%] top-[60px]" },
+];
+
 function Home() {
   return (
     <div>
@@ -149,22 +163,22 @@ function Home() {
       <OSes />
       <div className='container mx-auto max-w-[95%] md:max-w-[85%] lg:max-w-[85%] px-4'>
         <div className="relative">
-          <div className="absolute -left-[40%] md:-left-[12%] lg:-left-[16%] top-[50px] z-0">
-            <LazyImage src="/blue-ball.webp" alt="Blue ball" className="w-96 h-96 opacity-90" />
+          <div className={`absolute z-0 ${homeBalls[0].className}`}>
+            <img src={homeBalls[0].src} alt={homeBalls[0].alt} className="w-full h-full opacity-90" />
           </div>
           <Pricing plans={plans} />
         </div>
 
         <div className='mt-[100px] flex justify-center mx-auto max-w-[95%] md:max-w-[85%] lg:max-w-[85%] px-4'>
           <div className="relative">
-            <div className="absolute -right-[50%] md:-right-[40%] lg:-right-[45%] top-[100px] z-0">
-              <LazyImage src="/purple-ball.webp" alt="Purple ball" className="w-96 h-96" />
+            <div className={`absolute z-0 ${homeBalls[1].className}`}>
+              <img src={homeBalls[1].src} alt={homeBalls[1].alt} className="w-full h-full" />
             </div>
-            <div className="absolute -left-[50%] md:-left-[40%] lg:-left-[45%] top-[600px] z-0">
-              <LazyImage src="/blue-ball.webp" alt="Blue ball" className="w-96 h-96 opacity-90" />
+            <div className={`absolute z-0 ${homeBalls[2].className}`}>
+              <img src={homeBalls[2].src} alt={homeBalls[2].alt} className="w-full h-full opacity-90" />
             </div>
-            <div className="absolute -right-[54%] md:-right-[40%] lg:-right-[45%] top-[1100px] z-0">
-              <LazyImage src="/blue-ball.webp" alt="Blue ball" className="w-96 h-96 opacity-90" />
+            <div className={`absolute z-0 ${homeBalls[3].className}`}>
+              <img src={homeBalls[3].src} alt={homeBalls[3].alt} className="w-full h-full opacity-90" />
             </div>
         
             <Timeline />
@@ -173,8 +187,8 @@ function Home() {
 
         <div className='mt-[50px] mx-auto max-w-[95%] px-4'>
           <div className="relative">
-            <div className="absolute -left-[45%] md:-left-[18%] lg:-left-[24%] top-[50px] z-0">
-              <LazyImage src="/blue-ball.webp" alt="Blue ball" className="w-96 h-96 opacity-90" />
+            <div className={`absolute z-0 ${homeBalls[4].className}`}>
+              <img src={homeBalls[4].src} alt={homeBalls[4].alt} className="w-full h-full opacity-90" />
             </div>
             <Table />
           </div>
@@ -182,40 +196,40 @@ function Home() {
 
         <div className='mt-[100px] mx-auto max-w-[95%] px-4'>
           <div className="relative">
-            <div className="absolute -right-[50%] md:-right-[18%] lg:-right-[24%] top-[50px] z-0">
-              <LazyImage src="/purple-ball.webp" alt="Purple ball" className="w-96 h-96" />
+            <div className={`absolute z-0 ${homeBalls[5].className}`}>
+              <img src={homeBalls[5].src} alt={homeBalls[5].alt} className="w-full h-full" />
             </div>
             <Graph />
           </div>
         </div>
 
         <div className="relative">
-          <div className="absolute -left-[35%] md:-left-[12%] lg:-left-[18%] top-[-60px] z-0">
-            <LazyImage src="/blue-ball.webp" alt="Blue ball" className="w-96 h-96 opacity-90" />
+          <div className={`absolute z-0 ${homeBalls[6].className}`}>
+            <img src={homeBalls[6].src} alt={homeBalls[6].alt} className="w-full h-full opacity-90" />
           </div>
           <Refrences />
         </div>
       </div>
 
       <div className="relative">
-        <div className="absolute -right-[25%] md:-right-[5%] lg:-right-[10%] top-[10px] z-0">
-          <LazyImage src="/purple-ball.webp" alt="Purple ball" className="w-96 h-96" />
+        <div className={`absolute z-0 ${homeBalls[7].className}`}>
+          <img src={homeBalls[7].src} alt={homeBalls[7].alt} className="w-full h-full" />
         </div>
         <ReviewSlider />
       </div>
 
       <div className='container mx-auto max-w-[95%] md:max-w-[85%] lg:max-w-[85%] px-4'>
         <div className="relative">
-          <div className="absolute -left-[25%] md:-left-[15%] lg:-left-[20%] top-[50px] z-0">
-            <LazyImage src="/blue-ball.webp" alt="Blue ball" className="w-96 h-96 opacity-90" />
+          <div className={`absolute z-0 ${homeBalls[8].className}`}>
+            <img src={homeBalls[8].src} alt={homeBalls[8].alt} className="w-full h-full opacity-90" />
           </div>
           <FAQ categories={faqCategories} faqData={faqData} />
         </div>
       </div>
 
       <div className="relative">
-        <div className="absolute -right-[25%] md:-right-[5%] lg:-right-[10%] top-[50px] z-0">
-          <LazyImage src="/purple-ball.webp" alt="Purple ball" className="w-96 h-96" />
+        <div className={`absolute z-0 ${homeBalls[9].className}`}>
+          <img src={homeBalls[9].src} alt={homeBalls[9].alt} className="w-full h-full" />
         </div>
         <Map />
       </div>

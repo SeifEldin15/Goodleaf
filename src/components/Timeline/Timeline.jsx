@@ -55,6 +55,50 @@ const Timeline = () => {
     return Math.pow(progress, 1.5); // Adjust the power (1.5) to control the slowdown amount
   };
   
+  // Typewriter effect for heading
+  const fullText = "Unlock Your Full Potential";
+  const blueStart = fullText.indexOf("Full Potential");
+  const [displayedText, setDisplayedText] = useState("");
+  const [headingInView, setHeadingInView] = useState(false);
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const headingRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new window.IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated) {
+          setHeadingInView(true);
+        }
+      },
+      { threshold: 0.5 }
+    );
+    if (headingRef.current) {
+      observer.observe(headingRef.current);
+    }
+    return () => {
+      if (headingRef.current) {
+        observer.unobserve(headingRef.current);
+      }
+    };
+  }, [hasAnimated]);
+
+  useEffect(() => {
+    let currentIndex = 0;
+    let interval;
+    if (headingInView && !hasAnimated) {
+      setDisplayedText("");
+      interval = setInterval(() => {
+        setDisplayedText(fullText.slice(0, currentIndex + 1));
+        currentIndex++;
+        if (currentIndex === fullText.length) {
+          clearInterval(interval);
+          setHasAnimated(true);
+        }
+      }, 60);
+    }
+    return () => clearInterval(interval);
+  }, [headingInView, hasAnimated]);
+  
   useEffect(() => {
     // Initialize visibility state for each item
     setItemsVisibility(new Array(timelineItems.length).fill(0));
@@ -188,8 +232,13 @@ const Timeline = () => {
     <div className='w-full mx-auto max-w-[1800px]'>
       <div className="text-center mb-12 md:mb-20">
         <p className="text-lg mb-4 text-white">Exactly what you can find inside Active Income</p>
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
-          Unlock Your <span className="text-blue-500">Full Potential</span>
+        <h2 ref={headingRef} className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
+          {/* Animated typewriter effect */}
+          {displayedText.slice(0, blueStart)}
+          <span className="text-blue-500">
+            {displayedText.slice(blueStart)}
+          </span>
+          <span className="border-r-2 border-blue-500 animate-pulse ml-1" style={{display: displayedText.length < fullText.length ? 'inline-block' : 'none', height: '1em'}}></span>
         </h2>
       </div>
 
