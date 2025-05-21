@@ -1,3 +1,4 @@
+import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { ParallaxProvider } from 'react-scroll-parallax';
 import Home from './pages/Home'
@@ -8,6 +9,8 @@ import Silver from './pages/Silver'
 import Gaming from './pages/Gaming'
 import Colocation from './pages/Colocation'
 import Partners from './pages/partners'
+import AffiliateProgram from './pages/AffiliateProgram'
+
 function App() {
   return (
     <ParallaxProvider>
@@ -20,6 +23,7 @@ function App() {
         <Route path="/gaming" element={<Gaming />} />
         <Route path="/Colocation" element={<Colocation />} />
         <Route path="/partners" element={<Partners />} />
+        <Route path="/affiliate-program" element={<AffiliateProgram />} />
       </Routes>
     </ParallaxProvider>
   )

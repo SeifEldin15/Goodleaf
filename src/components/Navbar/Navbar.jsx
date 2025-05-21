@@ -85,6 +85,7 @@ const Navbar = () => {
     { title: 'Game Servers', path: '/game-servers', hasDropdown: true, dropdownType: 'game' },
     { title: 'Colocations', path: '/locations', hasDropdown: true, dropdownType: 'location' },
     { title: 'Our Partners', path: '/partners' },
+    { title: 'Affiliate Program', path: '/affiliate-program' },
   ];
 
   const vpsOptions = [

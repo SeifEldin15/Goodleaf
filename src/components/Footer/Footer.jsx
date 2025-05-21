@@ -58,6 +58,7 @@ const Footer = () => {
                     <a href="#" className="text-gray-400 mb-2">Web Hosting</a>
                     <a href="#" className="text-gray-400 mb-2">Reseller Web Hosting</a>
                     <a href="https://goodleaf.cloud/dedi-server" target="_blank" rel="noopener noreferrer" className="text-gray-400 mb-2">Dedicated Servers</a>
+                    <Link to="/affiliate-program" className="text-gray-400 mb-2">Affiliate Program</Link>
                 </div>
                 <div className="flex flex-col mb-8 md:mb-4 text-center md:text-left">
                     <h3 className="font-[600] text-[24px] text-[#1D90F0] mb-4 font-['Rajdhani']">Account</h3>
