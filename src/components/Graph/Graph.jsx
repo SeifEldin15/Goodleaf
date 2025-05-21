@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, ResponsiveContainer } from 'recharts';
 import { motion } from 'framer-motion';
 import './Graph.css'; // We'll create this file next
 
@@ -207,15 +207,6 @@ const Graph = () => {
                 ticks={[0, 5, 10, 15, 20]} 
                 stroke="#666" 
                 tick={{fontSize: '0.75rem'}}
-              />
-              <Tooltip 
-                contentStyle={{ 
-                  backgroundColor: '#1f2937', 
-                  border: 'none', 
-                  borderRadius: '4px',
-                  color: 'white',
-                  fontSize: '0.75rem'
-                }} 
               />
               <Line 
                 type="monotone" 
