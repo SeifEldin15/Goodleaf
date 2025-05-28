@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        'custom-lg': '1354px', // lg (1024px) + 30px
+      },
       backgroundImage: {
         'primary-gradient': 'linear-gradient(to right, #040BFF 0%, #0665FB 100%)',
         'secondary-gradient': 'linear-gradient(to right, #1A1B2E 0%, #545794 100%)',
