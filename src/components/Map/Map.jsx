@@ -211,7 +211,7 @@ const Map = () => {
           transition={{ duration: 1, delay: 0.6 }}
           className="w-full h-auto"
         >
-          <LazyImage 
+          <img 
             src="/map.webp" 
             alt="World Map" 
             className="w-full h-auto"
