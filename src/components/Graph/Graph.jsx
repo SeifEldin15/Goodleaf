@@ -19,20 +19,20 @@ const Graph = () => {
       };
     }
     
-    // Create more pronounced random variations for fluid/bendy lines
-    const randomVariation1 = Math.random() * 1.5 - 0.75; // Increased variation
-    const randomVariation2 = Math.random() * 1.5 - 0.75;
-    const randomVariation3 = Math.random() * 1.5 - 0.75;
+    // Create more subtle random variations for slower, gentler movement
+    const randomVariation1 = Math.random() * 0.8 - 0.4; // Reduced variation
+    const randomVariation2 = Math.random() * 0.8 - 0.4;
+    const randomVariation3 = Math.random() * 0.8 - 0.4;
     
-    // More frequent and pronounced jags for a liquid-like flow
-    const smallJag1 = (i % 3 === 0) ? 0.4 : (i % 2 === 0) ? -0.3 : 0.1;
-    const smallJag2 = (i % 4 === 0) ? 0.4 : (i % 3 === 0) ? -0.3 : 0.2;
-    const smallJag3 = (i % 3 === 1) ? 0.4 : (i % 2 === 1) ? -0.3 : 0.15;
+    // Less frequent and less pronounced jags for slower movement
+    const smallJag1 = (i % 3 === 0) ? 0.2 : (i % 2 === 0) ? -0.15 : 0.05;
+    const smallJag2 = (i % 4 === 0) ? 0.2 : (i % 3 === 0) ? -0.15 : 0.1;
+    const smallJag3 = (i % 3 === 1) ? 0.2 : (i % 2 === 1) ? -0.15 : 0.08;
     
-    // Add sine wave variation for more fluid movement
-    const sineWave1 = Math.sin(i * 0.6) * 0.8;
-    const sineWave2 = Math.sin(i * 0.7 + 1) * 0.7; // Phase shifted
-    const sineWave3 = Math.sin(i * 0.5 + 2) * 0.9; // Different frequency
+    // Add sine wave variation with slower frequencies for gentler movement
+    const sineWave1 = Math.sin(i * 0.3) * 0.5; // Reduced frequency and amplitude
+    const sineWave2 = Math.sin(i * 0.35 + 1) * 0.4; // Phase shifted
+    const sineWave3 = Math.sin(i * 0.25 + 2) * 0.5; // Different frequency
     
     // Scale values to match the Tbps values from the legend
     const progress = Math.min(1, i / 25); // Gradual increase reaching max around i=25

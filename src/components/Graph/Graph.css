@@ -18,7 +18,7 @@
 .chart-animate .cosmic-line .recharts-line-curve,
 .chart-animate .path-line .recharts-line-curve {
   animation-name: drawLine;
-  animation-duration: 1.5s;
+  animation-duration: 3s;
 }
 
 /* Set slight staggered delays for visual interest */
