@@ -7,19 +7,10 @@ import Server2 from './svg/server2.svg';
 
 const ServerCompare = () => {
   return (
-    <div className="flex flex-col md:flex-row justify-center gap-8 px-20 " dir="ltr">
+    <div className="flex flex-col md:flex-row justify-center gap-8 px-20 mt-12" dir="ltr">
 
       {/* Left Server Card - Blue */}
-      <div className="w-full md:w-3/10 bg-gray-900 rounded-lg p-6 relative ">
-        <div className="absolute top-0 left-0 w-full h-full rounded-lg overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-1/4" 
-               style={{ 
-                 background: 'linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(17,24,39,0.2), transparent)',
-                 boxShadow: 'none'
-               }}>
-          </div>
-          <div className="absolute top-2/3 left-0 w-full h-2/3 bg-gradient-to-b from-gray-900 to-transparent opacity-70"></div>
-        </div>
+      <div className="w-full md:w-3/10 bg-gray-900 rounded-lg p-6 relative">
         <div className="relative z-10">
           <div className="flex justify-between items-start mb-6">
             <div className="flex items-center">
@@ -134,15 +125,6 @@ const ServerCompare = () => {
 
       {/* Right Server Card - Green */}
       <div className="w-full md:w-3/10 bg-gray-900 rounded-lg p-6 relative">
-        <div className="absolute top-0 left-0 w-full h-full rounded-lg overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-1/4" 
-               style={{ 
-                 background: 'linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(17,24,39,0.2), transparent)',
-                 boxShadow: 'none'
-               }}>
-          </div>
-          <div className="absolute top-1/3 left-0 w-full h-2/3 bg-gradient-to-b from-gray-900 to-transparent opacity-70"></div>
-        </div>
         <div className="relative z-10">
           <div className="flex justify-between items-start mb-6">
             <div className="flex items-center">
