@@ -49,10 +49,10 @@ const FeaturesPanel = () => {
         </div>
       </div>
       {/* Image and Panel description row */}
-      <div className="flex flex-col md:flex-row md:items-start md:space-x-12">
-        <div className="flex-1 flex justify-center md:justify-end mb-8 md:mb-0">
+      <div className="flex flex-col md:flex-row md:items-start md:space-x-12 mt-[100px]">
+        <div className="flex-1 flex justify-center md:justify-end mb-8 md:mb-0 mt-[-100px]">
           <img
-            src="/fivem3d-panel.png"
+            src="/envato-labs-image-edit (1) 1.png"
             alt="FiveM Panel"
             className="w-full max-w-md rounded-xl shadow-2xl"
             style={{objectFit: 'contain'}}
