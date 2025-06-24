@@ -13,6 +13,7 @@ import Refrences from '../components/Refrences/Refrences'
 import Timeline from '../components/Timeline/Timeline'
 import Map from '../components/Map/Map'
 import LazyImage from '../components/LazyImage/LazyImage'
+import ServerHardware from '../components/ServerHardware/ServerHardware'
 
 const plans = [
     {
@@ -180,8 +181,12 @@ function Home() {
             <div className={`absolute z-0 ${homeBalls[3].className}`}>
               <img src={homeBalls[3].src} alt={homeBalls[3].alt} className="w-full h-full opacity-90" />
             </div>
-        
-            <Timeline />
+            <div>
+              <ServerHardware />
+            </div>
+            <div className='mt-[100px] '>
+             <Timeline />
+            </div>
           </div>
         </div>
 
@@ -233,6 +238,7 @@ function Home() {
         </div>
         <Map />
       </div>
+
 
       <Footer />
     </div>
